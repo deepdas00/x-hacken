@@ -1,0 +1,228 @@
+/* ===============================
+   🌌 X-HACKEN THEME SYSTEM
+   Neon • Futuristic • High Contrast
+   =============================== */
+
+
+   /* Hide vertical scrollbar but keep scrolling */
+html, body {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
+:root {
+  /* ===============================
+     🌑 BACKGROUND SYSTEM
+     =============================== */
+  --bg-main: #030303;
+  --bg-secondary: #0A0A0F;
+  --bg-elevated: #111118;
+  --bg-glass: rgba(255, 255, 255, 0.03);
+
+  /* ===============================
+     🔮 BRAND COLORS (LOGO BASED)
+     =============================== */
+  --color-primary: #8A2BFF;        /* Purple Core */
+  --color-secondary: #FF2EA1;      /* Neon Pink */
+  --color-secondary1: #FF2EA1;      /* Neon Pink */
+  --color-accent: #00E5FF;         /* Electric Cyan */
+
+  /* ===============================
+     ✨ BRIGHT / GLOW VARIANTS
+     =============================== */
+  --color-primary-light: #B84DFF;
+  --color-secondary-light: #FF5CC2;
+  --color-secondary1-light: #ff00a1;
+  --color-accent-light: #33F0FF;
+
+  /* ===============================
+     ✍️ TEXT COLORS
+     =============================== */
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-muted: #6B7280;
+
+  /* ===============================
+     ⚠️ BORDER SYSTEM
+     =============================== */
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --border-glow: #8A2BFF;
+
+  /* ===============================
+     🔥 GLOW EFFECTS (NEON UI)
+     =============================== */
+  --glow-primary:
+    0 0 20px #8A2BFF,
+    0 0 40px #8A2BFF;
+
+  --glow-secondary:
+    0 0 20px #FF2EA1,
+    0 0 40px #FF2EA1;
+
+  --glow-secondary1:
+    0 0 8px #ff84c7,
+    0 0 15px #f995cc;
+
+  --glow-accent:
+    0 0 10px #00E5FF,
+    0 0 30px #00E5FF;
+
+  /* ===============================
+     🌈 GRADIENT SYSTEM
+     =============================== */
+  --gradient-main: linear-gradient(
+    135deg,
+    #00E5FF 0%,
+    #8A2BFF 50%,
+    #FF2EA1 100%
+  );
+
+  --gradient-purple-pink: linear-gradient(
+    135deg,
+    #8A2BFF,
+    #FF2EA1
+  );
+
+  --gradient-cyan-purple: linear-gradient(
+    135deg,
+    #00E5FF,
+    #8A2BFF
+  );
+
+  /* ===============================
+     💡 UI STATES
+     =============================== */
+  --hover-brightness: 1.2;
+  --active-scale: 0.97;
+
+  /* ===============================
+     🔘 BUTTON SYSTEM
+     =============================== */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-hover: var(--color-primary-light);
+
+  --btn-secondary-bg: var(--color-secondary);
+  --btn-secondary-hover: var(--color-secondary-light);
+
+  
+  --btn-secondary1-bg: var(--color-secondary1);
+  --btn-secondary1-hover: var(--color-secondary1-light);
+
+  
+
+  --btn-accent-bg: var(--color-accent);
+  --btn-accent-hover: var(--color-accent-light);
+}
+
+/* ===============================
+   🌍 GLOBAL BASE STYLES
+   =============================== */
+
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===============================
+   🔘 BUTTON UTILITIES
+   =============================== */
+
+.btn-primary {
+  background: var(--btn-primary-bg);
+  color: white;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  box-shadow: var(--glow-primary);
+}
+
+.btn-primary:hover {
+  background: var(--btn-primary-hover);
+  filter: brightness(var(--hover-brightness));
+}
+
+.btn-secondary {
+  background: var(--btn-secondary-bg);
+  color: black;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  box-shadow: var(--glow-secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--btn-secondary-hover);
+}
+.btn-secondary1 {
+  background: var(--btn-secondary1-bg);
+  color: black;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  box-shadow: var(--glow-secondary1);
+}
+
+.btn-secondary1:hover {
+  background: var(--btn-secondary1-hover);
+}
+
+.btn-accent {
+  background: var(--btn-accent-bg);
+  color: black;
+  border-radius: 12px;
+  box-shadow: var(--glow-accent);
+}
+
+/* ===============================
+   🧊 GLASS CARD
+   =============================== */
+
+.glass-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-default);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+}
+
+/* ===============================
+   🌈 GRADIENT TEXT
+   =============================== */
+
+.gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===============================
+   ✨ GLOW HELPERS
+   =============================== */
+
+.glow-primary {
+  box-shadow: var(--glow-primary);
+}
+
+.glow-secondary {
+  box-shadow: var(--glow-secondary);
+}
+
+.glow-accent {
+  box-shadow: var(--glow-accent);
+}
+
+
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* If using custom utility instead of config config, add this: */
+.animate-shimmer {
+  animation: shimmer 1.5s infinite linear;
+}
