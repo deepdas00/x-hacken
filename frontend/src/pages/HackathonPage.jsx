@@ -1191,12 +1191,30 @@ const TeamCard = ({ member }) => (
 const PrizeSection = () => {
   const prizes = [
     {
+      rank: "1st",
+      amount: "₹20,000",
+      label: "Grand Champion",
+      borderColor: "var(--color-primary)",
+      glowColor: "var(--glow-primary)",
+      height: "h-auto min-h-[280px] sm:min-h-[360px] md:h-[430px] md:hidden sm:hidden",
+      featured: true,
+      delay: 0,
+      // Icon & Perk assets
+      Icon: Trophy,
+      iconColor: "text-amber-350",
+      perks: [
+        "Grand Champion Trophy",
+        "Elite Winner Certificate",
+        "VIP Tech Bundle",
+      ],
+    },
+    {
       rank: "2nd",
       amount: "₹15,000",
       label: "Runner Up",
       borderColor: "var(--color-accent)",
       glowColor: "var(--glow-accent)",
-      height: "h-[380px] md:h-[350px]",
+      height: "h-auto min-h-[260px] sm:min-h-[320px] md:h-[350px]",
       delay: 0.1,
       // Icon & Perk assets
       Icon: Medal,
@@ -1213,7 +1231,7 @@ const PrizeSection = () => {
       label: "Grand Champion",
       borderColor: "var(--color-primary)",
       glowColor: "var(--glow-primary)",
-      height: "h-[440px] md:h-[430px]",
+      height: "h-auto min-h-[280px] sm:min-h-[360px] md:h-[430px] hidden sm:block",
       featured: true,
       delay: 0,
       // Icon & Perk assets
@@ -1231,7 +1249,7 @@ const PrizeSection = () => {
       label: "Second Runner Up",
       borderColor: "var(--color-secondary)",
       glowColor: "var(--glow-secondary)",
-      height: "h-[340px] md:h-[360px]",
+      height: "h-auto min-h-[260px] sm:min-h-[320px] md:h-[350px]",
       delay: 0.2,
       // Icon & Perk assets
       Icon: Medal,
@@ -1263,7 +1281,7 @@ const PrizeSection = () => {
       </div>
 
       {/* --- PODIUM GRID --- */}
-      <div className="flex flex-col md:flex-row items-end justify-center gap-6 md:gap-6 mb-6">
+      <div className="flex flex-col sm:flex-col md:flex-row items-center md:items-end justify-center gap-4 sm:gap-6 mb-6">
         {prizes.map((p, i) => {
           const PrizeIcon = p.Icon;
           return (
@@ -1273,21 +1291,21 @@ const PrizeSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: p.delay, duration: 0.8, ease: "easeOut" }}
-              className={`group relative w-full md:w-1/3 rounded-[32px] p-[1.5px] transition-all duration-500 overflow-hidden ${p.height} flex flex-col`}
+              className={`group relative w-full sm:w-[90%] md:w-1/3 mx-auto rounded-[32px] p-[1.5px] transition-all duration-500 overflow-hidden ${p.height} flex flex-col`}
               style={{
                 background: `linear-gradient(to bottom, ${p.borderColor}, transparent)`,
               }}
             >
               {/* Card Interior */}
-              <div className="relative h-full w-full bg-[var(--bg-secondary)] rounded-[31px] p-8 flex flex-col justify-between backdrop-blur-3xl overflow-hidden">
+              <div className="relative h-full w-full bg-[var(--bg-secondary)] rounded-[31px] p-5 sm:p-6 md:p-8 flex flex-col justify-between backdrop-blur-3xl overflow-hidden">
                 {/* Top Section: Badges & Display Icons */}
                 <div className="relative w-full flex justify-between items-start z-20">
                   <div
                     className={`p-2 rounded-2xl bg-white/[0.02] border border-white/[0.05] transition-transform duration-500 group-hover:scale-110 ${p.iconColor}`}
                   >
                     <PrizeIcon
-                      size={28}
-                      className="drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]"
+                      size={20}
+                      className="drop-shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:w-6 sm:h-6 md:w-7 md:h-7"
                     />
                   </div>
 
@@ -1302,7 +1320,7 @@ const PrizeSection = () => {
 
                 {/* Background Rank Watermark */}
                 <span
-                  className="absolute -top-3 -right-3 text-[120px] font-black leading-none opacity-[0.03] select-none transition-all duration-500 group-hover:opacity-[0.08] group-hover:translate-x-[-10px]"
+                  className="absolute -top-3 -right-3 text-[60px] sm:text-[80px] md:text-[120px] font-black leading-none opacity-[0.03] select-none transition-all duration-500 group-hover:opacity-[0.08] group-hover:translate-x-[-10px]"
                   style={{ color: p.borderColor }}
                 >
                   {p.rank[0]}
@@ -1311,13 +1329,13 @@ const PrizeSection = () => {
                 {/* Bottom Section: Text Content & Specific Perks */}
                 <div className="relative z-10 mt-auto">
                   <span
-                    className="text-2xl font-black block mb-1 italic opacity-60"
+                    className="text-lg sm:text-xl md:text-2xl font-black block mb-1 italic opacity-60"
                     style={{ color: p.borderColor }}
                   >
                     {p.rank} Place
                   </span>
 
-                  <h3 className="text-4xl md:text-5xl font-black tracking-tighter mb-4 text-white">
+                  <h3 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tighter mb-4 text-white">
                     {p.amount}
                   </h3>
 
@@ -1326,7 +1344,7 @@ const PrizeSection = () => {
                     {p.perks.map((perk, index) => (
                       <li
                         key={index}
-                        className="flex items-center gap-2 text-xs text-[var(--text-secondary)]"
+                        className="flex items-center gap-2 text-[11px] sm:text-xs text-[var(--text-secondary)]"
                       >
                         <Award
                           size={14}
@@ -1365,43 +1383,58 @@ const PrizeSection = () => {
       </div>
 
       {/* --- ALL PARTICIPANTS CERTIFICATE ROW --- */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto mb-5 p-6 rounded-2xl flex flex-col sm:flex-row items-center gap-6 justify-between relative overflow-hidden group"
-      >
-        {/* The Outer Gradient Border Wrapper */}
-        <div className="absolute inset-0 p-[2px] bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl -z-20 pointer-events-none" />
+ <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="max-w-4xl mx-auto mb-5 
+  p-4 sm:p-6 
+  rounded-2xl 
+  flex flex-col sm:flex-row 
+  items-center sm:items-center 
+  gap-4 sm:gap-6 
+  justify-center sm:justify-between 
+  text-center sm:text-left 
+  relative overflow-hidden group"
+>
+  {/* Gradient Border */}
+  <div className="absolute inset-0 p-[2px] bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl -z-20 pointer-events-none" />
 
-        {/* The Inner Dark Background Card Mesh */}
-        <div className="absolute inset-[2px] bg-gradient-to-br from-[#09090b]/95 to-[#030303]/95 rounded-[14px] -z-10 pointer-events-none" />
+  {/* Inner Background */}
+  <div className="absolute inset-[2px] bg-gradient-to-br from-[#09090b]/95 to-[#030303]/95 rounded-[14px] -z-10 pointer-events-none" />
 
-        <div className="flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[var(--color-accent)]">
-            <FileCheck size={28} />
-          </div>
-          <div>
-            <h4 className="text-white text-base font-bold tracking-tight mb-0.5">
-              Participation Framework Certification
-            </h4>
-            <p className="text-xs text-[var(--text-secondary)] max-w-md">
-              Every participating engineer receives an official certified
-              production validation certificate and verifiable digital badge
-              credentials.
-            </p>
-          </div>
-        </div>
-        <div className="text-right shrink-0">
-          <span className="font-mono text-[10px] tracking-widest text-[var(--text-muted)] uppercase border border-white/[0.1] px-3 py-1 rounded-md bg-white/[0.01]">
-            ALL PARTICIPANTS
-          </span>
-        </div>
-      </motion.div>
+  {/* LEFT CONTENT */}
+  <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+    
+    {/* Icon */}
+    <div className="p-2 sm:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[var(--color-accent)]">
+      <FileCheck size={22} className="sm:w-7 sm:h-7" />
+    </div>
+
+    {/* Text */}
+    <div>
+      <h4 className="text-white text-sm sm:text-base font-bold tracking-tight mb-1">
+        Participation Framework Certification
+      </h4>
+      <p className="text-[10px] sm:text-xs text-[var(--text-secondary)] max-w-xs sm:max-w-md">
+        Every participating engineer receives an official certified
+        production validation certificate and verifiable digital badge
+        credentials.
+      </p>
+    </div>
+  </div>
+
+  {/* RIGHT BADGE */}
+  <div className="shrink-0">
+    <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-[var(--text-muted)] uppercase border border-white/[0.1] px-3 py-1 rounded-md bg-white/[0.01]">
+      ALL PARTICIPANTS
+    </span>
+  </div>
+</motion.div>
 
       {/* --- FOOTER NOTE --- */}
       <div className="text-center">
-        <p className="text-[var(--text-muted)] text-[10px] uppercase tracking-[0.2em] max-w-2xl mx-auto leading-relaxed italic">
+        <p className="text-[var(--text-muted)] text-[8px] sm:text-[10px] uppercase tracking-[0.2em] max-w-2xl mx-auto leading-relaxed italic">
           * Dynamic physical trophies are handed to top teams on-stage. Special
           Certificates of Merit are issued instantly post-evaluation.
         </p>
