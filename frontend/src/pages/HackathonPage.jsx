@@ -492,7 +492,7 @@ const XHackenPage = () => {
             <SponsorsSection />
 
             <footer className="py-12 border-t border-white/5 text-center">
-              <p className="text-gray-600 text-[10px] uppercase tracking-[0.4em] font-bold">
+              <p className="text-gray-600 text-[8px] sm:text-[10px] uppercase tracking-[0.4em] font-bold">
                 Engineering Excellence // GenDelta Studio 2026
               </p>
             </footer>
@@ -1393,68 +1393,64 @@ const PrizeSection = () => {
 
 const SponsorsSection = () => {
   const sponsors = [
-    {
-      name: "Title Sponsor",
-      status: "Revealing Soon",
-      tier: "PLATINUM",
-    },
-    {
-      name: "Gold Sponsor",
-      status: "Coming Soon",
-      tier: "GOLD",
-    },
-    {
-      name: "Community Partner",
-      status: "To Be Announced",
-      tier: "PARTNER",
-    },
+    { name: "Title Sponsor", status: "Revealing Soon", tier: "PLATINUM" },
+    { name: "Gold Sponsor", status: "Coming Soon", tier: "GOLD" },
+    { name: "Community Partner", status: "To Be Announced", tier: "PARTNER" },
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-28 relative">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28 relative">
+      
       {/* Glow Background */}
-      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-cyan-500/10 blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 w-60 sm:w-80 md:w-96 h-60 sm:h-80 md:h-96 bg-cyan-500/10 blur-[80px] sm:blur-[100px] md:blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
       {/* Heading */}
-      <div className="text-center mb-16">
-        <h2 className="text-5xl font-black tracking-tighter uppercase">
+      <div className="text-center mb-10 sm:mb-12 md:mb-16">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight md:tracking-tighter uppercase">
           Our Sponsors
         </h2>
-        <p className="text-gray-500 text-xs uppercase tracking-[0.4em] mt-3">
+        <p className="text-gray-500 text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] mt-2 sm:mt-3">
           Backed by Industry Leaders
         </p>
       </div>
 
       {/* Cards */}
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
         {sponsors.map((s, i) => (
           <div
             key={i}
-            className="group relative p-[1px] rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.03]"
+            className="group relative p-[1px] rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.03]"
           >
             {/* Animated Border */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 opacity-40 group-hover:opacity-100 blur-sm transition" />
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 opacity-30 sm:opacity-40 group-hover:opacity-100 blur-sm transition" />
 
             {/* Card */}
-            <div className="relative bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-10 h-full flex flex-col justify-center items-center text-center">
+            <div className="relative bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl 
+            p-6 sm:p-8 md:p-10 
+            h-full flex flex-col justify-center items-center text-center">
+
               {/* Tier Badge */}
-              <span className="text-[10px] uppercase tracking-widest text-cyan-400 mb-4">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-cyan-400 mb-3 sm:mb-4">
                 {s.tier}
               </span>
 
               {/* Placeholder Logo */}
-              <div className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center text-2xl font-black text-white/20 mb-6">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border border-white/10 flex items-center justify-center text-lg sm:text-xl md:text-2xl font-black text-white/20 mb-4 sm:mb-6">
                 ?
               </div>
 
               {/* Name */}
-              <h3 className="text-xl font-bold text-white mb-2">{s.name}</h3>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-1 sm:mb-2">
+                {s.name}
+              </h3>
 
               {/* Status */}
-              <p className="text-gray-500 text-sm">{s.status}</p>
+              <p className="text-gray-500 text-xs sm:text-sm">
+                {s.status}
+              </p>
 
               {/* Hover Glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-br from-cyan-500 to-purple-500 transition duration-500 rounded-3xl" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-br from-cyan-500 to-purple-500 transition duration-500 rounded-2xl sm:rounded-3xl" />
             </div>
           </div>
         ))}
