@@ -1972,130 +1972,122 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="relative w-full text-white py-24 sm:py-32 overflow-hidden border-t border-b border-white/[0.03]">
-      {/* 🌌 High-End Ambient Background Lighting */}
-      <div
-        className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-cyan-500/[0.08] blur-[160px] rounded-full pointer-events-none mix-blend-screen animate-pulse"
-        style={{ animationDuration: "8s" }}
-      />
-      <div
-        className="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-purple-500/[0.08] blur-[180px] rounded-full pointer-events-none mix-blend-screen animate-pulse"
-        style={{ animationDuration: "12s" }}
-      />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-pink-500/[0.03] blur-[140px] rounded-full pointer-events-none" />
+    <section className="relative w-full text-white py-16 sm:py-20 md:py-24 overflow-hidden border-t border-b border-white/[0.03]">
 
-      {/* 🧬 Tech Matrix Subtle Grid Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+  {/* BACKGROUND GLOW (lighter on mobile) */}
+  <div className="absolute top-[-20%] left-[-20%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-cyan-500/[0.08] blur-[120px] sm:blur-[160px] rounded-full pointer-events-none animate-pulse" />
+  <div className="absolute bottom-[-20%] right-[-20%] w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] bg-purple-500/[0.08] blur-[140px] sm:blur-[180px] rounded-full pointer-events-none animate-pulse" />
 
-      {/* Container Wrapper */}
-      <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
-        {/* Header Layout */}
-        <div className="flex flex-col items-center text-center mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900/80 border border-neutral-800/60 shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-md mb-4 group hover:border-cyan-500/30 transition-colors duration-300">
-            <HelpCircle className="w-3.5 h-3.5 text-cyan-400 group-hover:rotate-12 transition-transform" />
-            <span className="text-neutral-400 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em]">
-              Central Knowledge Hub
-            </span>
-          </div>
+  {/* GRID OVERLAY */}
+  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:5rem_5rem] pointer-events-none" />
 
-          <h2 className="text-4xl sm:text-6xl font-black tracking-tight uppercase leading-none">
-            Frequently Asked <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 drop-shadow-[0_2px_10px_rgba(34,211,238,0.2)]">
-              Questions
-            </span>
-          </h2>
-          <p className="text-neutral-500 text-xs sm:text-sm max-w-lg mt-6 font-medium tracking-wide">
-            Get instant breakdowns regarding the foundational rules, operational
-            timelines, environmental setups, and logistical support.
-          </p>
-        </div>
+  <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
 
-        {/* Dynamic Responsive 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-          {faqs.map((faq, i) => {
-            const isOpen = activeIndex === i;
+    {/* HEADER */}
+    <div className="flex flex-col items-center text-center mb-12 sm:mb-16 md:mb-24">
+      
+      <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full bg-neutral-900/80 border border-neutral-800/60 mb-3 sm:mb-4">
+        <HelpCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400" />
+        <span className="text-neutral-400 text-[9px] sm:text-xs font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em]">
+          Knowledge Hub
+        </span>
+      </div>
 
-            return (
+      <h2 className="text-2xl sm:text-4xl md:text-6xl font-black uppercase leading-tight">
+        Frequently Asked
+        <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">
+          Questions
+        </span>
+      </h2>
+
+      <p className="text-neutral-500 text-[11px] sm:text-xs md:text-sm max-w-md sm:max-w-lg mt-4 sm:mt-6">
+        Get instant breakdowns regarding rules, timelines, and logistics.
+      </p>
+    </div>
+
+    {/* FAQ GRID */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+      {faqs.map((faq, i) => {
+        const isOpen = activeIndex === i;
+
+        return (
+          <div
+            key={i}
+            className={`group relative rounded-xl sm:rounded-2xl p-[1px] transition-all duration-300 ${
+              isOpen ? "scale-[1.01]" : ""
+            }`}
+          >
+
+            {/* BORDER GLOW */}
+            {isOpen && (
               <div
-                key={i}
-                className={`group relative rounded-2xl p-[1px] transition-all duration-500 ${
-                  isOpen ? "scale-[1.01]" : "hover:-translate-y-1"
-                }`}
-              >
-                {/* Neon Mesh Aura Border */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-2xl transition-all duration-700 ${
-                    isOpen
-                      ? "opacity-100 blur-[2px]"
-                      : "opacity-10 group-hover:opacity-60 blur-[1px]"
-                  }`}
-                />
+            
+              className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 transition-all duration-500 ${
+                isOpen ? "opacity-80 blur-[2px]" : "opacity-10"
+              }`}
+            />
+            )}
 
-                {/* Main Accordion Panel Chassis */}
+            {/* CARD */}
+            <div className={`relative bg-[#09090b]/90 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/[0.03] ${isOpen ? "shadow-2xl " : "shadow-md"}`}>
+
+              {/* HEADER BUTTON */}
+              <button
+                onClick={() => setActiveIndex(isOpen ? null : i)}
+                className="w-full flex items-center justify-between p-4 sm:p-6 md:p-8 gap-3 sm:gap-6 text-left"
+              >
+                <div className="flex items-center gap-3 sm:gap-4">
+
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      isOpen ? "bg-cyan-400" : "bg-neutral-600"
+                    }`}
+                  />
+
+                  <span
+                    className={`font-bold text-sm sm:text-base md:text-lg ${
+                      isOpen ? "text-cyan-400" : "text-neutral-200"
+                    }`}
+                  >
+                    {faq.q}
+                  </span>
+
+                </div>
+
+                {/* ICON */}
                 <div
-                  className={`relative bg-[#09090b]/90 backdrop-blur-2xl rounded-2xl overflow-hidden transition-all duration-300 border border-white/[0.03] ${
+                  className={`w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg border transition-all ${
                     isOpen
-                      ? "bg-[#0b0c10]/95 shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
-                      : ""
+                      ? "rotate-180 border-cyan-400/40"
+                      : "border-neutral-800"
                   }`}
                 >
-                  {/* Interactive Header Button */}
-                  <button
-                    onClick={() => setActiveIndex(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between p-6 sm:p-8 text-left gap-6 focus:outline-none select-none group/btn"
-                  >
-                    <div className="flex items-center gap-4">
-                      {/* Left Dot Indicator */}
-                      <span
-                        className={`w-1.5 h-1.5 rounded-full transition-all duration-500 shrink-0 ${
-                          isOpen
-                            ? "bg-cyan-400 shadow-[0_0_12px_#22d3ee]"
-                            : "bg-neutral-700 group-hover/btn:bg-neutral-400"
-                        }`}
-                      />
-                      <span
-                        className={`font-bold text-base sm:text-lg tracking-wide transition-colors duration-300 ${
-                          isOpen
-                            ? "text-cyan-400"
-                            : "text-neutral-200 group-hover/btn:text-white"
-                        }`}
-                      >
-                        {faq.q}
-                      </span>
-                    </div>
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </button>
 
-                    {/* Right Iconic Minimalist Arrow Container */}
-                    <div
-                      className={`flex items-center justify-center w-9 h-9 rounded-xl border transition-all duration-500 shrink-0 ${
-                        isOpen
-                          ? "bg-cyan-400/10 border-cyan-400/40 rotate-180 shadow-[0_0_15px_rgba(34,211,238,0.1)]"
-                          : "bg-neutral-900 border-neutral-800 text-neutral-400 group-hover/btn:border-neutral-700 group-hover/btn:text-neutral-200"
-                      }`}
-                    >
-                      <ChevronDown className="w-4 h-4" />
-                    </div>
-                  </button>
-
-                  {/* Fully Elastic Structural Dynamic Transition */}
-                  <div
-                    className="grid transition-all duration-500 ease-[cubic-bezier(0.3,1,0.3,1)]"
-                    style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
-                  >
-                    <div className="overflow-hidden">
-                      <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 ml-5 border-l border-neutral-800/40">
-                        <p className="text-neutral-400 text-sm sm:text-base leading-relaxed font-normal tracking-wide">
-                          {faq.a}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              {/* ANSWER (SMOOTH FIXED) */}
+              <div
+                className={`overflow-hidden transition-all duration-500 ${
+                  isOpen ? "max-h-[250px] opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 ml-4 border-l border-neutral-800/40">
+                  <p className="text-neutral-400 text-xs sm:text-sm md:text-base leading-relaxed">
+                    {faq.a}
+                  </p>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
   );
 };
 
