@@ -746,21 +746,22 @@ const TeamMarquee = () => {
           </motion.div>
         </div>
     {/* ROW 3 */}
-        <div className="sm:hidden overflow-hidden">
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              ease: "linear",
-              duration: window.innerWidth < 768 ? 20 : 30, // 🔥 faster on mobile
-              repeat: Infinity,
-            }}
-            className="flex gap-4 sm:gap-6 md:gap-8 pr-4 sm:pr-6 md:pr-8"
-          >
-            {fullTeam.map((member, i) => (
-              <TeamCard key={`row1-${i}`} member={member} />
-            ))}
-          </motion.div>
-        </div>
+        {/* ROW 3 */}
+<div className="sm:hidden flex overflow-hidden">
+  <motion.div
+    animate={{ x: ["0%", "-50%"] }}
+    transition={{
+      ease: "linear",
+      duration: 20, // keep fixed for mobile
+      repeat: Infinity,
+    }}
+    className="flex gap-4 pr-4"
+  >
+    {fullTeam.map((member, i) => (
+      <TeamCard key={`row3-${i}`} member={member} />
+    ))}
+  </motion.div>
+</div>
 
       </div>
 
