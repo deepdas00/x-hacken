@@ -771,7 +771,7 @@ const HackathonRoadmap = () => {
   ];
 
   return (
-    <section className="text-[var(--text-secondary)] py-10 pt-20 px-6 md:px-10 relative overflow-hidden">
+    <section className="text-[var(--text-secondary)] py-5 sm:py-10 px-6 md:px-10 relative overflow-hidden">
       {/* Structural Neon Ambient Depth fields */}
       <div
         className="absolute top-1/4 left-1/4 w-96 h-96 opacity-10 rounded-full blur-[120px] pointer-events-none"
@@ -784,30 +784,25 @@ const HackathonRoadmap = () => {
 
       <div className="max-w-8xl mx-auto space-y-12">
         {/* Module Header */}
-        <div className="text-center mb-7">
-          <h2 className="text-5xl font-black tracking-tighter text-[var(--text-primary)] uppercase">
+         <div className="text-center">
+          <h2 className="text-[20px] sm:text-3xl md:text-5xl font-black tracking-tighter text-[var(--text-primary)] uppercase">
             X-HACKEN 2026 Roadmap
           </h2>
-          <div className="flex items-center justify-center gap-4 mt-3">
-            <div
-              className="h-[1px] w-12"
-              style={{ background: "var(--gradient-cyan-purple)" }}
-            />
-            <p className="text-[var(--text-muted)] font-mono text-xs uppercase tracking-widest">
+
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mt-3">
+            <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+            <p className="text-[9px] sm:text-xs font-mono uppercase tracking-widest text-[var(--text-muted)] text-center">
               Unified 13-Step Operational Timeline
             </p>
-            <div
-              className="h-[1px] w-12"
-              style={{ background: "var(--gradient-purple-pink)" }}
-            />
+            <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent via-pink-400 to-transparent" />
           </div>
         </div>
 
         {/* --- MASTER DUAL-PANEL LAYOUT --- */}
-        <div className="grid grid-cols-1 md:grid-cols-[30%_66%] gap-10 relative items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[30%_66%] gap-6 md:gap-10 relative items-start">
           {/* ================= LEFT COLUMN: PHASE I ================= */}
           <div
-            className=" p-8 md:p-10 rounded-[32px] relative shadow-2xl h-full "
+            className="p-5 sm:p-6 md:p-10 rounded-[28px] sm:rounded-[32px] relative shadow-2xl h-full "
             style={{
               background:
                 "color-mix(in srgb, var(--color-accent) 15%, transparent)",
@@ -823,16 +818,22 @@ const HackathonRoadmap = () => {
 
             <div className="flex items-center gap-4 mb-8">
               <div
-                className="p-4 rounded-2xl text-[var(--color-secondary-light)] border border-[var(--color-primary)]/20"
+                className=" hidden sm:block p-2 sm:p-4 rounded-2xl text-[var(--color-secondary-light)] border border-[var(--color-primary)]/20"
                 style={{ background: "rgba(138, 43, 255, 0.1)" }}
               >
                 <Lightbulb size={24} />
               </div>
-              <div>
-                <h3 className="text-2xl font-black text-[var(--text-primary)] tracking-tight uppercase">
+              <div
+                className=" sm:hidden p-2 sm:p-4 rounded-2xl text-[var(--color-secondary-light)] border border-[var(--color-primary)]/20"
+                style={{ background: "rgba(138, 43, 255, 0.1)" }}
+              >
+                <Lightbulb size={15} />
+              </div>
+              <div className="pt-2 ">
+                <h3 className="text-lg sm:text-2xl font-black text-[var(--text-primary)] tracking-tight uppercase">
                   Online Screening
                 </h3>
-                <p className="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase mt-0.5">
+                <p className="text-[9px] sm:text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase mt-0.5">
                   Ideation & Filtering Framework
                 </p>
               </div>
@@ -840,16 +841,16 @@ const HackathonRoadmap = () => {
 
             {/* ================= RIGHT COLUMN: PHASE I (1 DIVS COHESIVELY STACKED) ================= */}
 
-            <div className="space-y-6 relative">
+            <div className="space-y-4 sm:space-y-6 relative">
               <div
                 className="absolute left-[23px] top-2 bottom-2 w-[0.8px] opacity-30"
                 style={{ background: "var(--gradient-purple-pink)" }}
               />
 
               {phase1Steps.map((step, index) => (
-                <div key={index} className="flex gap-5 relative group">
+                <div key={index} className="flex gap-3 sm:gap-5 relative group">
                   <div
-                    className="w-12 h-12 rounded-full border flex items-center justify-center text-sm font-bold text-[var(--color-secondary-light)] z-10 transition-all duration-300 group-hover:scale-105"
+                    className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center text-xs sm:text-sm font-bold text-[var(--color-secondary-light)] z-10 transition-all duration-300 group-hover:scale-105"
                     style={{
                       background: "var(--bg-main)",
                       borderColor: "var(--color-primary)",
@@ -858,11 +859,11 @@ const HackathonRoadmap = () => {
                   >
                     {`0${index + 1}`}
                   </div>
-                  <div className="flex-1 bg-white/[0.01] border border-white/[0.03] hover:border-[var(--border-strong)] p-5 rounded-2xl transition-all duration-300">
-                    <h4 className="font-bold text-[var(--text-primary)] text-base tracking-tight">
+                  <div className="flex-1 bg-white/[0.01] border border-white/[0.03] hover:border-[var(--border-strong)] p-3 sm:p-5 rounded-2xl transition-all duration-300">
+                    <h4 className="font-bold text-[var(--text-primary)] text-sm sm:text-base tracking-tight">
                       {step.title}
                     </h4>
-                    <p className="text-sm text-[var(--text-secondary)] mt-1.5 font-light leading-relaxed">
+                    <p className="text-xs sm:text-base text-[var(--text-secondary)] mt-1 sm:mt-1.5 font-light leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -884,32 +885,38 @@ const HackathonRoadmap = () => {
               className="absolute top-0 right-0 text-[var(--color-accent)] text-[10px] font-mono uppercase tracking-widest font-bold px-4 py-2 rounded-bl-2xl rounded-tr-[31px] border-l border-b border-[var(--border-default)] flex items-center gap-1.5"
               style={{ background: "rgba(0, 229, 255, 0.1)" }}
             >
-              <MapPin size={12} /> Phase II • Part A
+              <MapPin size={12} /> Phase II 
             </div>
 
             <div className="flex items-center gap-4 mb-8 ">
               <div
-                className="p-4 rounded-2xl text-[var(--color-accent)] border border-[var(--color-accent)]/20"
+                className="hidden sm:block p-4 rounded-2xl text-[var(--color-accent)] border border-[var(--color-accent)]/20"
                 style={{ background: "rgba(0, 229, 255, 0.1)" }}
               >
                 <Play size={24} />
               </div>
-              <div>
-                <h3 className="text-2xl font-black text-[var(--text-primary)] tracking-tight uppercase">
+              <div
+                className=" sm:hidden p-2 sm:p-4 rounded-2xl text-[var(--color-accent)] border border-[var(--color-accent)]/20"
+                style={{ background: "rgba(0, 229, 255, 0.1)" }}
+              >
+                <Play size={15} />
+              </div>
+              <div className="pt-2 ">
+                <h3 className="text-[17px] sm:text-2xl font-black text-[var(--text-primary)] tracking-tight uppercase">
                   On-Campus Launch
                 </h3>
-                <p className="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase mt-0.5">
+                <p className="text-[9px] sm:text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase mt-0.5">
                   Deployment Commands
                 </p>
               </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-col md:flex-row relative">
               {/* DIV 1: ON-CAMPUS INITIALIZATION */}
               <div>
-                <div className="space-y-6 relative">
+                 <div className="space-y-4 sm:space-y-6 relative">
                   <div
-                    className="absolute left-[23px] top-2 bottom-2 w-[0.5px] opacity-30"
+                    className="absolute left-[23px] top-2 bottom-2 w-[0.8px] opacity-30"
                     style={{ background: "var(--gradient-cyan-purple)" }}
                   />
 
@@ -917,9 +924,9 @@ const HackathonRoadmap = () => {
                     const stepNumber = index + 9;
                     const isFuelingStep = stepNumber === 12;
                     return (
-                      <div key={index} className="flex gap-5 relative group">
+                      <div key={index} className="flex gap-3 sm:gap-5 relative group">
                         <div
-                          className="w-12 h-12 rounded-full border flex items-center justify-center text-sm font-bold z-10 transition-all duration-300 group-hover:scale-105"
+                          className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center text-xs sm:text-sm font-bold z-10 transition-all duration-300 group-hover:scale-105"
                           style={{
                             background: "var(--bg-main)",
                             borderColor: isFuelingStep
@@ -935,8 +942,8 @@ const HackathonRoadmap = () => {
                         >
                           {`0${index + 5}`}
                         </div>
-                        <div className="flex-1 bg-white/[0.01] border border-white/[0.03] hover:border-[var(--border-strong)] p-5 rounded-2xl transition-all duration-300">
-                          <h4 className="font-bold text-[var(--text-primary)] text-base tracking-tight flex">
+                        <div className="flex-1 bg-white/[0.01] border border-white/[0.03] hover:border-[var(--border-strong)] p-3 sm:p-5 rounded-2xl transition-all duration-300">
+                          <h4 className="font-bold text-[var(--text-primary)] text-sm sm:text-base  tracking-tight flex">
                             {step.title}{" "}
                             {isFuelingStep && (
                               <Utensils
@@ -945,7 +952,7 @@ const HackathonRoadmap = () => {
                               />
                             )}
                           </h4>
-                          <p className="text-sm text-[var(--text-secondary)] mt-1.5 font-light leading-relaxed">
+                          <p className="text-xs sm:text-base text-[var(--text-secondary)] mt-1 sm:mt-1.5 font-light leading-relaxed">
                             {step.desc}
                           </p>
                         </div>
@@ -957,7 +964,7 @@ const HackathonRoadmap = () => {
 
               {/* DIV 2: CONTINUOUS PRODUCTION EXECUTIONS */}
               <div>
-                <div className="space-y-6 relative">
+               <div className="space-y-4 sm:space-y-6 relative">
                   <div
                     className="absolute left-[23px] top-2 bottom-2 w-[0.8px] opacity-30"
                     style={{ background: "var(--gradient-cyan-purple)" }}
@@ -970,10 +977,10 @@ const HackathonRoadmap = () => {
                     return (
                       <div
                         key={index}
-                        className="flex gap-5 relative group items-start"
+                        className="flex gap-3 sm:gap-5 relative group items-start"
                       >
                         <div
-                          className="w-12 h-12 rounded-full border flex items-center justify-center text-sm font-mono font-black z-10 shrink-0 transition-all duration-300 group-hover:scale-105"
+                          className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center text-xs sm:text-sm font-mono font-black z-10 shrink-0 transition-all duration-300 group-hover:scale-105"
                           style={{
                             background: "var(--bg-main)",
                             borderColor: isFuelingStep
@@ -990,9 +997,9 @@ const HackathonRoadmap = () => {
                           {stepNumber < 10 ? `0${stepNumber}` : stepNumber}
                         </div>
 
-                        <div className="flex-1 bg-white/[0.01] border border-white/[0.02] hover:border-[var(--border-strong)] p-5 rounded-2xl transition-all duration-300 flex justify-between items-center">
+                        <div className="flex-1 bg-white/[0.01] border border-white/[0.02] hover:border-[var(--border-strong)] p-3 sm:p-5 rounded-2xl transition-all duration-300 flex justify-between items-center">
                           <div>
-                            <h4 className="font-bold text-[var(--text-primary)] text-base tracking-tight flex items-center gap-2">
+                            <h4 className="font-bold text-[var(--text-primary)] text-sm sm:text-base tracking-tight flex items-center gap-2">
                               {step.title}
                               {isFuelingStep && (
                                 <span
@@ -1007,7 +1014,7 @@ const HackathonRoadmap = () => {
                                 </span>
                               )}
                             </h4>
-                            <p className="text-sm text-[var(--text-secondary)] mt-1 font-light leading-relaxed">
+                            <p className="text-xs sm:text-base text-[var(--text-secondary)]  mt-1 sm:mt-1.5 font-light leading-relaxed">
                               {step.desc}
                             </p>
                           </div>
@@ -1030,143 +1037,6 @@ const HackathonRoadmap = () => {
     </section>
   );
 };
-
-// const StatCard = ({ title, desc, icon: Icon, stat }) => {
-//   return (
-//     <div
-//       className="relative group p-8 rounded-[24px] backdrop-blur-2xl overflow-hidden flex flex-col justify-between shrink-0 w-[320px] h-[380px] border"
-//       style={{
-//         background: "var(--bg-secondary)",
-//         borderColor: "var(--border-default)",
-//       }}
-//     >
-//       {/* Background Interactive Ambient Glow */}
-//       <div
-//         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[23px] pointer-events-none"
-//         style={{
-//           background: "linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent)"
-//         }}
-//       />
-
-//       {/* Top Accent Highlight Line */}
-//       <div
-//         className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-//         style={{ background: "var(--gradient-cyan-purple)" }}
-//       />
-
-//       <div>
-//         <div className="flex items-center justify-between mb-6">
-//           <div
-//             className="p-3 rounded-xl border transition-colors duration-300"
-//             style={{
-//               background: "color-mix(in srgb, var(--color-accent) 5%, var(--bg-main))",
-//               borderColor: "color-mix(in srgb, var(--color-accent) 15%, transparent)"
-//             }}
-//           >
-//             <Icon className="text-[var(--color-accent-light)]" size={22} />
-//           </div>
-//           <span className="font-mono text-[9px] tracking-widest text-[var(--text-muted)] uppercase bg-white/[0.01] px-2.5 py-0.5 rounded border border-white/[0.03]">
-//             Verified
-//           </span>
-//         </div>
-
-//         <h3 className="text-[var(--text-primary)] font-bold text-xl tracking-tight mb-2">
-//           {title}
-//         </h3>
-
-//         <p className="text-[var(--text-secondary)] text-sm font-light leading-relaxed">
-//           {desc}
-//         </p>
-//       </div>
-
-//       <div className="text-xl font-black tracking-tighter text-[var(--text-primary)] font-mono border-t border-white/[0.03] pt-4">
-//         {stat}
-//       </div>
-//     </div>
-//   );
-// };
-
-// const EventFacilities = () => {
-//   const targetRef = useRef(null);
-
-//   // 1. Monitor track scroll progress
-//   const { scrollYProgress } = useScroll({
-//     target: targetRef,
-//   });
-
-//   // 2. Map scroll progress to horizontal translation array
-//   const rawX = useTransform(scrollYProgress, [0, 1], ["0%", "-68%"]);
-
-//   // 3. Apply physics parameters to create buttery smooth lag interpolation
-//   const smoothX = useSpring(rawX, {
-//     stiffness: 50,    // Lower values = slower, smoother spring movement
-//     damping: 15,      // Controls bouncing magnitude
-//     mass: 0.6         // Inertia weighting
-//   });
-
-//   const facilitiesData = [
-//     { title: "ID Card Access", desc: "Secure physical access credentials provided instantly at checkpoint check-in arrays.", icon: Contact, stat: "SECURE PERMIT" },
-//     { title: "Credential Certification", desc: "Official processing of production verification certificates for all active squad participants.", icon: Award, stat: "ALL HANDS CERT" },
-//     { title: "Operational Fueling", desc: "Continuous distribution of vegetarian and non-vegetarian deep sprint macro meal bundles.", icon: Utensils, stat: "VEG & NON-VEG" },
-//     { title: "High-Speed Pipeline", desc: "Enterprise-grade gigabit wireless networking matrices deployed across all workspace cells.", icon: Wifi, stat: "10 GBPS WIFI" },
-//     { title: "Staging Frameworks", desc: "Premium, ergonomic multi-node staging tables and deployment chairs assigned per squad setup.", icon: Layers, stat: "PRO WORKSPACE" },
-//     { title: "Power Subsystems", desc: "Isolated multi-socket electrical grids routed directly into localized workstation loops.", icon: Zap, stat: "240V BACKUP" },
-//     { title: "Expert Guidance", desc: "Direct live debugging queues connected straight to industry engineering veterans and architects.", icon: Cpu, stat: "1:1 MENTORSHIP" },
-//     { title: "Screen Casting Staging", desc: "Broadcast software instances live onto massive presentation displays for review array evaluation.", icon: MonitorUp, stat: "4K PROJECTORS" },
-//     { title: "Dedicated Team Nodes", desc: "Configured individual build zones designed to foster optimized development sync conditions.", icon: Users, stat: "TEAM SQUAD BAY" },
-//     { title: "Hydration Stations", desc: "Continuous replenishment centers stocked with purified drinking supplies and snacks.", icon: GlassWater, stat: "INFINITE REFRESH" }
-//   ];
-
-//   return (
-//     <section ref={targetRef} className="relative h-[300vh]" style={{ background: "var(--bg-main)" }}>
-
-//       {/* Sticky base framework */}
-//       <div className="sticky top-0 h-screen min-w-screen overflow-hidden py-16 px-6 flex flex-col box-border">
-
-//         {/* Ambient Lights */}
-//         <div className="absolute top-1/4 right-0 w-[400px] h-[400px] opacity-[0.02] rounded-full blur-[150px] pointer-events-none" style={{ background: 'var(--color-accent)' }} />
-//         <div className="absolute bottom-10 left-10 w-[300px] h-[300px] opacity-[0.02] rounded-full blur-[100px] pointer-events-none" style={{ background: 'var(--color-primary)' }} />
-
-//         <div className="max-w-7xl w-full mx-auto flex flex-col h-full overflow-hidden">
-
-//           {/* Header */}
-//           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-white/[0.02] shrink-0 gap-4">
-//             <div>
-//               <div className="flex items-center gap-2 mb-2">
-//                 <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-accent)' }} />
-//                 <p className="font-mono text-[10px] tracking-widest text-[var(--text-muted)] uppercase">
-//                   Hardware & Support Protocols
-//                 </p>
-//               </div>
-//               <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-[var(--text-primary)] uppercase flex items-center gap-2">
-//                 INSIGHTS <span className="text-xl tracking-normal">✨</span>
-//               </h2>
-//             </div>
-//             <p className="max-w-md text-xs text-[var(--text-secondary)] font-light leading-relaxed">
-//               Every workspace vector is optimized to provide squads with maximum processing capability, operational comfort, and deep execution layers.
-//             </p>
-//           </div>
-
-//           {/* Connected Smooth Horizontal Canvas */}
-//           <div className="flex-1 flex items-center relative">
-//             <motion.div style={{ x: smoothX }} className="flex gap-6">
-//               {facilitiesData.map((facility, index) => (
-//                 <StatCard
-//                   key={index}
-//                   title={facility.title}
-//                   desc={facility.desc}
-//                   icon={facility.icon}
-//                   stat={facility.stat}
-//                 />
-//               ))}
-//             </motion.div>
-//           </div>
-
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
 
 // Extracted Card Component for cleaner code
 const TeamCard = ({ member }) => (
