@@ -12,13 +12,22 @@ import {
 import {
   Trophy,
   Users,
-  EyeOff, 
+  EyeOff,
   Calendar,
   X,
-  Gift, Mic, Briefcase, Sparkles, Terminal, Radio,
+  Gift,
+  Mic,
+  Briefcase,
+  Sparkles,
+  Terminal,
+  Radio,
   Medal,
-  User, Mail, Phone, ShieldCheck, 
-  GraduationCap, Lock,
+  User,
+  Mail,
+  Phone,
+  ShieldCheck,
+  GraduationCap,
+  Lock,
   HelpCircle,
   FileCheck,
   ArrowRight,
@@ -33,7 +42,11 @@ import {
   Utensils,
   Cpu,
   Lightbulb,
-  Award, Code2, ShieldAlert, Eye, CheckCircle2,
+  Award,
+  Code2,
+  ShieldAlert,
+  Eye,
+  CheckCircle2,
   Globe,
   ChevronRight,
   Zap,
@@ -50,6 +63,7 @@ import logo from "../assets/logo.png";
 import csa from "../assets/CSA_LOGO.png";
 import college from "../assets/xavier-logo.png";
 import background from "../assets/college.jpeg";
+import Navbar from "../components/Navbar.jsx";
 
 // --- 1. INTENSIFIED PARTICLE SYSTEM ---
 
@@ -135,334 +149,358 @@ const InteractiveSwarm = () => {
 };
 
 const XHackenPage = () => {
-
-  const [registrationForm, setRegistrationForm] = useState(false)
+  const [registrationForm, setRegistrationForm] = useState(false);
   return (
     <div className="min-h-screen bg-[#020202] text-white selection:bg-green-500/40">
+      {registrationForm ? (
+        <RegistrationForm setRegistrationForm={setRegistrationForm} />
+      ) : (
+        <>
+          <div className="fixed inset-0 z-0 bg-radial-gradient">
+            <Canvas dpr={[1, 2]}>
+              <PerspectiveCamera makeDefault position={[0, 0, 8]} />
+              <ambientLight intensity={0.2} />
+              <pointLight
+                position={[10, 10, 10]}
+                intensity={1.5}
+                color="#22c55e"
+              />
 
+              <Stars radius={50} count={3000} factor={4} fade speed={1} />
+              <InteractiveSwarm />
 
-        {registrationForm ? (
-         <RegistrationForm setRegistrationForm={setRegistrationForm} />
-        ):<>
-        <div className="fixed inset-0 z-0 bg-radial-gradient">
-        <Canvas dpr={[1, 2]}>
-          <PerspectiveCamera makeDefault position={[0, 0, 8]} />
-          <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#22c55e" />
-
-          <Stars radius={50} count={3000} factor={4} fade speed={1} />
-          <InteractiveSwarm />
-
-          {/* This makes everything GLOW like the reference image */}
-          <EffectComposer>
-            <Bloom
-              luminanceThreshold={0.2}
-              mipmapBlur
-              intensity={1.2}
-              radius={0.4}
-            />
-          </EffectComposer>
-        </Canvas>
-      </div>
-
-      {/* Interface Layer */}
-      <div className="relative z-10">
-        <nav className="flex justify-between items-center px-10 pt-3 max-w-[1600px] mx-auto">
-          <div className="flex items-center">
-            <img src={logo} alt="" className="w-27 " />
-            <span
-              className="text-2xl font-black tracking-tighter"
-              style={{ color: "var(--color-secondary)" }}
-            >
-              X<span className="text-white">-hacken</span>
-            </span>
+              {/* This makes everything GLOW like the reference image */}
+              <EffectComposer>
+                <Bloom
+                  luminanceThreshold={0.2}
+                  mipmapBlur
+                  intensity={1.2}
+                  radius={0.4}
+                />
+              </EffectComposer>
+            </Canvas>
           </div>
 
-          <div className="flex items-center gap-10">
-            <div className="hidden lg:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400">
-              <a href="#" className="hover:text-green-500 transition">
-                Tracks
-              </a>
-              <a href="#" className="hover:text-green-500 transition">
-                Mentors
-              </a>
-              <a href="#" className="hover:text-green-500 transition">
-                Schedule
-              </a>
-            </div>
-            <button
-            onClick={() => setRegistrationForm(true)}
-            className="btn-secondary1 text-white font-black px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:scale-105 transition-transform ">
-              Register Now
-            </button>
-          </div>
-        </nav>
- 
-      
-
-        <header className="relative pt-5 px-6 md:px-10 max-w-[1500px] mx-auto z-10">
-          {/* --- BACKGROUND GLOW & NOISE --- */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500/10 blur-[150px] rounded-full -z-10 pointer-events-none" />
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto space-y-16 pb-10"
-          >
-            {/* --- TOP SECTION: STATUS AND TITLE --- */}
-            <div className="flex flex-col items-center text-center space-y-7">
-              {/* Main Title Section */}
-              <div className="relative group flex flex-col items-center">
-                <Heading />{" "}
-                {/* This component contains the large X-HACKEN and falling drips */}
-                {/* Sub-header with horizontal lines to match image */}
-                <div className="flex items-center justify-center gap-6 mt-2 w-full">
-                  <div className="h-[1px] w-20 bg-green-500/50" />
-                  <span className="text-green-500 font-mono text-[11px] tracking-[0.5em] uppercase font-bold">
-                    Building . Sprinting . Breaking Limits
-                  </span>
-                  <div className="h-[1px] w-20 bg-green-500/50" />
-                </div>
+          {/* Interface Layer */}
+          <div className="relative z-10">
+            {/* <nav className="fixed top-0 left-0 right-0 w-full z-50 flex justify-between items-center px-6 md:px-10 pb-1 max-w-[1600px] mx-auto backdrop-blur-xl bg-[#030303]/70 border-b border-white/[0.04] shadow-[0_4px_30px_rgba(0,0,0,0.8)] bg-blur-[22px]">
+              <div className="flex items-center">
+                <img src={logo} alt="" className="w-23 " />
+                <span
+                  className="text-2xl font-black tracking-tighter"
+                  style={{ color: "var(--color-secondary)" }}
+                >
+                  X<span className="text-white">-hacken</span>
+                </span>
               </div>
 
-              {/* Hero Paragraph - Centered and limited width */}
-              <p className="text-gray-400 text-xl md:text-xl max-w-3xl font-light leading-relaxed px-4">
-                The elite{" "}
-                <span className="text-white font-bold italic underline decoration-green-500/50 underline-offset-4">
-                  6-hour build cycle
-                </span>
-                . Engineered for those who thrive at the intersection of{" "}
-                <span className="text-white font-semibold">AI infra</span> and{" "}
-                <span className="text-white font-semibold">
-                  decentralized core
-                </span>
-                .
-              </p>
-
-              <div className="w-full flex flex-col items-center justify-center pb-1 select-none bg-transparent z-999">
-                {/* Elegant thin top horizontal rule to anchor the section */}
-                <div className="w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-
-                {/* Main Brand/Institutional Wrapper */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-8 px-4">
-                  {/* Left Side: College Info */}
-                  <div className="flex items-center gap-4 mt-4">
-                    <img
-                      src={college}
-                      alt="College of Engineering Pune Logo"
-                      className="h-16 w-16 object-contain"
-                    />
-                    <div className="flex flex-col text-left">
-                      <span className="text-white font-black text-sm md:text-base tracking-wider leading-tight">
-                        ST XAVIER'S COLLEGE
-                      </span>
-                      <span className="text-white font-black text-sm md:text-base tracking-wider leading-tight">
-                        BURDWAN
-                      </span>
-                      <span className="text-white font-black text-sm md:text-base tracking-wider leading-tight">
-                        (AUTONOMOUS)
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Elegant Vertical Divider Line */}
-                  <div className="h-14 w-[2px] bg-gradient-to-b from-white/10 via-white/45 to-white/10 mx-1" />
-
-                  {/* Right Side: Department Info */}
-                  <div className="flex items-center gap-4 mt-4">
-                    <img
-                      src={csa}
-                      alt="Department of Computer Engineering Logo"
-                      className="h-16 w-16 object-contain"
-                    />
-                    <div className="flex flex-col text-left">
-                      <span className="text-white font-black text-sm md:text-base tracking-wider leading-tight">
-                        DEPARTMENT OF
-                      </span>
-                      <span className="text-white font-black text-sm md:text-base tracking-wider leading-tight">
-                        COMPUTER SCIENCE
-                      </span>
-                      <span className="text-white font-black text-sm md:text-base tracking-wider leading-tight">
-                        AND APPLICATION
-                      </span>
-                    </div>
-                  </div>
+              <div className="flex items-center gap-10">
+                <div className="hidden lg:flex gap-8 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+                  <a href="#" className="hover:text-green-500 transition">
+                    Tracks
+                  </a>
+                  <a href="#" className="hover:text-green-500 transition">
+                    Mentors
+                  </a>
+                  <a href="#" className="hover:text-green-500 transition">
+                    Schedule
+                  </a>
                 </div>
-              </div>
-
-              {/* Register Button - Centered */}
-              <div className="pt-2">
                 <button
-                  className="relative group z-888 text-white font-black px-7 py-3 rounded-md text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:scale-105 border border-[var(--border-strong)]
+                  onClick={() => setRegistrationForm(true)}
+                  className="btn-secondary1 text-white font-black px-5 py-1.5 text-[10px] rounded-full text-xs uppercase tracking-widest hover:scale-105 transition-transform "
+                >
+                  Register Now
+                </button>
+              </div>
+            </nav> */}
+
+            <Navbar setRegistrationForm={setRegistrationForm} />
+
+            <header className="relative pt-22 sm:px-6 md:px-10 max-w-[1500px] mx-auto z-10">
+              {/* --- BACKGROUND GLOW & NOISE --- */}
+              <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500/10 blur-[150px] rounded-full -z-10 pointer-events-none" />
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto space-y-16 pb-10"
+              >
+                {/* --- TOP SECTION: STATUS AND TITLE --- */}
+                <div className="flex flex-col items-center text-center space-y-7">
+                  {/* Main Title Section */}
+                  <div className="relative group flex flex-col items-center">
+                    <Heading />{" "}
+                    {/* This component contains the large X-HACKEN and falling drips */}
+                    {/* Sub-header with horizontal lines to match image */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-2 w-full text-center">
+                      {/* Left Line */}
+                      <div className="hidden sm:block h-[1px] w-20 bg-green-500/50" />
+
+                      {/* Text */}
+                      <span className="text-green-500 font-mono text-[9px] sm:text-[11px] tracking-[0.3em] sm:tracking-[0.5em] uppercase font-bold leading-relaxed">
+                        Building . Sprinting . Breaking Limits
+                      </span>
+
+                      {/* Right Line */}
+                      <div className=" sm:block h-[1px] w-20 bg-green-500/50" />
+                    </div>
+                  </div>
+
+                  {/* Hero Paragraph - Centered and limited width */}
+                  <p className="text-gray-400 text-[11px] sm:text-lg md:text-xl max-w-xl md:max-w-3xl font-light leading-relaxed sm:leading-relaxed md:leading-relaxed px-4 sm:px-0 text-center">
+                    The elite{" "}
+                    <span className="text-white font-bold italic underline decoration-green-500/50 underline-offset-2 sm:underline-offset-4">
+                      6-hour build cycle
+                    </span>
+                    . Engineered for those who thrive at the intersection of{" "}
+                    <span className="text-white font-semibold">AI infra</span>{" "}
+                    and{" "}
+                    <span className="text-white font-semibold">
+                      decentralized core
+                    </span>
+                    .
+                  </p>
+
+                  <div className="w-full flex flex-col items-center justify-center pb-2 sm:pb-4 sm:pb-1 select-none bg-transparent">
+                    {/* Top line */}
+                    <div className="w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent mb-4" />
+
+                    {/* Wrapper */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 px-4 w-full">
+                      {/* Left Side */}
+                      <div className="flex items-center gap-3 sm:gap-4 text-center sm:text-left">
+                        <img
+                          src={college}
+                          alt="College Logo"
+                          className="h-12 w-12 sm:h-16 sm:w-16 object-contain"
+                        />
+                        <div className="flex flex-col">
+                          <span className="text-white font-black text-xs sm:text-sm md:text-base tracking-wide leading-tight">
+                            ST XAVIER'S COLLEGE
+                          </span>
+                          <span className="text-white font-black text-xs sm:text-sm md:text-base tracking-wide leading-tight">
+                            BURDWAN
+                          </span>
+                          <span className="text-white font-black text-xs sm:text-sm md:text-base tracking-wide leading-tight">
+                            (AUTONOMOUS)
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Divider */}
+                      <div className="hidden sm:block h-14 w-[2px] bg-gradient-to-b from-white/10 via-white/45 to-white/10 mx-1" />
+
+                      {/* Mobile Divider */}
+                      <div className="block sm:hidden w-24 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+
+                      {/* Right Side */}
+                      <div className="flex items-center gap-3 sm:gap-4 text-center sm:text-left">
+                        <img
+                          src={csa}
+                          alt="Department Logo"
+                          className="h-12 w-12 sm:h-16 sm:w-16 object-contain"
+                        />
+                        <div className="flex flex-col">
+                          <span className="text-white font-black text-xs sm:text-sm md:text-base tracking-wide leading-tight">
+                            DEPARTMENT OF
+                          </span>
+                          <span className="text-white font-black text-xs sm:text-sm md:text-base tracking-wide leading-tight">
+                            COMPUTER SCIENCE
+                          </span>
+                          <span className="text-white font-black text-xs sm:text-sm md:text-base tracking-wide leading-tight">
+                            AND APPLICATION
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Register Button - Centered */}
+                  <div className="sm:pt-2">
+                    <button
+                      className="relative group z-888 text-white font-black px-7 py-3 rounded-md text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:scale-105 border border-[var(--border-strong)]
   
                   shadow-[0_0_20px_rgba(0,0,0,0.8),inset_0_0_12px_rgba(255,255,255,0.02)]
   
                   shadow-[0_0_30px_rgba(0,229,255,0.25),0_0_50px_rgba(255,46,161,0.2),inset_0_0_15px_rgba(138,43,255,0.2)]
                   border-[var(--color-accent)]/50 bg-[#0FB2E1]/30"
-                >
-                  {/* UNIQUE EFFECT 1: Futuristic Tech Bracket Overlays (Top-Left & Bottom-Right) */}
-                  <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[var(--color-accent)]  opacity-100 transition-opacity duration-300 " />
-                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-[var(--color-secondary)]  opacity-100 transition-opacity duration-300" />
-
-                  {/* UNIQUE EFFECT 2: Laser Line Scanning Track (Animates across the border on hover) */}
-                  <span className="absolute inset-0 opacity-100 transition-opacity duration-500 overflow-hidden rounded-md">
-                    <span className="absolute top-0 left-[-100%] w-1/2 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent animate-[shimmer_1.5s_infinite]" />
-                    <span className="absolute bottom-0 right-[-100%] w-1/2 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-secondary)] to-transparent animate-[shimmer_1.5s_infinite_reverse]" />
-                  </span>
-
-                  {/* UNIQUE EFFECT 3: Liquid Core Aurora Plasma Overlay */}
-                  <span className="absolute inset-0 bg-[var(--gradient-main)] opacity-0 group-hover:opacity-15 blur-sm transition-opacity duration-500 scale-95 group-hover:scale-105" />
-
-                  {/* Button Content Layer */}
-                  <span 
-                   onClick={() => setRegistrationForm(true)}
-                  className="relative z-10 flex items-center gap-2 ">
-                    <span className="bg-[var(--gradient-purple-pink)] -webkit-background-clip-text -webkit-text-fill-color-transparent group-hover:text-white transition-all duration-300">
-                      Register
-                    </span>
-                    <span className="text-white">Now</span>
-
-                    {/* Animated Geometric Arrow */}
-                    <span className="relative flex items-center justify-center w-3 h-3 overflow-hidden">
-                      <span className="absolute transform translate-x-0 group-hover:translate-x-4 transition-transform duration-300 text-[var(--color-accent)]">
-                        →
-                      </span>
-                      <span className="absolute transform -translate-x-4 group-hover:translate-x-0 transition-transform duration-300 text-[var(--color-secondary)]">
-                        →
-                      </span>
-                    </span>
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* --- BOTTOM SECTION: DATA GRID CARDS --- */}
-            {/* --- BOTTOM SECTION: X-HACKEN DATA STRIP --- */}
-            <div className="w-full max-w-7xl -translate-y-9 px-4 font-['Inter',_sans-serif]">
-              <div className="flex flex-row items-center justify-between gap-6">
-                {/* LEFT SIDE CARDS */}
-                <div className="flex flex-1 gap-6 justify-end">
-                  {[
-                    { label: "Date", val:"21 NOV", sub: "SAT - SUN - MON" },
-                    { label: "Venue", val: "SEMINAR HALL", sub: "TECH PARK" },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="group relative p-[1px] rounded-[20px] min-w-[200px] overflow-hidden transition-all duration-300 hover:scale-[1.02]"
                     >
-                      {/* Animated Gradient Border */}
-                      <div className="absolute inset-0 bg-[var(--border-strong)] group-hover:bg-[var(--gradient-cyan-purple)] transition-colors duration-500" />
+                      {/* UNIQUE EFFECT 1: Futuristic Tech Bracket Overlays (Top-Left & Bottom-Right) */}
+                      <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[var(--color-accent)]  opacity-100 transition-opacity duration-300 " />
+                      <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-[var(--color-secondary)]  opacity-100 transition-opacity duration-300" />
 
-                      {/* Card Body */}
-                      <div className="relative h-full w-full bg-[var(--bg-secondary)] rounded-[19px] p-6 backdrop-blur-xl">
-                        <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-4 text-[var(--color-accent)]">
-                          {item.label}
-                        </p>
-                        <p className="text-xl font-black text-[var(--text-primary)] mb-1 tracking-tight uppercase">
-                          {item.val}
-                        </p>
-                        <p className="text-[9px] text-[var(--text-muted)] tracking-widest font-medium">
-                          {item.sub}
-                        </p>
+                      {/* UNIQUE EFFECT 2: Laser Line Scanning Track (Animates across the border on hover) */}
+                      <span className="absolute inset-0 opacity-100 transition-opacity duration-500 overflow-hidden rounded-md">
+                        <span className="absolute top-0 left-[-100%] w-1/2 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent animate-[shimmer_1.5s_infinite]" />
+                        <span className="absolute bottom-0 right-[-100%] w-1/2 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-secondary)] to-transparent animate-[shimmer_1.5s_infinite_reverse]" />
+                      </span>
 
-                        {/* Hover Interior Glow */}
-                        <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-[var(--color-primary)] opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                      {/* UNIQUE EFFECT 3: Liquid Core Aurora Plasma Overlay */}
+                      <span className="absolute inset-0 bg-[var(--gradient-main)] opacity-0 group-hover:opacity-15 blur-sm transition-opacity duration-500 scale-95 group-hover:scale-105" />
 
-                {/* CENTER: SCROLL INDICATOR (THEMED) */}
-                <div className="flex flex-col items-center px-12 shrink-0">
-                  <span className="text-[9px] tracking-[0.5em] uppercase text-[var(--text-secondary)] font-semibold mb-5 whitespace-nowrap">
-                    Scroll to Explore
-                  </span>
-                  <div className="relative flex flex-col items-center">
-                    {/* Line with Primary Glow */}
-                    <div className="w-[1.5px] h-16 bg-gradient-to-b from-[var(--color-primary)] to-transparent" />
-                    {/* Glowing Dot using Theme Box Shadow */}
-                    <div
-                      className="w-2.5 h-2.5 rounded-full bg-white -mt-1.5 z-10"
-                      style={{ boxShadow: "var(--glow-primary)" }}
-                    />
+                      {/* Button Content Layer */}
+                      <span
+                        onClick={() => setRegistrationForm(true)}
+                        className="relative z-10 flex items-center gap-2 "
+                      >
+                        <span className="bg-[var(--gradient-purple-pink)] -webkit-background-clip-text -webkit-text-fill-color-transparent group-hover:text-white transition-all duration-300">
+                          Register
+                        </span>
+                        <span className="text-white">Now</span>
+
+                        {/* Animated Geometric Arrow */}
+                        <span className="relative flex items-center justify-center w-3 h-3 overflow-hidden">
+                          <span className="absolute transform translate-x-0 group-hover:translate-x-4 transition-transform duration-300 text-[var(--color-accent)]">
+                            →
+                          </span>
+                          <span className="absolute transform -translate-x-4 group-hover:translate-x-0 transition-transform duration-300 text-[var(--color-secondary)]">
+                            →
+                          </span>
+                        </span>
+                      </span>
+                    </button>
                   </div>
                 </div>
 
-                {/* RIGHT SIDE CARDS */}
-                <div className="flex flex-1 gap-6 justify-start">
-                  {[
-                    {
-                      label: "Eligibility",
-                      val: "OPEN TECH",
-                      sub: "INDIVIDUALS",
-                    },
-                    {
-                      label: "Prizes Pool",
-                      val: "₹45000",
-                      sub: "TOTAL REWARDS",
-                    },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="group relative p-[1px] rounded-[20px] min-w-[200px] overflow-hidden transition-all duration-300 hover:scale-[1.02]"
-                    >
-                      {/* Animated Gradient Border */}
-                      <div className="absolute inset-0 bg-[var(--border-strong)] group-hover:bg-[var(--gradient-purple-pink)] transition-colors duration-500" />
+                {/* --- BOTTOM SECTION: DATA GRID CARDS --- */}
+                {/* --- BOTTOM SECTION: X-HACKEN DATA STRIP --- */}
+                <div className="w-full max-w-7xl -translate-y-12 sm:-translate-y-9 px-4 font-['Inter',_sans-serif]">
+                  <div className="sm:hidden w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mb-6 justify-center flex">
+                    <span className="text-[9px] tracking-[0.5em] uppercase text-[var(--text-secondary)] font-semibold whitespace-nowrap">
+                      Scroll to Explore
+                    </span>
+                  </div>
+                  <div className="flex flex-row items-center justify-between gap-2 sm:gap-6">
+                    {/* LEFT SIDE CARDS */}
+                    <div className="flex flex-col sm:flex-row flex-1 gap-2 sm:gap-6 justify-end ">
+                      {[
+                        {
+                          label: "Date",
+                          val: "21 NOV",
+                          sub: "SAT - SUN - MON",
+                        },
+                        {
+                          label: "Venue",
+                          val: "SEMINAR HALL",
+                          sub: "TECH PARK",
+                        },
+                      ].map((item, i) => (
+                        <div
+                          key={i}
+                          className="group relative p-[1px] rounded-[20px] min-w-[140px] sm:min-w-[200px] overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+                        >
+                          {/* Animated Gradient Border */}
+                          <div className="absolute inset-0 bg-[var(--border-strong)] group-hover:bg-[var(--gradient-cyan-purple)] transition-colors duration-500" />
 
-                      {/* Card Body */}
-                      <div className="relative h-full w-full bg-[var(--bg-secondary)] rounded-[19px] p-6 backdrop-blur-xl">
-                        <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-4 text-[var(--color-secondary)]">
-                          {item.label}
-                        </p>
-                        <p className="text-xl font-black text-[var(--text-primary)] mb-1 tracking-tight uppercase">
-                          {item.val}
-                        </p>
-                        <p className="text-[9px] text-[var(--text-muted)] tracking-widest font-medium">
-                          {item.sub}
-                        </p>
+                          {/* Card Body */}
+                          <div className="relative h-full w-full bg-[var(--bg-secondary)] rounded-[19px] p-3 sm:p-6 backdrop-blur-xl">
+                            <p className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] font-bold mb-1 sm:mb-4 text-[var(--color-accent)]">
+                              {item.label}
+                            </p>
+                            <p className="text-[14px] sm:text-xl font-black text-[var(--text-primary)] mb-1 tracking-tight uppercase">
+                              {item.val}
+                            </p>
+                            <p className="text-[9px] sm:text-[9px] text-[var(--text-muted)] tracking-widest font-medium">
+                              {item.sub}
+                            </p>
+
+                            {/* Hover Interior Glow */}
+                            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-[var(--color-primary)] opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CENTER: SCROLL INDICATOR (THEMED) */}
+                    <div className="flex flex-col items-center sm:px-12 shrink-0">
+                      <span className="hidden sm:block text-[9px] tracking-[0.5em] uppercase text-[var(--text-secondary)] font-semibold mb-5 whitespace-nowrap">
+                        Scroll to Explore
+                      </span>
+                      <div className="relative flex flex-col items-center">
+                        {/* Line with Primary Glow */}
+                        <div className="w-[1.5px] h-32 sm:h-16 bg-gradient-to-b from-[var(--color-primary)] to-transparent" />
+                        {/* Glowing Dot using Theme Box Shadow */}
+                        <div
+                          className="w-2.5 h-2.5 rounded-full bg-white -mt-1.5 z-10"
+                          style={{ boxShadow: "var(--glow-primary)" }}
+                        />
                       </div>
                     </div>
-                  ))}
+
+                    {/* RIGHT SIDE CARDS */}
+                    <div className="flex flex-col sm:flex-row flex-1 gap-2 sm:gap-6 justify-start ">
+                      {[
+                        {
+                          label: "Eligibility",
+                          val: "OPEN TECH",
+                          sub: "INDIVIDUALS",
+                        },
+                        {
+                          label: "Prizes Pool",
+                          val: "₹45000",
+                          sub: "TOTAL REWARDS",
+                        },
+                      ].map((item, i) => (
+                        <div
+                          key={i}
+                          className="group relative p-[1px] rounded-[20px] min-w-[140px] sm:min-w-[200px] overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+                        >
+                          {/* Animated Gradient Border */}
+                          <div className="absolute inset-0 bg-[var(--border-strong)] group-hover:bg-[var(--gradient-purple-pink)] transition-colors duration-500" />
+
+                          {/* Card Body */}
+                          <div className="relative h-full w-full bg-[var(--bg-secondary)] rounded-[19px] p-3 sm:p-6 backdrop-blur-xl">
+                            <p className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] font-bold mb-1 sm:mb-4 text-[var(--color-secondary)]">
+                              {item.label}
+                            </p>
+                            <p className="text-[14px] sm:text-xl font-black text-[var(--text-primary)] mb-1 tracking-tight uppercase">
+                              {item.val}
+                            </p>
+                            <p className="text-[9px] sm:text-[9px] text-[var(--text-muted)] tracking-widest font-medium">
+                              {item.sub}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </motion.div>
+              </motion.div>
 
-          {/* --- BOTTOM DECORATION: SCANLINE EFFECT --- */}
-        </header>
+              {/* --- BOTTOM DECORATION: SCANLINE EFFECT --- */}
+            </header>
 
-        <PrizeSection />
-        <HackathonRoadmap />
-        <JudgesSection /> 
-        <VenueSection />
-        <section className="max-w-8xl mx-auto pb-40">
-          <EventFacilities />
-        </section>
-        <LeadershipSection />
+            <PrizeSection />
+            <HackathonRoadmap />
+            <JudgesSection />
+            <VenueSection />
+            <section className="max-w-8xl mx-auto pb-40">
+              <EventFacilities />
+            </section>
+            <LeadershipSection />
 
-        <AnnouncementSection />
+            <AnnouncementSection />
 
-        <RulesSection />
+            <RulesSection />
 
-        <TeamMarquee />
-        <FAQSection />
+            <TeamMarquee />
+            <FAQSection />
 
-        <MemoryGallery />
-        <SponsorsSection />
+            <MemoryGallery />
+            <SponsorsSection />
 
-        <footer className="py-12 border-t border-white/5 text-center">
-          <p className="text-gray-600 text-[10px] uppercase tracking-[0.4em] font-bold">
-            Engineering Excellence // GenDelta Studio 2026
-          </p>
-        </footer>
-      </div>
-        </>}
-        
+            <footer className="py-12 border-t border-white/5 text-center">
+              <p className="text-gray-600 text-[10px] uppercase tracking-[0.4em] font-bold">
+                Engineering Excellence // GenDelta Studio 2026
+              </p>
+            </footer>
+          </div>
+        </>
+      )}
 
-        
       {/* 3D Visual Engine */}
-      
     </div>
   );
 };
@@ -1163,7 +1201,11 @@ const PrizeSection = () => {
       // Icon & Perk assets
       Icon: Medal,
       iconColor: "text-slate-300",
-      perks: ["Silver Distinction Trophy", "Special Winner Certificate", "Exclusive Swag Kit"]
+      perks: [
+        "Silver Distinction Trophy",
+        "Special Winner Certificate",
+        "Exclusive Swag Kit",
+      ],
     },
     {
       rank: "1st",
@@ -1177,7 +1219,11 @@ const PrizeSection = () => {
       // Icon & Perk assets
       Icon: Trophy,
       iconColor: "text-amber-350",
-      perks: ["Grand Champion Trophy", "Elite Winner Certificate", "VIP Tech Bundle"]
+      perks: [
+        "Grand Champion Trophy",
+        "Elite Winner Certificate",
+        "VIP Tech Bundle",
+      ],
     },
     {
       rank: "3rd",
@@ -1190,13 +1236,16 @@ const PrizeSection = () => {
       // Icon & Perk assets
       Icon: Medal,
       iconColor: "text-amber-700",
-      perks: ["Bronze Distinction Trophy", "Special Winner Certificate", "Premium Swag Kit"]
+      perks: [
+        "Bronze Distinction Trophy",
+        "Special Winner Certificate",
+        "Premium Swag Kit",
+      ],
     },
   ];
 
   return (
     <section className="relative z-10 max-w-7xl mx-auto px-6 py-2 font-['Inter',_sans-serif]">
-      
       {/* --- HEADER --- */}
       <div className="text-center mb-10 relative overflow-visible">
         <div className="flex gap-3 justify-center items-center">
@@ -1231,11 +1280,15 @@ const PrizeSection = () => {
             >
               {/* Card Interior */}
               <div className="relative h-full w-full bg-[var(--bg-secondary)] rounded-[31px] p-8 flex flex-col justify-between backdrop-blur-3xl overflow-hidden">
-                
                 {/* Top Section: Badges & Display Icons */}
                 <div className="relative w-full flex justify-between items-start z-20">
-                  <div className={`p-2 rounded-2xl bg-white/[0.02] border border-white/[0.05] transition-transform duration-500 group-hover:scale-110 ${p.iconColor}`}>
-                    <PrizeIcon size={28} className="drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]" />
+                  <div
+                    className={`p-2 rounded-2xl bg-white/[0.02] border border-white/[0.05] transition-transform duration-500 group-hover:scale-110 ${p.iconColor}`}
+                  >
+                    <PrizeIcon
+                      size={28}
+                      className="drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]"
+                    />
                   </div>
 
                   {p.featured && (
@@ -1263,7 +1316,7 @@ const PrizeSection = () => {
                   >
                     {p.rank} Place
                   </span>
-                  
+
                   <h3 className="text-4xl md:text-5xl font-black tracking-tighter mb-4 text-white">
                     {p.amount}
                   </h3>
@@ -1271,8 +1324,15 @@ const PrizeSection = () => {
                   {/* Core Perks Checklist Array */}
                   <ul className="space-y-2 border-t border-white/[0.05] pt-4 mb-2">
                     {p.perks.map((perk, index) => (
-                      <li key={index} className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
-                        <Award size={14} className="shrink-0" style={{ color: p.borderColor }} />
+                      <li
+                        key={index}
+                        className="flex items-center gap-2 text-xs text-[var(--text-secondary)]"
+                      >
+                        <Award
+                          size={14}
+                          className="shrink-0"
+                          style={{ color: p.borderColor }}
+                        />
                         <span>{perk}</span>
                       </li>
                     ))}
@@ -1305,17 +1365,17 @@ const PrizeSection = () => {
       </div>
 
       {/* --- ALL PARTICIPANTS CERTIFICATE ROW --- */}
-     <motion.div 
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="max-w-4xl mx-auto mb-5 p-6 rounded-2xl flex flex-col sm:flex-row items-center gap-6 justify-between relative overflow-hidden group"
->
-  {/* The Outer Gradient Border Wrapper */}
-<div className="absolute inset-0 p-[2px] bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl -z-20 pointer-events-none" />
-  
-  {/* The Inner Dark Background Card Mesh */}
-  <div className="absolute inset-[2px] bg-gradient-to-br from-[#09090b]/95 to-[#030303]/95 rounded-[14px] -z-10 pointer-events-none" />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="max-w-4xl mx-auto mb-5 p-6 rounded-2xl flex flex-col sm:flex-row items-center gap-6 justify-between relative overflow-hidden group"
+      >
+        {/* The Outer Gradient Border Wrapper */}
+        <div className="absolute inset-0 p-[2px] bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl -z-20 pointer-events-none" />
+
+        {/* The Inner Dark Background Card Mesh */}
+        <div className="absolute inset-[2px] bg-gradient-to-br from-[#09090b]/95 to-[#030303]/95 rounded-[14px] -z-10 pointer-events-none" />
 
         <div className="flex items-center gap-4">
           <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[var(--color-accent)]">
@@ -1326,7 +1386,9 @@ const PrizeSection = () => {
               Participation Framework Certification
             </h4>
             <p className="text-xs text-[var(--text-secondary)] max-w-md">
-              Every participating engineer receives an official certified production validation certificate and verifiable digital badge credentials.
+              Every participating engineer receives an official certified
+              production validation certificate and verifiable digital badge
+              credentials.
             </p>
           </div>
         </div>
@@ -1340,7 +1402,8 @@ const PrizeSection = () => {
       {/* --- FOOTER NOTE --- */}
       <div className="text-center">
         <p className="text-[var(--text-muted)] text-[10px] uppercase tracking-[0.2em] max-w-2xl mx-auto leading-relaxed italic">
-          * Dynamic physical trophies are handed to top teams on-stage. Special Certificates of Merit are issued instantly post-evaluation.
+          * Dynamic physical trophies are handed to top teams on-stage. Special
+          Certificates of Merit are issued instantly post-evaluation.
         </p>
       </div>
     </section>
@@ -1563,8 +1626,8 @@ const RulesSection = () => {
   const containerVariants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.1 },
+    },
   };
 
   const cardVariants = {
@@ -1572,33 +1635,32 @@ const RulesSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-    }
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    },
   };
 
   return (
-    <section className="relative w-full text-white py-10 sm:py-10 overflow-hidden bg-transparent"> 
-      
-  
-      
+    <section className="relative w-full text-white py-10 sm:py-10 overflow-hidden bg-transparent">
       {/* Tech Matrix Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
 
       <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
-        
         {/* --- SECTION TECH HEADER --- */}
         <div className="flex flex-col items-center text-center mb-24">
           <span className="text-cyan-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 bg-cyan-950/30 border border-cyan-800/30 px-4 py-1.5 rounded-full">
             Security Core Parameters
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase">
-            Rules & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">Guidelines</span>
+            Rules &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
+              Guidelines
+            </span>
           </h2>
           <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent mt-6" />
         </div>
 
         {/* --- HIGH-SPEC DIRECTIVE MATRIX GRID --- */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -1615,10 +1677,14 @@ const RulesSection = () => {
                 className={`group relative rounded-2xl border border-white/[0.04] bg-[#09090b]/80 p-6 sm:p-8 flex flex-col backdrop-blur-2xl transition-all duration-300 ${category.borderColor}`}
               >
                 {/* Micro Ambient Glow Behind Icon Container */}
-                <div className={`absolute top-0 left-0 w-32 h-32 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-[0.03] blur-2xl transition-opacity duration-500 pointer-events-none`} />
+                <div
+                  className={`absolute top-0 left-0 w-32 h-32 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-[0.03] blur-2xl transition-opacity duration-500 pointer-events-none`}
+                />
 
                 {/* Left Side Static Highlight Border Line */}
-                <div className={`absolute left-0 top-8 bottom-8 w-[2px] rounded-r bg-gradient-to-b ${category.color} opacity-30 group-hover:opacity-100 transition-opacity duration-300`} />
+                <div
+                  className={`absolute left-0 top-8 bottom-8 w-[2px] rounded-r bg-gradient-to-b ${category.color} opacity-30 group-hover:opacity-100 transition-opacity duration-300`}
+                />
 
                 {/* Laser Bracket Details */}
                 <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-transparent group-hover:border-cyan-400/30 transition-all duration-300 rounded-tl-lg" />
@@ -1626,7 +1692,9 @@ const RulesSection = () => {
 
                 {/* Card Header */}
                 <div className="flex items-center gap-4 mb-8 pl-2">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color} text-black font-extrabold relative shadow-lg flex-shrink-0`}>
+                  <div
+                    className={`p-3 rounded-xl bg-gradient-to-br ${category.color} text-black font-extrabold relative shadow-lg flex-shrink-0`}
+                  >
                     <Icon size={20} className="stroke-[2.5]" />
                   </div>
                   <div>
@@ -1642,10 +1710,16 @@ const RulesSection = () => {
                 {/* Instruction Blocks */}
                 <div className="space-y-4 flex-grow pl-2">
                   {category.items.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-4 group/item">
+                    <div
+                      key={idx}
+                      className="flex items-start gap-4 group/item"
+                    >
                       {/* Interactive Point Beacon */}
                       <div className="mt-1 flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
-                        <CheckCircle2 size={15} className={`text-neutral-700 transition-colors duration-300 group-hover/item:${category.accent}`} />
+                        <CheckCircle2
+                          size={15}
+                          className={`text-neutral-700 transition-colors duration-300 group-hover/item:${category.accent}`}
+                        />
                       </div>
 
                       {/* Descriptive Content String */}
@@ -1664,14 +1738,17 @@ const RulesSection = () => {
             );
           })}
         </motion.div>
-
       </div>
 
       {/* Embedded CSS Custom Keyframe for Shimmer Loop */}
       <style jsx global>{`
         @keyframes shimmer {
-          0% { top: -100%; }
-          100% { top: 200%; }
+          0% {
+            top: -100%;
+          }
+          100% {
+            top: 200%;
+          }
         }
       `}</style>
     </section>
@@ -1718,34 +1795,42 @@ const AnnouncementSection = () => {
   ];
 
   // Dynamic theme evaluations based on your platform settings
-  const bgClass = SITE_THEME.isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900";
+  const bgClass = SITE_THEME.isDark
+    ? "bg-black text-white"
+    : "bg-gray-50 text-gray-900";
   const titleClass = SITE_THEME.isDark ? "text-white" : "text-gray-900";
   const descClass = SITE_THEME.isDark ? "text-gray-400" : "text-gray-600";
-  const cardBg = SITE_THEME.isDark 
-    ? "bg-neutral-900/50 border-white/[0.08] hover:border-white/[0.15]" 
+  const cardBg = SITE_THEME.isDark
+    ? "bg-neutral-900/50 border-white/[0.08] hover:border-white/[0.15]"
     : "bg-white border-gray-200/80 hover:border-gray-300 shadow-sm hover:shadow-md";
 
   return (
-    <section className={`w-full py-24 relative overflow-hidden transition-colors duration-300  ${SITE_THEME.fontFamily}`}>
-      
+    <section
+      className={`w-full py-24 relative overflow-hidden transition-colors duration-300  ${SITE_THEME.fontFamily}`}
+    >
       {/* --- SECTION BACKGROUND COHESION --- */}
       {/* If your platform has an existing background gradient, these will act as soft ambient highlights */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-40 select-none">
-        <div className={`absolute top-12 left-10 w-72 h-72 bg-${SITE_THEME.primaryAccent}/10 rounded-full blur-[120px]`} />
-        <div className={`absolute bottom-12 right-10 w-72 h-72 bg-${SITE_THEME.secondaryAccent}/10 rounded-full blur-[120px]`} />
+        <div
+          className={`absolute top-12 left-10 w-72 h-72 bg-${SITE_THEME.primaryAccent}/10 rounded-full blur-[120px]`}
+        />
+        <div
+          className={`absolute bottom-12 right-10 w-72 h-72 bg-${SITE_THEME.secondaryAccent}/10 rounded-full blur-[120px]`}
+        />
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        
         {/* --- GLOBAL STANDARD SECTION HEADER --- */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          
           <h2 className="text-2xl md:text-4xl font-black tracking-tight uppercase">
             Classified Announcements
           </h2>
-          <div className={`h-1 w-12 bg-gradient-to-r from-${SITE_THEME.primaryAccent} to-${SITE_THEME.secondaryAccent} mx-auto rounded-full`} />
+          <div
+            className={`h-1 w-12 bg-gradient-to-r from-${SITE_THEME.primaryAccent} to-${SITE_THEME.secondaryAccent} mx-auto rounded-full`}
+          />
           <p className={`text-sm md:text-base pt-2 ${descClass}`}>
-            Hidden drops, surprise mechanical variables, and system upgrades activated dynamically throughout the timeline.
+            Hidden drops, surprise mechanical variables, and system upgrades
+            activated dynamically throughout the timeline.
           </p>
         </div>
 
@@ -1760,21 +1845,27 @@ const AnnouncementSection = () => {
                 className={`group relative rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row items-start gap-5 transition-all duration-300 transform hover:-translate-y-1 ${cardBg}`}
               >
                 {/* Visual Anchor Indicator Icon Block */}
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${item.color} bg-opacity-10 text-white shadow-sm flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`p-3 rounded-xl bg-gradient-to-br ${item.color} bg-opacity-10 text-white shadow-sm flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                >
                   <IconComponent size={22} className="stroke-[2]" />
                 </div>
 
                 {/* Information Layer Blocks */}
                 <div className="space-y-2 flex-grow">
                   <div className="flex items-center justify-between gap-4 flex-wrap">
-                    <h3 className={`text-lg font-bold tracking-tight ${titleClass}`}>
+                    <h3
+                      className={`text-lg font-bold tracking-tight ${titleClass}`}
+                    >
                       {item.title}
                     </h3>
                     <span className="font-mono text-[9px] font-bold tracking-wider px-2 py-0.5 rounded-md bg-neutral-500/10 border border-neutral-500/20 text-gray-400 group-hover:text-gray-300 transition-colors">
                       {item.status}
                     </span>
                   </div>
-                  <p className={`text-xs md:text-sm leading-relaxed ${descClass}`}>
+                  <p
+                    className={`text-xs md:text-sm leading-relaxed ${descClass}`}
+                  >
                     {item.desc}
                   </p>
                 </div>
@@ -1785,16 +1876,17 @@ const AnnouncementSection = () => {
 
         {/* --- FOOTER BANNER TICKER --- */}
         <div className="text-center mt-12 pt-6 border-t border-white/[0.04]">
-          <p className={`text-xs font-mono tracking-wider opacity-70 ${descClass}`}>
-            💡 Track parameters closely. Surprise parameters synchronize automatically with core modules during live runtime.
+          <p
+            className={`text-xs font-mono tracking-wider opacity-70 ${descClass}`}
+          >
+            💡 Track parameters closely. Surprise parameters synchronize
+            automatically with core modules during live runtime.
           </p>
         </div>
-
       </div>
     </section>
   );
 };
-
 
 const VenueSection = () => {
   return (
@@ -1888,10 +1980,15 @@ const FAQSection = () => {
 
   return (
     <section className="relative w-full text-white py-24 sm:py-32 overflow-hidden border-t border-b border-white/[0.03]">
-      
       {/* 🌌 High-End Ambient Background Lighting */}
-      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-cyan-500/[0.08] blur-[160px] rounded-full pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-purple-500/[0.08] blur-[180px] rounded-full pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '12s' }} />
+      <div
+        className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-cyan-500/[0.08] blur-[160px] rounded-full pointer-events-none mix-blend-screen animate-pulse"
+        style={{ animationDuration: "8s" }}
+      />
+      <div
+        className="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-purple-500/[0.08] blur-[180px] rounded-full pointer-events-none mix-blend-screen animate-pulse"
+        style={{ animationDuration: "12s" }}
+      />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-pink-500/[0.03] blur-[140px] rounded-full pointer-events-none" />
 
       {/* 🧬 Tech Matrix Subtle Grid Overlay */}
@@ -1899,7 +1996,6 @@ const FAQSection = () => {
 
       {/* Container Wrapper */}
       <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
-        
         {/* Header Layout */}
         <div className="flex flex-col items-center text-center mb-24">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900/80 border border-neutral-800/60 shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-md mb-4 group hover:border-cyan-500/30 transition-colors duration-300">
@@ -1908,7 +2004,7 @@ const FAQSection = () => {
               Central Knowledge Hub
             </span>
           </div>
-          
+
           <h2 className="text-4xl sm:text-6xl font-black tracking-tight uppercase leading-none">
             Frequently Asked <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 drop-shadow-[0_2px_10px_rgba(34,211,238,0.2)]">
@@ -1916,7 +2012,8 @@ const FAQSection = () => {
             </span>
           </h2>
           <p className="text-neutral-500 text-xs sm:text-sm max-w-lg mt-6 font-medium tracking-wide">
-            Get instant breakdowns regarding the foundational rules, operational timelines, environmental setups, and logistical support.
+            Get instant breakdowns regarding the foundational rules, operational
+            timelines, environmental setups, and logistical support.
           </p>
         </div>
 
@@ -1933,17 +2030,22 @@ const FAQSection = () => {
                 }`}
               >
                 {/* Neon Mesh Aura Border */}
-                <div 
+                <div
                   className={`absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-2xl transition-all duration-700 ${
-                    isOpen ? "opacity-100 blur-[2px]" : "opacity-10 group-hover:opacity-60 blur-[1px]"
-                  }`} 
+                    isOpen
+                      ? "opacity-100 blur-[2px]"
+                      : "opacity-10 group-hover:opacity-60 blur-[1px]"
+                  }`}
                 />
 
                 {/* Main Accordion Panel Chassis */}
-                <div className={`relative bg-[#09090b]/90 backdrop-blur-2xl rounded-2xl overflow-hidden transition-all duration-300 border border-white/[0.03] ${
-                  isOpen ? "bg-[#0b0c10]/95 shadow-[0_20px_50px_rgba(0,0,0,0.6)]" : ""
-                }`}>
-                  
+                <div
+                  className={`relative bg-[#09090b]/90 backdrop-blur-2xl rounded-2xl overflow-hidden transition-all duration-300 border border-white/[0.03] ${
+                    isOpen
+                      ? "bg-[#0b0c10]/95 shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+                      : ""
+                  }`}
+                >
                   {/* Interactive Header Button */}
                   <button
                     onClick={() => setActiveIndex(isOpen ? null : i)}
@@ -1951,22 +2053,32 @@ const FAQSection = () => {
                   >
                     <div className="flex items-center gap-4">
                       {/* Left Dot Indicator */}
-                      <span className={`w-1.5 h-1.5 rounded-full transition-all duration-500 shrink-0 ${
-                        isOpen ? "bg-cyan-400 shadow-[0_0_12px_#22d3ee]" : "bg-neutral-700 group-hover/btn:bg-neutral-400"
-                      }`} />
-                      <span className={`font-bold text-base sm:text-lg tracking-wide transition-colors duration-300 ${
-                        isOpen ? "text-cyan-400" : "text-neutral-200 group-hover/btn:text-white"
-                      }`}>
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-500 shrink-0 ${
+                          isOpen
+                            ? "bg-cyan-400 shadow-[0_0_12px_#22d3ee]"
+                            : "bg-neutral-700 group-hover/btn:bg-neutral-400"
+                        }`}
+                      />
+                      <span
+                        className={`font-bold text-base sm:text-lg tracking-wide transition-colors duration-300 ${
+                          isOpen
+                            ? "text-cyan-400"
+                            : "text-neutral-200 group-hover/btn:text-white"
+                        }`}
+                      >
                         {faq.q}
                       </span>
                     </div>
 
                     {/* Right Iconic Minimalist Arrow Container */}
-                    <div className={`flex items-center justify-center w-9 h-9 rounded-xl border transition-all duration-500 shrink-0 ${
-                      isOpen 
-                        ? "bg-cyan-400/10 border-cyan-400/40 rotate-180 shadow-[0_0_15px_rgba(34,211,238,0.1)]" 
-                        : "bg-neutral-900 border-neutral-800 text-neutral-400 group-hover/btn:border-neutral-700 group-hover/btn:text-neutral-200"
-                    }`}>
+                    <div
+                      className={`flex items-center justify-center w-9 h-9 rounded-xl border transition-all duration-500 shrink-0 ${
+                        isOpen
+                          ? "bg-cyan-400/10 border-cyan-400/40 rotate-180 shadow-[0_0_15px_rgba(34,211,238,0.1)]"
+                          : "bg-neutral-900 border-neutral-800 text-neutral-400 group-hover/btn:border-neutral-700 group-hover/btn:text-neutral-200"
+                      }`}
+                    >
                       <ChevronDown className="w-4 h-4" />
                     </div>
                   </button>
@@ -1974,7 +2086,7 @@ const FAQSection = () => {
                   {/* Fully Elastic Structural Dynamic Transition */}
                   <div
                     className="grid transition-all duration-500 ease-[cubic-bezier(0.3,1,0.3,1)]"
-                    style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+                    style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                   >
                     <div className="overflow-hidden">
                       <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 ml-5 border-l border-neutral-800/40">
@@ -1984,7 +2096,6 @@ const FAQSection = () => {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             );
@@ -1995,24 +2106,18 @@ const FAQSection = () => {
   );
 };
 
-
-
-
 const RegistrationForm = ({ setRegistrationForm }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    altPhone: '',
-    college: '',
-    foodPreference: 'veg',
-    password: ''
+    name: "",
+    email: "",
+    phone: "",
+    altPhone: "",
+    college: "",
+    foodPreference: "veg",
+    password: "",
   });
 
-
   const [showPassword, setShowPassword] = React.useState(false);
-
-
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -2025,48 +2130,46 @@ const RegistrationForm = ({ setRegistrationForm }) => {
 
   return (
     <section className="relative w-full min-h-screen bg-[#030303] text-white py-16 sm:py-24 overflow-hidden flex items-center justify-center border-t border-white/[0.02] fixed inset-0 z-50 bg-[#020204]/90 backdrop-blur-2xl flex items-center justify-center p-0 md:p-6 lg:p-12 overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-700/30 scrollbar-track-transparent">
-      
-<button 
-    onClick={() => setRegistrationForm(false)} 
-    type="button"
-    className="absolute top-6 right-6 z-50 text-neutral-100 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-700/50 p-2.5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95 group"
-  >
-    <X size={16} className="group-hover:rotate-90 transition-transform duration-300" />
-  </button>
-      
+      <button
+        onClick={() => setRegistrationForm(false)}
+        type="button"
+        className="absolute top-6 right-6 z-50 text-neutral-100 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-700/50 p-2.5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95 group"
+      >
+        <X
+          size={16}
+          className="group-hover:rotate-90 transition-transform duration-300"
+        />
+      </button>
+
       {/* 🌌 Atmospheric Backdrop Ambient Glows */}
       <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#242bf9] blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[700px] h-[700px] bg-[#ff2ea1] blur-[180px] rounded-full pointer-events-none" />
-      
+
       {/* Cyber Grid Vector Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
 
-     
-
       {/* Main Structural Layout Wrapper */}
       <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-        
-        
         {/* ================= LEFT SIDE: SPACE VISUALIZATION MATRIX ================= */}
         <div className="lg:col-span-5 flex flex-col justify-center h-full space-y-8 text-center lg:text-left">
           <div className="space-y-4">
-  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900/80 border border-neutral-800/60 backdrop-blur-md mb-2">
-    <Terminal className="w-3.5 h-3.5 text-[var(--color-accent,#22d3ee)]" />
-    <span className="text-neutral-400 text-[10px] font-bold tracking-[0.3em] uppercase">
-      Registration Terminal
-    </span>
-  </div>
-  <h2 className="text-4xl sm:text-5xl font-black tracking-tight uppercase leading-tight text-white">
-    Create Your <br />
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)]">
-      Account Profile
-    </span>
-  </h2>
-  <p className="text-neutral-400 text-sm max-w-md mx-auto lg:mx-0 font-light leading-relaxed">
-    Join the platform to access your dashboard, connect with teams, and secure your spot in the upcoming hackathon workspace.
-  </p>
-</div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900/80 border border-neutral-800/60 backdrop-blur-md mb-2">
+              <Terminal className="w-3.5 h-3.5 text-[var(--color-accent,#22d3ee)]" />
+              <span className="text-neutral-400 text-[10px] font-bold tracking-[0.3em] uppercase">
+                Registration Terminal
+              </span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight uppercase leading-tight text-white">
+              Create Your <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)]">
+                Account Profile
+              </span>
+            </h2>
+            <p className="text-neutral-400 text-sm max-w-md mx-auto lg:mx-0 font-light leading-relaxed">
+              Join the platform to access your dashboard, connect with teams,
+              and secure your spot in the upcoming hackathon workspace.
+            </p>
+          </div>
 
           {/* 🌌 Illustrated Animated Space/Portal Model */}
           <div className="relative w-full max-w-[400px] aspect-square mx-auto lg:mx-0 flex items-center justify-center group">
@@ -2074,26 +2177,84 @@ const RegistrationForm = ({ setRegistrationForm }) => {
             <div className="absolute inset-0 rounded-full border border-dashed border-[var(--color-accent,#22d3ee)]/60 animate-[spin_40s_linear_infinite]" />
             <div className="absolute inset-8 rounded-full border border-[var(--color-primary,#c084fc)]/40 animate-[spin_25s_linear_infinite_reverse]" />
             <div className="absolute inset-16 rounded-full border border-dashed border-[var(--color-secondary,#f472b6)]/80 animate-[spin_15s_linear_infinite]" />
-            
+
             {/* Neon Glowing Particle Nodes floating via CSS */}
-            <div className="absolute top-12 left-1/4 w-2 h-2 rounded-full bg-[var(--color-accent,#22d3ee)] shadow-[0_0_12px_#22d3ee] animate-bounce" style={{ animationDuration: '3s' }} />
-            <div className="absolute bottom-16 right-1/4 w-2.5 h-2.5 rounded-full bg-[var(--color-secondary,#f472b6)] shadow-[0_0_12px_#f472b6] animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
-            <div className="absolute top-1/2 right-12 w-1.5 h-1.5 rounded-full bg-[var(--color-primary,#c084fc)] shadow-[0_0_12px_#c084fc] animate-ping" style={{ animationDuration: '2s' }} />
+            <div
+              className="absolute top-12 left-1/4 w-2 h-2 rounded-full bg-[var(--color-accent,#22d3ee)] shadow-[0_0_12px_#22d3ee] animate-bounce"
+              style={{ animationDuration: "3s" }}
+            />
+            <div
+              className="absolute bottom-16 right-1/4 w-2.5 h-2.5 rounded-full bg-[var(--color-secondary,#f472b6)] shadow-[0_0_12px_#f472b6] animate-bounce"
+              style={{ animationDuration: "4s", animationDelay: "1s" }}
+            />
+            <div
+              className="absolute top-1/2 right-12 w-1.5 h-1.5 rounded-full bg-[var(--color-primary,#c084fc)] shadow-[0_0_12px_#c084fc] animate-ping"
+              style={{ animationDuration: "2s" }}
+            />
 
             {/* Core Graphic Chassis */}
             <div className="relative w-48 h-48 rounded-3xl bg-[#09090b]/80 border border-white/[0.05] flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.8)] backdrop-blur-xl group-hover:border-[var(--color-accent,#22d3ee)]/30 transition-colors duration-500">
               {/* Inner Portal Glow */}
               <div className="absolute inset-4 rounded-2xl bg-gradient-to-tr from-[var(--color-accent,#22d3ee)]/10 via-[var(--color-primary,#c084fc)]/5 to-transparent blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
-              
+
               {/* Animated Core Identity Grid Vector */}
-              <svg className="w-24 h-24 text-neutral-600 group-hover:text-[var(--color-accent,#22d3ee)] transition-colors duration-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 5L90 28V72L50 95L10 72V28L50 5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="animate-[pulse_3s_infinite]" />
-                <path d="M50 20L76 35V65L50 80L24 65V35L50 20Z" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-                <circle cx="50" cy="50" r="8" className="fill-current text-[var(--color-primary,#c084fc)] shadow-lg animate-pulse" />
-                <line x1="50" y1="5" x2="50" y2="20" stroke="currentColor" strokeWidth="1.5" />
-                <line x1="50" y1="80" x2="50" y2="95" stroke="currentColor" strokeWidth="1.5" />
-                <line x1="10" y1="28" x2="24" y2="35" stroke="currentColor" strokeWidth="1.5" />
-                <line x1="76" y1="65" x2="90" y2="72" stroke="currentColor" strokeWidth="1.5" />
+              <svg
+                className="w-24 h-24 text-neutral-600 group-hover:text-[var(--color-accent,#22d3ee)] transition-colors duration-500"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M50 5L90 28V72L50 95L10 72V28L50 5Z"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  className="animate-[pulse_3s_infinite]"
+                />
+                <path
+                  d="M50 20L76 35V65L50 80L24 65V35L50 20Z"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="8"
+                  className="fill-current text-[var(--color-primary,#c084fc)] shadow-lg animate-pulse"
+                />
+                <line
+                  x1="50"
+                  y1="5"
+                  x2="50"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+                <line
+                  x1="50"
+                  y1="80"
+                  x2="50"
+                  y2="95"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+                <line
+                  x1="10"
+                  y1="28"
+                  x2="24"
+                  y2="35"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+                <line
+                  x1="76"
+                  y1="65"
+                  x2="90"
+                  y2="72"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
               </svg>
             </div>
           </div>
@@ -2101,177 +2262,195 @@ const RegistrationForm = ({ setRegistrationForm }) => {
 
         {/* ================= RIGHT SIDE: DATA FORM MATRIX ================= */}
         <div className="lg:col-span-7 relative group w-full">
-  
-  {/* Dynamic Accent Border Architecture */}
-  <div className="absolute inset-0 p-[1px] bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)] rounded-2xl opacity-10 group-hover:opacity-10 transition-opacity duration-500 blur-[0.5px] -z-20" />
-  <div className="absolute inset-0 p-[1px] bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)] rounded-2xl opacity-20 group-hover:opacity-10 transition-opacity duration-500 -z-20" />
-  
-  {/* Main Content Card Box */}
-  <div className="relative bg-[#000000)] backdrop-blur-3xl p-6 sm:p-10 rounded-2xl border border-white/[0.04] shadow-2xl">
-    
-    <form onSubmit={handleSubmit} className="space-y-6">
-      
-      {/* Grid Row 1: Personal Information */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">Full Name</label>
-          <div className="relative">
-            <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-            <input 
-              required 
-              type="text" 
-              name="name" 
-              value={formData.name} 
-              onChange={handleChange} 
-              placeholder="Alexa Doe"
-              className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all" 
-            />
+          {/* Dynamic Accent Border Architecture */}
+          <div className="absolute inset-0 p-[1px] bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)] rounded-2xl opacity-10 group-hover:opacity-10 transition-opacity duration-500 blur-[0.5px] -z-20" />
+          <div className="absolute inset-0 p-[1px] bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)] rounded-2xl opacity-20 group-hover:opacity-10 transition-opacity duration-500 -z-20" />
+
+          {/* Main Content Card Box */}
+          <div className="relative bg-[#000000)] backdrop-blur-3xl p-6 sm:p-10 rounded-2xl border border-white/[0.04] shadow-2xl">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Grid Row 1: Personal Information */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Full Name
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      required
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Alexa Doe"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="you@domain.com"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-primary,#c084fc)] focus:ring-1 focus:ring-[var(--color-primary,#c084fc)]/20 transition-all"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Grid Row 2: Contact Numbers */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Phone Number
+                  </label>
+                  <div className="relative">
+                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      required
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+91 00000 00000"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Alternative Phone (Optional)
+                  </label>
+                  <div className="relative">
+                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      type="tel"
+                      name="altPhone"
+                      value={formData.altPhone}
+                      onChange={handleChange}
+                      placeholder="Backup contact number"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-primary,#c084fc)] focus:ring-1 focus:ring-[var(--color-primary,#c084fc)]/20 transition-all"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Row: Academic / Organization Affiliation */}
+              <div className="space-y-2">
+                <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                  Institutional Affiliation
+                </label>
+                <div className="relative">
+                  <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                  <input
+                    required
+                    type="text"
+                    name="college"
+                    value={formData.college}
+                    onChange={handleChange}
+                    placeholder="University or Institute Name"
+                    className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-secondary,#f472b6)] focus:ring-1 focus:ring-[var(--color-secondary,#f472b6)]/20 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Grid Row 3: Preferences & Security */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Dietary Requirement
+                  </label>
+                  <div className="relative">
+                    <Utensils className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <select
+                      name="foodPreference"
+                      value={formData.foodPreference}
+                      onChange={handleChange}
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-10 text-sm text-white focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="veg" className="bg-[#09090b] text-white">
+                        Vegetarian
+                      </option>
+                      <option
+                        value="non-veg"
+                        className="bg-[#09090b] text-white"
+                      >
+                        Non-Vegetarian
+                      </option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none border-l border-neutral-800 pl-2 text-neutral-500 text-[10px]">
+                      ▼
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Account Password
+                  </label>
+                  <div className="relative">
+                    {/* Left Side Lock Icon */}
+                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+
+                    <input
+                      required
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      placeholder="••••••••••••"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-12 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-secondary,#f472b6)] focus:ring-1 focus:ring-[var(--color-secondary,#f472b6)]/20 transition-all"
+                    />
+
+                    {/* 👁️ Interactive Show/Hide Toggle Trigger */}
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-300 focus:outline-none p-1 rounded transition-colors"
+                      aria-label={
+                        showPassword ? "Hide password" : "Show password"
+                      }
+                    >
+                      {showPassword ? (
+                        <EyeOff className="w-4 h-4" />
+                      ) : (
+                        <Eye className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Professional Submission Button Layer */}
+              <motion.button
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                type="submit"
+                className="w-full relative group/btn mt-4 rounded-xl p-[1px] font-bold overflow-hidden transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)] rounded-xl" />
+
+                <div className="relative bg-neutral-950 text-white group-hover/btn:bg-transparent transition-colors duration-300 py-4 px-6 rounded-xl flex items-center justify-center gap-3">
+                  <ShieldCheck className="w-4 h-4 text-[var(--color-accent,#22d3ee)] group-hover/btn:text-white transition-colors" />
+                  <span className="uppercase tracking-[0.15em] text-xs font-bold font-mono">
+                    Complete Registration
+                  </span>
+                </div>
+              </motion.button>
+            </form>
           </div>
         </div>
-
-        <div className="space-y-2">
-          <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">Email Address</label>
-          <div className="relative">
-            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-            <input 
-              required 
-              type="email" 
-              name="email" 
-              value={formData.email} 
-              onChange={handleChange} 
-              placeholder="you@domain.com"
-              className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-primary,#c084fc)] focus:ring-1 focus:ring-[var(--color-primary,#c084fc)]/20 transition-all" 
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Grid Row 2: Contact Numbers */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">Phone Number</label>
-          <div className="relative">
-            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-            <input 
-              required 
-              type="tel" 
-              name="phone" 
-              value={formData.phone} 
-              onChange={handleChange} 
-              placeholder="+91 00000 00000"
-              className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all" 
-            />
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">Alternative Phone (Optional)</label>
-          <div className="relative">
-            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-            <input 
-              type="tel" 
-              name="altPhone" 
-              value={formData.altPhone} 
-              onChange={handleChange} 
-              placeholder="Backup contact number"
-              className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-primary,#c084fc)] focus:ring-1 focus:ring-[var(--color-primary,#c084fc)]/20 transition-all" 
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Full Row: Academic / Organization Affiliation */}
-      <div className="space-y-2">
-        <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">Institutional Affiliation</label>
-        <div className="relative">
-          <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-          <input 
-            required 
-            type="text" 
-            name="college" 
-            value={formData.college} 
-            onChange={handleChange} 
-            placeholder="University or Institute Name"
-            className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-secondary,#f472b6)] focus:ring-1 focus:ring-[var(--color-secondary,#f472b6)]/20 transition-all" 
-          />
-        </div>
-      </div>
-
-      {/* Grid Row 3: Preferences & Security */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">Dietary Requirement</label>
-          <div className="relative">
-            <Utensils className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-            <select 
-              name="foodPreference" 
-              value={formData.foodPreference} 
-              onChange={handleChange}
-              className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-10 text-sm text-white focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all appearance-none cursor-pointer"
-            >
-              <option value="veg" className="bg-[#09090b] text-white">Vegetarian</option>
-              <option value="non-veg" className="bg-[#09090b] text-white">Non-Vegetarian</option>
-            </select>
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none border-l border-neutral-800 pl-2 text-neutral-500 text-[10px]">▼</div>
-          </div>
-        </div>
-
-        <div className="space-y-2">
-  <label className="block text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
-    Account Password
-  </label>
-  <div className="relative">
-    {/* Left Side Lock Icon */}
-    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-    
-    <input 
-      required 
-      type={showPassword ? "text" : "password"} 
-      name="password" 
-      value={formData.password} 
-      onChange={handleChange} 
-      placeholder="••••••••••••"
-      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-12 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-secondary,#f472b6)] focus:ring-1 focus:ring-[var(--color-secondary,#f472b6)]/20 transition-all" 
-    />
-
-    {/* 👁️ Interactive Show/Hide Toggle Trigger */}
-    <button
-      type="button"
-      onClick={() => setShowPassword(!showPassword)}
-      className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-300 focus:outline-none p-1 rounded transition-colors"
-      aria-label={showPassword ? "Hide password" : "Show password"}
-    >
-      {showPassword ? (
-        <EyeOff className="w-4 h-4" />
-      ) : (
-        <Eye className="w-4 h-4" />
-      )}
-    </button>
-  </div>
-</div>
-      </div>
-
-      {/* Professional Submission Button Layer */}
-      <motion.button
-        whileHover={{ scale: 1.01 }}
-        whileTap={{ scale: 0.99 }}
-        type="submit"
-        className="w-full relative group/btn mt-4 rounded-xl p-[1px] font-bold overflow-hidden transition-all duration-300"
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)] rounded-xl" />
-        
-        <div className="relative bg-neutral-950 text-white group-hover/btn:bg-transparent transition-colors duration-300 py-4 px-6 rounded-xl flex items-center justify-center gap-3">
-          <ShieldCheck className="w-4 h-4 text-[var(--color-accent,#22d3ee)] group-hover/btn:text-white transition-colors" />
-          <span className="uppercase tracking-[0.15em] text-xs font-bold font-mono">
-            Complete Registration
-          </span>
-        </div>
-      </motion.button>
-
-    </form>
-  </div>
-</div>
-
       </div>
     </section>
   );

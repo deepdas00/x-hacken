@@ -129,7 +129,7 @@ const titleRef = useRef(null); // Add this at the top with your other refs
 <div className="relative z-20 select-none">
   <h1 
     ref={titleRef} // ADD THIS REF HERE
-    className="text-[100px] md:text-[150px] font-black tracking-tighter leading-[0.7] flex items-center justify-center"
+    className="text-[60px] sm:text-[80px] md:text-[150px] font-black tracking-tighter leading-[0.7] flex items-center justify-center"
   >
     <span 
       className="text-[#ff2ea1]"
