@@ -1387,81 +1387,72 @@ const SponsorsSection = () => {
 
 const JudgesSection = () => {
   const judges = [
-    {
-      name: "Revealing Soon",
-      role: "AI Research Lead",
-      company: "Top Tech Company",
-      status: "CONFIDENTIAL",
-    },
-    {
-      name: "To Be Announced",
-      role: "Full Stack Architect",
-      company: "Industry Expert",
-      status: "LOCKED",
-    },
-    {
-      name: "???",
-      role: "Startup Founder",
-      company: "Stealth Mode",
-      status: "SECRET",
-    },
+    { name: "Revealing Soon", role: "AI Research Lead", company: "Top Tech Company", status: "CONFIDENTIAL" },
+    { name: "To Be Announced", role: "Full Stack Architect", company: "Industry Expert", status: "LOCKED" },
+    { name: "???", role: "Startup Founder", company: "Stealth Mode", status: "SECRET" },
+    { name: "???", role: "Startup Founder", company: "Stealth Mode", status: "SECRET" },
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-10 relative">
-      {/* <p className="text-center text-sm text-gray-400 mb-10">
-       Evaluated by top engineers, founders & innovators
-      </p> */}
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10 relative">
+
       {/* Background Glow */}
-      <div className="absolute top-1/3 right-1/3 w-96 h-96 bg-purple-500/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-cyan-500/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/3 w-72 sm:w-96 h-72 sm:h-96 bg-purple-500/10 blur-[120px]" />
+      <div className="absolute bottom-0 left-1/3 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 blur-[120px]" />
 
       {/* Heading */}
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase">
+      <div className="text-center mb-10 sm:mb-16">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase">
           Meet The Judges
         </h2>
-        <p className="text-gray-500 text-xs uppercase tracking-[0.4em] mt-3">
+        <p className="text-gray-500 text-[9px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] mt-2 sm:mt-3">
           Industry Experts Joining Soon
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="grid md:grid-cols-3 gap-10">
+      {/* Cards Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1 sm:gap-8 md:gap-10">
         {judges.map((j, i) => (
           <div
             key={i}
-            className="group relative rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-xl h-[380px] transition-all duration-500 hover:scale-[1.03]"
+            className="group relative rounded-[11px] sm:rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-xl 
+            h-[300px] sm:h-[340px] md:h-[380px] 
+            transition-all duration-500 hover:scale-[1.03]"
           >
-            {/* Animated Glow Border */}
+            {/* Glow Border */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 blur-xl" />
 
-            {/* Card Content */}
-            <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-              {/* Fake Silhouette */}
-              <img
-                src="https://www.thefashionisto.com/wp-content/uploads/2023/05/Mens-Trenchcoat.jpg"
-                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition"
-              />
+            {/* Image */}
+            <img
+              src="https://www.thefashionisto.com/wp-content/uploads/2023/05/Mens-Trenchcoat.jpg"
+              className="absolute inset-0 w-full h-full object-cover :grayscale-0 sm:grayscale group-hover:grayscale-0 transition duration-500"
+            />
 
-              {/* Status Badge */}
-              <div className="absolute top-6 right-6 px-3 py-1 bg-white/10 border border-white/10 rounded-full text-[9px] tracking-widest uppercase text-gray-300">
-                {j.status}
-              </div>
+            {/* Status Badge */}
+            <div className="hidden sm:block absolute top-4 sm:top-6 right-4 sm:right-6 px-2 sm:px-3 py-1 bg-white/10 border border-white/10 rounded-full text-[8px] sm:text-[9px] tracking-widest uppercase text-gray-300">
+              {j.status}
+            </div>
 
-              {/* Bottom Info */}
-              <div className="translate-y-4 group-hover:translate-y-0 transition duration-500">
-                <h3 className="text-2xl font-black text-white tracking-tight">
+            {/* Content */}
+            <div className="relative z-10 px-2 py-4 sm:p-6 md:p-8 h-full flex flex-col justify-end">
+              <div className="translate-y-3 sm:translate-y-4 group-hover:translate-y-0 transition duration-500">
+                
+                <h3 className="text-md sm:text-xl md:text-2xl font-black text-white tracking-tight">
                   {j.name}
                 </h3>
-                <p className="text-cyan-400 text-sm mt-1">{j.role}</p>
-                <p className="text-gray-500 text-xs mt-1 uppercase tracking-widest">
+
+                <p className="text-cyan-400 text-xs sm:text-sm mt-1">
+                  {j.role}
+                </p>
+
+                <p className="text-gray-500 text-[10px] sm:text-xs mt-1 uppercase tracking-widest">
                   {j.company}
                 </p>
+
               </div>
             </div>
 
-            {/* Hover Overlay Glow */}
+            {/* Hover Overlay */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-t from-purple-500 to-transparent transition duration-500" />
           </div>
         ))}
@@ -1793,59 +1784,65 @@ const AnnouncementSection = () => {
 
 const VenueSection = () => {
   return (
-    <section className="relative py-32 px-6 overflow-hidden min-h-screen">
-      {/* Background Image (Optional like your example) */}
+    <section className="relative py-12 sm:py-20 md:py-32 px-4 sm:px-6 overflow-hidden min-h-[80vh] sm:min-h-screen">
+
+      {/* Background */}
       <div className="absolute inset-0">
         <img
           src={background}
-          className="w-full min-h-[100vh] object-cover opacity-30"
+          className="w-full h-full object-cover opacity-20 sm:opacity-30"
         />
-        <div className="absolute inset-0 bg-transparent " />
+        <div className="absolute inset-0 bg-transparent" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
+
         {/* Heading */}
-        <h2 className="text-5xl font-black tracking-tighter uppercase mb-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase mb-7 sm:mb-6">
           Event Location
         </h2>
 
-        {/* Map Card */}
-        <div className="relative rounded-[30px] overflow-hidden border border-white/10 shadow-2xl backdrop-blur-xl">
+        {/* Map */}
+        <div className="relative rounded-[20px] sm:rounded-[30px] overflow-hidden border border-white/10 shadow-2xl backdrop-blur-xl ">
           <iframe
             src="https://www.google.com/maps?q=St+Xavier's+College+Burdwan&output=embed"
-            className="w-full h-[350px] border-0"
+            className="w-full h-[220px] sm:h-[300px] md:h-[350px] border-0"
             loading="lazy"
           ></iframe>
 
-          {/* Overlay Glow */}
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10" />
         </div>
 
         {/* Venue Info */}
-        <div className="mt-10 space-y-2">
-          <h3 className="text-3xl font-black text-white tracking-tight">
+        <div className="mt-8 sm:mt-10 space-y-1 sm:space-y-2 px-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight">
             St. Xavier’s College, Burdwan
           </h3>
 
-          <p className="text-gray-400 text-sm uppercase tracking-widest">
+          <p className="text-gray-400 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-widest">
             Nilpur, Purba Bardhaman, West Bengal
           </p>
 
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-xs sm:text-sm">
             Seminar Hall • X-Hacken 2026 Venue
           </p>
         </div>
 
         {/* Button */}
-        <div className="mt-8">
+        <div className="mt-6 sm:mt-8">
           <a
             href="https://www.google.com/maps?q=St+Xavier's+College+Burdwan"
             target="_blank"
-            className="inline-block px-8 py-3 rounded-full bg-white text-black font-bold text-sm uppercase tracking-widest hover:scale-105 transition"
+            className="inline-block px-5 sm:px-8 py-2.5 sm:py-3 rounded-full 
+            bg-white text-black font-bold 
+            text-[10px] sm:text-sm 
+            uppercase tracking-[0.2em] sm:tracking-widest 
+            hover:scale-105 active:scale-95 transition"
           >
             Get Directions →
           </a>
         </div>
+
       </div>
     </section>
   );
