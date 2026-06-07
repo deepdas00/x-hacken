@@ -508,141 +508,162 @@ const XHackenPage = () => {
 const LeadershipSection = () => {
   const presidents = [
     {
-      name: "Dr. Alexander Thorne",
-      role: "Chancellor / President of CSA",
+      name: "Swastik Basu",
+      role: "Club President of BCA",
       img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
     },
     {
-      name: "Prof. Sarah Jenkins",
-      role: "Executive Director of Innovation",
+      name: "Anubhab",
+      role: "Club President of BSC",
       img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
     },
   ];
 
   const supportTeam = [
-    {
-      name: "Nawab ",
-      role: "Technical Lead",
-      img: "https://tse1.mm.bing.net/th/id/OIP.atk55YoyDtPsWz6mGwuxgQHaJ4?pid=Api&P=0&h=180",
-      whatsapp: "#",
-      linkedin: "#",
-    },
-    {
-      name: "Deep Das",
-      role: "Logistics Head",
-      img: "https://tse1.mm.bing.net/th/id/OIP.atk55YoyDtPsWz6mGwuxgQHaJ4?pid=Api&P=0&h=180",
-      whatsapp: "#",
-      linkedin: "#",
-    },
-    {
-      name: "Trideep Ray",
-      role: "Operations",
-      img: "https://tse1.mm.bing.net/th/id/OIP.atk55YoyDtPsWz6mGwuxgQHaJ4?pid=Api&P=0&h=180",
-      whatsapp: "#",
-      linkedin: "#",
-    },
-    {
-      name: "Pratima",
-      role: "Operations",
-      img: "https://tse1.mm.bing.net/th/id/OIP.atk55YoyDtPsWz6mGwuxgQHaJ4?pid=Api&P=0&h=180",
-      whatsapp: "#",
-      linkedin: "#",
-    },
+    { name: "Deep Das", role: "Logistics Head", img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180", whatsapp: "#", linkedin: "#" },
+    { name: "Nawab", role: "Technical Lead", img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180", whatsapp: "#", linkedin: "#" },
+    { name: "Trideep Ray", role: "Operations", img:"https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180", whatsapp: "#", linkedin: "#" },
+    { name: "Pratima", role: "Operations", img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180", whatsapp: "#", linkedin: "#" },
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-10 py-10 border-t border-white/5 space-y-24">
-      {/* ROW 1: THE PRESIDENTS (Wide Glassmorphism) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-10 border-t border-white/5 space-y-16 md:space-y-24">
+
+      {/* ================= PRESIDENTS ================= */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
         {presidents.map((pres, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="group relative overflow-hidden rounded-[40px] bg-white/[0.03] border border-white/10 p-10 flex items-center gap-8 backdrop-blur-xl"
-          >
-            <div className="relative w-32 h-32 shrink-0 rounded-full overflow-hidden border-2 border-green-500/50 shadow-[0_0_40px_rgba(34,197,94,0.15)]">
-              <img
-                src={pres.img}
-                alt={pres.name}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-              />
-            </div>
-            <div>
-              <h4 className="text-gray-500 text-[10px] uppercase tracking-[0.4em] font-black mb-2">
-                University Leadership
-              </h4>
-              <h3 className="text-3xl font-black tracking-tight text-white mb-1">
-                {pres.name}
-              </h3>
-              <p className="text-green-500 text-sm font-medium">{pres.role}</p>
-            </div>
-          </motion.div>
+         <motion.div
+  key={i}
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  className="
+  group relative overflow-hidden 
+
+  /* MOBILE STYLE */
+  flex flex-row items-center gap-4 p-2 sm:p-4 rounded-2xl
+  bg-white/[0.04] border border-white/10 backdrop-blur-xl
+
+  /* DESKTOP KEEP SAME */
+  sm:flex-row sm:items-center sm:p-6 md:p-10 
+  md:rounded-[40px] md:gap-8
+
+  text-left
+  "
+>
+
+  {/* Image */}
+  <div className="
+    relative 
+    w-22 h-22 sm:w-20 sm:h-20 md:w-32 md:h-32 
+    shrink-0 rounded-xl md:rounded-full overflow-hidden 
+    border border-green-500/40
+  ">
+    <img
+      src={pres.img}
+      alt={pres.name}
+      className="w-full h-full object-cover
+      grayscale-0 sm:grayscale group-hover:grayscale-0 transition-all duration-700"
+    />
+  </div>
+
+  {/* Content */}
+  <div className="flex flex-col justify-center">
+    
+    <h4 className="text-gray-500 text-[8px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.4em] font-bold mb-1">
+      President
+    </h4>
+
+    <h3 className="text-base sm:text-xl md:text-3xl font-black text-white leading-tight">
+      {pres.name}
+    </h3>
+
+    <p className="text-green-400 text-[11px] sm:text-sm mt-1">
+      {pres.role}
+    </p>
+
+  </div>
+
+</motion.div>
         ))}
       </div>
 
-      {/* ROW 2: SUPPORT CELL (Full Image Background Cards) */}
-      <div className="space-y-12">
-        <div className="flex items-center gap-6">
-          <h2 className="text-2xl font-black tracking-tighter">
-            SUPPORT COMMAND
+      {/* ================= SUPPORT ================= */}
+      <div className="space-y-8 sm:space-y-10 md:space-y-12">
+
+        {/* Heading */}
+        <div className="flex items-center gap-4 sm:gap-6">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-black tracking-tighter whitespace-nowrap">
+            SUPPORT TEAM
           </h2>
-          <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent" />
+          <div className="h-[1px] flex-grow bg-gradient-to-r from-white/40 to-transparent" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1 sm:gap-6 md:gap-8">
           {supportTeam.map((member, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1 }}
-              className="group relative h-[450px] overflow-hidden rounded-[32px] border border-white/10 bg-zinc-900"
+              className="
+              group relative 
+              h-[310px] sm:h-[380px] md:h-[450px] 
+              overflow-hidden 
+              rounded-[12px] sm:rounded-[28px] md:rounded-[32px] 
+              border border-white/10 bg-zinc-900
+              "
             >
-              {/* Background Image */}
+              {/* Image */}
               <img
                 src={member.img}
-                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover sm:grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 alt={member.name}
               />
 
-              {/* Gradient Overlay (Darkness at bottom for text legibility) */}
+              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
-              {/* Content Layer */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <h4 className="text-3xl font-black text-white tracking-tighter mb-1 uppercase">
+              {/* Content */}
+              <div className="absolute inset-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end">
+                <div className="translate-y-3 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  
+                  <h4 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tighter mb-1 uppercase">
                     {member.name}
                   </h4>
-                  <p className="text-green-500 text-xs font-black uppercase tracking-[0.2em] mb-6">
+
+                  <p className="text-green-500 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] mb-4 sm:mb-6">
                     {member.role}
                   </p>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                  {/* Buttons */}
+                  <div className="flex gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500">
+                    
                     <a
                       href={member.whatsapp}
-                      className="flex-1 flex items-center justify-center gap-2 py-3 bg-green-500 text-black rounded-xl font-bold text-xs uppercase tracking-tighter hover:bg-white transition-colors"
+                      className="flex-1 flex items-center justify-center gap-2 py-2 sm:py-3 bg-green-500 text-black rounded-lg sm:rounded-xl font-bold text-[10px] sm:text-xs uppercase hover:bg-white transition"
                     >
-                      <Zap size={14} fill="black" /> WhatsApp
+                      <Zap size={14} /> WhatsApp
                     </a>
+
                     <a
                       href={member.linkedin}
-                      className="p-3 bg-white/10 backdrop-blur-md text-white rounded-xl hover:bg-white/20 transition-colors border border-white/10"
+                      className="p-2 sm:p-3 bg-white/10 text-white rounded-lg sm:rounded-xl hover:bg-white/20 border border-white/10"
                     >
-                      <Globe size={18} />
+                      <Globe size={16} />
                     </a>
+
                   </div>
                 </div>
               </div>
 
-              {/* Top Badge */}
-              <div className="absolute top-6 right-6 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/10 rounded-full">
-                <span className="text-[8px] font-black text-white uppercase tracking-widest">
+              {/* Badge */}
+              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 px-2 sm:px-3 py-1 bg-white/10 border border-white/10 rounded-full">
+                <span className="text-[7px] sm:text-[8px] font-black text-white uppercase tracking-widest">
                   Active
                 </span>
               </div>
+
             </motion.div>
           ))}
         </div>
@@ -661,25 +682,46 @@ const TeamMarquee = () => {
     { name: "Deep", role: "Founder", img: "p6.jpg" },
   ];
 
-  // We duplicate the array to ensure the loop is seamless
-  const fullTeam = [...team, ...team];
+  const fullTeam = [...team, ...team, ];
 
   return (
-    <section className="py-32 overflow-hidden bg-black relative flex flex-col gap-12">
-      <div className="px-10 text-center">
-        <h2 className="text-5xl font-black tracking-tighter text-white">
+   <section className="relative py-16 sm:py-20 md:py-18 overflow-hidden flex flex-col gap-8 sm:gap-10 md:gap-12">
+
+  {/* BACKGROUND IMAGE */}
+  <div className="absolute inset-0 -z-10 justify-center flex items-center">
+    <img
+      src={logo}
+      alt="background"
+      className="w-[150%] sm:w-[60%] object-center opacity-40"
+    />
+
+    {/* DARK OVERLAY (IMPORTANT) */}
+    <div className="absolute inset-0 bg-transparent" />
+  </div>
+
+      {/* HEADING */}
+      <div className="px-4 sm:px-6 md:px-10 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight md:tracking-tighter text-white">
           THE ARCHITECTS
         </h2>
+        <p className="text-gray-500 text-sm sm:text-base md:text-lg my-2">
+          Who make the magic happen. The core team behind X-Hacken, driving innovation and execution.
+        </p>
       </div>
 
-      {/* Container for both rows */}
-      <div className="flex flex-col gap-8">
-        {/* ROW 1: Left to Right (Normal) */}
+      {/* ROWS */}
+      <div className="flex flex-col gap-4 sm:gap-6 md:gap-8">
+
+        {/* ROW 1 */}
         <div className="flex overflow-hidden">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ ease: "linear", duration: 30, repeat: Infinity }}
-            className="flex gap-8 pr-8"
+            transition={{
+              ease: "linear",
+              duration: window.innerWidth < 768 ? 20 : 30, // 🔥 faster on mobile
+              repeat: Infinity,
+            }}
+            className="flex gap-4 sm:gap-6 md:gap-8 pr-4 sm:pr-6 md:pr-8"
           >
             {fullTeam.map((member, i) => (
               <TeamCard key={`row1-${i}`} member={member} />
@@ -687,24 +729,44 @@ const TeamMarquee = () => {
           </motion.div>
         </div>
 
-        {/* ROW 2: Right to Left (Reverse) */}
-        {/* We use "-50%" to "0%" to make it move in the opposite direction */}
+        {/* ROW 2 */}
         <div className="flex overflow-hidden">
           <motion.div
             animate={{ x: ["-50%", "0%"] }}
-            transition={{ ease: "linear", duration: 35, repeat: Infinity }}
-            className="flex gap-8 pr-8"
+            transition={{
+              ease: "linear",
+              duration: window.innerWidth < 768 ? 22 : 35, // 🔥 faster mobile
+              repeat: Infinity,
+            }}
+            className="flex gap-4 sm:gap-6 md:gap-8 pr-4 sm:pr-6 md:pr-8"
           >
             {fullTeam.map((member, i) => (
               <TeamCard key={`row2-${i}`} member={member} />
             ))}
           </motion.div>
         </div>
+    {/* ROW 3 */}
+        <div className="sm:hidden overflow-hidden">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              ease: "linear",
+              duration: window.innerWidth < 768 ? 20 : 30, // 🔥 faster on mobile
+              repeat: Infinity,
+            }}
+            className="flex gap-4 sm:gap-6 md:gap-8 pr-4 sm:pr-6 md:pr-8"
+          >
+            {fullTeam.map((member, i) => (
+              <TeamCard key={`row1-${i}`} member={member} />
+            ))}
+          </motion.div>
+        </div>
+
       </div>
 
-      {/* Optional: Side Fades for depth */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+      {/* SIDE FADES */}
+      <div className="absolute inset-y-0 left-0 w-12 sm:w-20 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-12 sm:w-20 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
     </section>
   );
 };
@@ -1039,24 +1101,39 @@ const HackathonRoadmap = () => {
 };
 
 // Extracted Card Component for cleaner code
-const TeamCard = ({ member }) => (
-  <div className="relative shrink-0 w-64 group cursor-crosshair">
-    <div className="aspect-[4/5] rounded-[32px] overflow-hidden bg-white/5 border border-white/10 mb-4 transition-transform duration-500 group-hover:scale-[0.98]">
+const TeamCard = ({ member }) => {
+  return (
+    <div className="
+      flex flex-col items-center text-center
+      
+      w-[140px] sm:w-[180px] md:w-[220px]
+      p-3 sm:p-4 md:p-6
+      
+      bg-white/[0.03] border border-white/10 
+      rounded-xl sm:rounded-2xl
+      
+      backdrop-blur-xl
+    ">
+      
       <img
         src={member.img}
         alt={member.name}
-        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+        className="
+        w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 
+        rounded-full object-cover mb-2 sm:mb-3
+        "
       />
-      <div className="absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+      <h3 className="text-xs sm:text-sm md:text-lg font-bold text-white">
+        {member.name}
+      </h3>
+
+      <p className="text-[10px] sm:text-xs text-gray-400">
+        {member.role}
+      </p>
     </div>
-    <h4 className="text-white font-bold text-lg tracking-tight uppercase">
-      {member.name}
-    </h4>
-    <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest">
-      {member.role}
-    </p>
-  </div>
-);
+  );
+};
 
 const PrizeSection = () => {
   const prizes = [
@@ -1534,118 +1611,124 @@ const RulesSection = () => {
   };
 
   return (
-    <section className="relative w-full text-white py-10 sm:py-10 overflow-hidden bg-transparent">
-      {/* Tech Matrix Grid Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
+    <section className="relative w-full text-white py-10 sm:py-12 lg:py-10 overflow-hidden bg-transparent">
 
-      <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
-        {/* --- SECTION TECH HEADER --- */}
-        <div className="flex flex-col items-center text-center mb-24">
-          <span className="text-cyan-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 bg-cyan-950/30 border border-cyan-800/30 px-4 py-1.5 rounded-full">
-            Security Core Parameters
-          </span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase">
-            Rules &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
-              Guidelines
-            </span>
-          </h2>
-          <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent mt-6" />
-        </div>
+  {/* Grid Overlay */}
+  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
 
-        {/* --- HIGH-SPEC DIRECTIVE MATRIX GRID --- */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
-        >
-          {ruleCategories.map((category, i) => {
-            const Icon = category.icon;
-            return (
-              <motion.div
-                key={i}
-                variants={cardVariants}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`group relative rounded-2xl border border-white/[0.04] bg-[#09090b]/80 p-6 sm:p-8 flex flex-col backdrop-blur-2xl transition-all duration-300 ${category.borderColor}`}
+  <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
+
+    {/* HEADER */}
+    <div className="flex flex-col items-center text-center mb-12 sm:mb-16 lg:mb-24">
+      <span className="text-cyan-400 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-3 sm:mb-4 bg-cyan-950/30 border border-cyan-800/30 px-3 py-1 rounded-full">
+        Security Core Parameters
+      </span>
+
+      <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-tight">
+        Rules &{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
+          Guidelines
+        </span>
+      </h2>
+
+      <div className="w-20 sm:w-32 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent mt-4 sm:mt-6" />
+    </div>
+
+    {/* GRID */}
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"
+    >
+      {ruleCategories.map((category, i) => {
+        const Icon = category.icon;
+
+        return (
+          <motion.div
+            key={i}
+            variants={cardVariants}
+            whileHover={{ y: -4 }}
+            className={`
+            group relative 
+            rounded-xl sm:rounded-2xl 
+            border border-white/[0.05] 
+            bg-[#09090b]/80 
+            p-4 sm:p-6 md:p-8 
+            flex flex-col 
+            backdrop-blur-2xl 
+            transition-all duration-300
+            ${category.borderColor}
+            `}
+          >
+
+            {/* Glow */}
+            <div
+              className={`absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-[0.03] blur-2xl transition-opacity duration-500`}
+            />
+
+            {/* Left Border Line */}
+            <div
+              className={`absolute left-0 top-6 bottom-6 w-[2px] rounded-r bg-gradient-to-b ${category.color} opacity-30 group-hover:opacity-100`}
+            />
+
+            {/* HEADER */}
+            <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8 pl-1 sm:pl-2">
+              
+              <div
+                className={`p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br ${category.color} text-black shadow-md`}
               >
-                {/* Micro Ambient Glow Behind Icon Container */}
-                <div
-                  className={`absolute top-0 left-0 w-32 h-32 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-[0.03] blur-2xl transition-opacity duration-500 pointer-events-none`}
-                />
+                <Icon size={16} className="sm:w-[20px] sm:h-[20px]" />
+              </div>
 
-                {/* Left Side Static Highlight Border Line */}
-                <div
-                  className={`absolute left-0 top-8 bottom-8 w-[2px] rounded-r bg-gradient-to-b ${category.color} opacity-30 group-hover:opacity-100 transition-opacity duration-300`}
-                />
+              <div>
+                <span className="block font-mono text-[8px] sm:text-[9px] tracking-[0.2em] text-neutral-500 uppercase">
+                  {category.subtitle}
+                </span>
+                <h3 className="text-sm sm:text-lg font-bold text-neutral-100 uppercase mt-0.5">
+                  {category.title}
+                </h3>
+              </div>
 
-                {/* Laser Bracket Details */}
-                <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-transparent group-hover:border-cyan-400/30 transition-all duration-300 rounded-tl-lg" />
-                <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-transparent group-hover:border-purple-500/30 transition-all duration-300 rounded-br-lg" />
+            </div>
 
-                {/* Card Header */}
-                <div className="flex items-center gap-4 mb-8 pl-2">
-                  <div
-                    className={`p-3 rounded-xl bg-gradient-to-br ${category.color} text-black font-extrabold relative shadow-lg flex-shrink-0`}
-                  >
-                    <Icon size={20} className="stroke-[2.5]" />
-                  </div>
-                  <div>
-                    <span className="block font-mono text-[9px] font-bold tracking-[0.25em] text-neutral-500 uppercase">
-                      {category.subtitle}
-                    </span>
-                    <h3 className="text-xl font-bold tracking-wide text-neutral-100 uppercase mt-0.5 group-hover:text-white transition-colors">
-                      {category.title}
-                    </h3>
-                  </div>
+            {/* ITEMS */}
+            <div className="space-y-3 sm:space-y-4 flex-grow pl-1 sm:pl-2">
+              {category.items.map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3 sm:gap-4">
+
+                  <CheckCircle2
+                    size={14}
+                    className={`mt-1 text-neutral-600 group-hover:${category.accent}`}
+                  />
+
+                  <p className="text-[11px] sm:text-sm leading-relaxed text-neutral-400 group-hover:text-neutral-200 transition">
+                    {item}
+                  </p>
+
                 </div>
+              ))}
+            </div>
 
-                {/* Instruction Blocks */}
-                <div className="space-y-4 flex-grow pl-2">
-                  {category.items.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-4 group/item"
-                    >
-                      {/* Interactive Point Beacon */}
-                      <div className="mt-1 flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
-                        <CheckCircle2
-                          size={15}
-                          className={`text-neutral-700 transition-colors duration-300 group-hover/item:${category.accent}`}
-                        />
-                      </div>
+            {/* Shimmer */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl sm:rounded-2xl">
+              <div className="absolute top-[-100%] w-full h-[50%] bg-gradient-to-b from-transparent via-white/[0.01] to-transparent group-hover:animate-[shimmer_2.5s_infinite]" />
+            </div>
 
-                      {/* Descriptive Content String */}
-                      <p className="text-sm leading-relaxed text-neutral-400 font-normal tracking-wide group-hover/item:text-neutral-200 transition-colors duration-300">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+          </motion.div>
+        );
+      })}
+    </motion.div>
+  </div>
 
-                {/* Interactive Sleek Shimmer Track */}
-                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden rounded-2xl">
-                  <div className="absolute top-[-100%] left-0 w-full h-[50%] bg-gradient-to-b from-transparent via-white/[0.01] to-transparent group-hover:animate-[shimmer_2.5s_infinite]" />
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-
-      {/* Embedded CSS Custom Keyframe for Shimmer Loop */}
-      <style jsx global>{`
-        @keyframes shimmer {
-          0% {
-            top: -100%;
-          }
-          100% {
-            top: 200%;
-          }
-        }
-      `}</style>
-    </section>
+  <style jsx global>{`
+    @keyframes shimmer {
+      0% { top: -100%; }
+      100% { top: 200%; }
+    }
+  `}</style>
+</section>
   );
 };
 
@@ -1657,7 +1740,7 @@ const SITE_THEME = {
 };
 
 const AnnouncementSection = () => {
-  const announcements = [
+    const announcements = [
     {
       title: "Surprise Swag Kits",
       desc: "Premium hackathon kits, limited edition apparel, and collectible hardware items distributed directly to your node.",
@@ -1688,95 +1771,104 @@ const AnnouncementSection = () => {
     },
   ];
 
-  // Dynamic theme evaluations based on your platform settings
-  const bgClass = SITE_THEME.isDark
-    ? "bg-black text-white"
-    : "bg-gray-50 text-gray-900";
-  const titleClass = SITE_THEME.isDark ? "text-white" : "text-gray-900";
-  const descClass = SITE_THEME.isDark ? "text-gray-400" : "text-gray-600";
-  const cardBg = SITE_THEME.isDark
-    ? "bg-neutral-900/50 border-white/[0.08] hover:border-white/[0.15]"
-    : "bg-white border-gray-200/80 hover:border-gray-300 shadow-sm hover:shadow-md";
-
   return (
     <section
-      className={`w-full py-24 relative overflow-hidden transition-colors duration-300  ${SITE_THEME.fontFamily}`}
+      className={`w-full py-16 sm:py-20 md:py-24 relative overflow-hidden transition-colors duration-300 ${SITE_THEME.fontFamily}`}
     >
-      {/* --- SECTION BACKGROUND COHESION --- */}
-      {/* If your platform has an existing background gradient, these will act as soft ambient highlights */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-40 select-none">
-        <div
-          className={`absolute top-12 left-10 w-72 h-72 bg-${SITE_THEME.primaryAccent}/10 rounded-full blur-[120px]`}
-        />
-        <div
-          className={`absolute bottom-12 right-10 w-72 h-72 bg-${SITE_THEME.secondaryAccent}/10 rounded-full blur-[120px]`}
-        />
+
+      {/* Background Glow */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div className="absolute top-10 left-6 sm:left-10 w-52 sm:w-72 h-52 sm:h-72 bg-blue-500/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-10 right-6 sm:right-10 w-52 sm:w-72 h-52 sm:h-72 bg-purple-500/10 rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* --- GLOBAL STANDARD SECTION HEADER --- */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight uppercase">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+
+        {/* HEADER */}
+        <div className="text-center max-w-xl mx-auto mb-10 sm:mb-14 md:mb-16 space-y-3">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-black tracking-tight uppercase">
             Classified Announcements
           </h2>
-          <div
-            className={`h-1 w-12 bg-gradient-to-r from-${SITE_THEME.primaryAccent} to-${SITE_THEME.secondaryAccent} mx-auto rounded-full`}
-          />
-          <p className={`text-sm md:text-base pt-2 ${descClass}`}>
+
+          <div className="h-[3px] w-10 sm:w-12 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
+
+          <p className="text-xs sm:text-sm md:text-base text-gray-400 pt-1 sm:pt-2 leading-relaxed">
             Hidden drops, surprise mechanical variables, and system upgrades
             activated dynamically throughout the timeline.
           </p>
         </div>
 
-        {/* --- FLEXIBLE STRUCTURE MATRIX --- */}
-        {/* Grid settings automatically match typical landing page structural flow blocks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {announcements.map((item, i) => {
             const IconComponent = item.icon;
+
             return (
               <div
                 key={i}
-                className={`group relative rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row items-start gap-5 transition-all duration-300 transform hover:-translate-y-1 ${cardBg}`}
+                className="
+                group relative rounded-xl sm:rounded-2xl border 
+                p-4 sm:p-6 md:p-8 
+                flex flex-col sm:flex-row items-start gap-4 sm:gap-5 
+                transition-all duration-300 
+                hover:-translate-y-1
+                bg-neutral-900/50 border-white/[0.08] hover:border-white/[0.15]
+                "
               >
-                {/* Visual Anchor Indicator Icon Block */}
+
+                {/* ICON */}
                 <div
-                  className={`p-3 rounded-xl bg-gradient-to-br ${item.color} bg-opacity-10 text-white shadow-sm flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                  className={`
+                  p-2.5 sm:p-3 rounded-lg sm:rounded-xl 
+                  bg-gradient-to-br ${item.color} 
+                  bg-opacity-10 text-white 
+                  shrink-0
+                  group-hover:scale-110 transition-transform duration-300
+                  `}
                 >
-                  <IconComponent size={22} className="stroke-[2]" />
+                  <IconComponent size={18} className="sm:w-[22px] sm:h-[22px]" />
                 </div>
 
-                {/* Information Layer Blocks */}
-                <div className="space-y-2 flex-grow">
-                  <div className="flex items-center justify-between gap-4 flex-wrap">
-                    <h3
-                      className={`text-lg font-bold tracking-tight ${titleClass}`}
-                    >
+                {/* CONTENT */}
+                <div className="space-y-1.5 sm:space-y-2 flex-grow w-full">
+
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    
+                    <h3 className="text-base sm:text-lg font-bold tracking-tight text-white">
                       {item.title}
                     </h3>
-                    <span className="font-mono text-[9px] font-bold tracking-wider px-2 py-0.5 rounded-md bg-neutral-500/10 border border-neutral-500/20 text-gray-400 group-hover:text-gray-300 transition-colors">
+
+                    <span className="
+                      font-mono text-[8px] sm:text-[9px] 
+                      font-bold tracking-wider 
+                      px-2 py-0.5 rounded-md 
+                      bg-neutral-500/10 border border-neutral-500/20 
+                      text-gray-400
+                      w-fit
+                    ">
                       {item.status}
                     </span>
+
                   </div>
-                  <p
-                    className={`text-xs md:text-sm leading-relaxed ${descClass}`}
-                  >
+
+                  <p className="text-[11px] sm:text-xs md:text-sm text-gray-400 leading-relaxed">
                     {item.desc}
                   </p>
+
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* --- FOOTER BANNER TICKER --- */}
-        <div className="text-center mt-12 pt-6 border-t border-white/[0.04]">
-          <p
-            className={`text-xs font-mono tracking-wider opacity-70 ${descClass}`}
-          >
+        {/* FOOTER */}
+        <div className="text-center mt-8 sm:mt-10 md:mt-12 pt-4 sm:pt-6 border-t border-white/[0.04]">
+          <p className="text-[10px] sm:text-xs font-mono tracking-wider opacity-70 text-gray-400 leading-relaxed">
             💡 Track parameters closely. Surprise parameters synchronize
             automatically with core modules during live runtime.
           </p>
         </div>
+
       </div>
     </section>
   );
