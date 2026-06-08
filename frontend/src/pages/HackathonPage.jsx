@@ -520,23 +520,46 @@ const LeadershipSection = () => {
   ];
 
   const supportTeam = [
-    { name: "Deep Das", role: "Logistics Head", img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180", whatsapp: "#", linkedin: "#" },
-    { name: "Nawab", role: "Technical Lead", img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180", whatsapp: "#", linkedin: "#" },
-    { name: "Trideep Ray", role: "Operations", img:"https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180", whatsapp: "#", linkedin: "#" },
-    { name: "Pratima", role: "Operations", img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180", whatsapp: "#", linkedin: "#" },
+    {
+      name: "Deep Das",
+      role: "Logistics Head",
+      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      whatsapp: "#",
+      linkedin: "#",
+    },
+    {
+      name: "Nawab",
+      role: "Technical Lead",
+      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      whatsapp: "#",
+      linkedin: "#",
+    },
+    {
+      name: "Trideep Ray",
+      role: "Operations",
+      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      whatsapp: "#",
+      linkedin: "#",
+    },
+    {
+      name: "Pratima",
+      role: "Operations",
+      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      whatsapp: "#",
+      linkedin: "#",
+    },
   ];
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-10 border-t border-white/5 space-y-16 md:space-y-24">
-
       {/* ================= PRESIDENTS ================= */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
         {presidents.map((pres, i) => (
-         <motion.div
-  key={i}
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  className="
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="
   group relative overflow-hidden 
 
   /* MOBILE STYLE */
@@ -549,47 +572,44 @@ const LeadershipSection = () => {
 
   text-left
   "
->
-
-  {/* Image */}
-  <div className="
+          >
+            {/* Image */}
+            <div
+              className="
     relative 
     w-22 h-22 sm:w-20 sm:h-20 md:w-32 md:h-32 
     shrink-0 rounded-xl md:rounded-full overflow-hidden 
     border border-green-500/40
-  ">
-    <img
-      src={pres.img}
-      alt={pres.name}
-      className="w-full h-full object-cover
+  "
+            >
+              <img
+                src={pres.img}
+                alt={pres.name}
+                className="w-full h-full object-cover
       grayscale-0 sm:grayscale group-hover:grayscale-0 transition-all duration-700"
-    />
-  </div>
+              />
+            </div>
 
-  {/* Content */}
-  <div className="flex flex-col justify-center">
-    
-    <h4 className="text-gray-500 text-[8px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.4em] font-bold mb-1">
-      President
-    </h4>
+            {/* Content */}
+            <div className="flex flex-col justify-center">
+              <h4 className="text-gray-500 text-[8px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.4em] font-bold mb-1">
+                President
+              </h4>
 
-    <h3 className="text-base sm:text-xl md:text-3xl font-black text-white leading-tight">
-      {pres.name}
-    </h3>
+              <h3 className="text-base sm:text-xl md:text-3xl font-black text-white leading-tight">
+                {pres.name}
+              </h3>
 
-    <p className="text-green-400 text-[11px] sm:text-sm mt-1">
-      {pres.role}
-    </p>
-
-  </div>
-
-</motion.div>
+              <p className="text-green-400 text-[11px] sm:text-sm mt-1">
+                {pres.role}
+              </p>
+            </div>
+          </motion.div>
         ))}
       </div>
 
       {/* ================= SUPPORT ================= */}
       <div className="space-y-8 sm:space-y-10 md:space-y-12">
-
         {/* Heading */}
         <div className="flex items-center gap-4 sm:gap-6">
           <h2 className="text-lg sm:text-xl md:text-2xl font-black tracking-tighter whitespace-nowrap">
@@ -627,7 +647,6 @@ const LeadershipSection = () => {
               {/* Content */}
               <div className="absolute inset-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end">
                 <div className="translate-y-3 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  
                   <h4 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tighter mb-1 uppercase">
                     {member.name}
                   </h4>
@@ -638,7 +657,6 @@ const LeadershipSection = () => {
 
                   {/* Buttons */}
                   <div className="flex gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500">
-                    
                     <a
                       href={member.whatsapp}
                       className="flex-1 flex items-center justify-center gap-2 py-2 sm:py-3 bg-green-500 text-black rounded-lg sm:rounded-xl font-bold text-[10px] sm:text-xs uppercase hover:bg-white transition"
@@ -652,7 +670,6 @@ const LeadershipSection = () => {
                     >
                       <Globe size={16} />
                     </a>
-
                   </div>
                 </div>
               </div>
@@ -663,7 +680,6 @@ const LeadershipSection = () => {
                   Active
                 </span>
               </div>
-
             </motion.div>
           ))}
         </div>
@@ -682,22 +698,21 @@ const TeamMarquee = () => {
     { name: "Deep", role: "Founder", img: "p6.jpg" },
   ];
 
-  const fullTeam = [...team, ...team, ];
+  const fullTeam = [...team, ...team];
 
   return (
-   <section className="relative py-16 sm:py-20 md:py-18 overflow-hidden flex flex-col gap-8 sm:gap-10 md:gap-12">
+    <section className="relative py-16 sm:py-20 md:py-18 overflow-hidden flex flex-col gap-8 sm:gap-10 md:gap-12">
+      {/* BACKGROUND IMAGE */}
+      <div className="absolute inset-0 -z-10 justify-center flex items-center">
+        <img
+          src={logo}
+          alt="background"
+          className="w-[150%] sm:w-[60%] object-center opacity-40"
+        />
 
-  {/* BACKGROUND IMAGE */}
-  <div className="absolute inset-0 -z-10 justify-center flex items-center">
-    <img
-      src={logo}
-      alt="background"
-      className="w-[150%] sm:w-[60%] object-center opacity-40"
-    />
-
-    {/* DARK OVERLAY (IMPORTANT) */}
-    <div className="absolute inset-0 bg-transparent" />
-  </div>
+        {/* DARK OVERLAY (IMPORTANT) */}
+        <div className="absolute inset-0 bg-transparent" />
+      </div>
 
       {/* HEADING */}
       <div className="px-4 sm:px-6 md:px-10 text-center">
@@ -705,13 +720,13 @@ const TeamMarquee = () => {
           THE ARCHITECTS
         </h2>
         <p className="text-gray-500 text-sm sm:text-base md:text-lg my-2">
-          Who make the magic happen. The core team behind X-Hacken, driving innovation and execution.
+          Who make the magic happen. The core team behind X-Hacken, driving
+          innovation and execution.
         </p>
       </div>
 
       {/* ROWS */}
       <div className="flex flex-col gap-4 sm:gap-6 md:gap-8">
-
         {/* ROW 1 */}
         <div className="flex overflow-hidden">
           <motion.div
@@ -745,24 +760,23 @@ const TeamMarquee = () => {
             ))}
           </motion.div>
         </div>
-    {/* ROW 3 */}
         {/* ROW 3 */}
-<div className="sm:hidden flex overflow-hidden">
-  <motion.div
-    animate={{ x: ["0%", "-50%"] }}
-    transition={{
-      ease: "linear",
-      duration: 20, // keep fixed for mobile
-      repeat: Infinity,
-    }}
-    className="flex gap-4 pr-4"
-  >
-    {fullTeam.map((member, i) => (
-      <TeamCard key={`row3-${i}`} member={member} />
-    ))}
-  </motion.div>
-</div>
-
+        {/* ROW 3 */}
+        <div className="sm:hidden flex overflow-hidden">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              ease: "linear",
+              duration: 20, // keep fixed for mobile
+              repeat: Infinity,
+            }}
+            className="flex gap-4 pr-4"
+          >
+            {fullTeam.map((member, i) => (
+              <TeamCard key={`row3-${i}`} member={member} />
+            ))}
+          </motion.div>
+        </div>
       </div>
 
       {/* SIDE FADES */}
@@ -847,7 +861,7 @@ const HackathonRoadmap = () => {
 
       <div className="max-w-8xl mx-auto space-y-12">
         {/* Module Header */}
-         <div className="text-center">
+        <div className="text-center">
           <h2 className="text-[20px] sm:text-3xl md:text-5xl font-black tracking-tighter text-[var(--text-primary)] uppercase">
             X-HACKEN 2026 Roadmap
           </h2>
@@ -948,7 +962,7 @@ const HackathonRoadmap = () => {
               className="absolute top-0 right-0 text-[var(--color-accent)] text-[10px] font-mono uppercase tracking-widest font-bold px-4 py-2 rounded-bl-2xl rounded-tr-[31px] border-l border-b border-[var(--border-default)] flex items-center gap-1.5"
               style={{ background: "rgba(0, 229, 255, 0.1)" }}
             >
-              <MapPin size={12} /> Phase II 
+              <MapPin size={12} /> Phase II
             </div>
 
             <div className="flex items-center gap-4 mb-8 ">
@@ -977,7 +991,7 @@ const HackathonRoadmap = () => {
             <div className="flex gap-3 flex-col md:flex-row relative">
               {/* DIV 1: ON-CAMPUS INITIALIZATION */}
               <div>
-                 <div className="space-y-4 sm:space-y-6 relative">
+                <div className="space-y-4 sm:space-y-6 relative">
                   <div
                     className="absolute left-[23px] top-2 bottom-2 w-[0.8px] opacity-30"
                     style={{ background: "var(--gradient-cyan-purple)" }}
@@ -987,7 +1001,10 @@ const HackathonRoadmap = () => {
                     const stepNumber = index + 9;
                     const isFuelingStep = stepNumber === 12;
                     return (
-                      <div key={index} className="flex gap-3 sm:gap-5 relative group">
+                      <div
+                        key={index}
+                        className="flex gap-3 sm:gap-5 relative group"
+                      >
                         <div
                           className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center text-xs sm:text-sm font-bold z-10 transition-all duration-300 group-hover:scale-105"
                           style={{
@@ -1027,7 +1044,7 @@ const HackathonRoadmap = () => {
 
               {/* DIV 2: CONTINUOUS PRODUCTION EXECUTIONS */}
               <div>
-               <div className="space-y-4 sm:space-y-6 relative">
+                <div className="space-y-4 sm:space-y-6 relative">
                   <div
                     className="absolute left-[23px] top-2 bottom-2 w-[0.8px] opacity-30"
                     style={{ background: "var(--gradient-cyan-purple)" }}
@@ -1104,7 +1121,8 @@ const HackathonRoadmap = () => {
 // Extracted Card Component for cleaner code
 const TeamCard = ({ member }) => {
   return (
-    <div className="
+    <div
+      className="
       flex flex-col items-center text-center
       
       w-[140px] sm:w-[180px] md:w-[220px]
@@ -1114,8 +1132,8 @@ const TeamCard = ({ member }) => {
       rounded-xl sm:rounded-2xl
       
       backdrop-blur-xl
-    ">
-      
+    "
+    >
       <img
         src={member.img}
         alt={member.name}
@@ -1129,9 +1147,7 @@ const TeamCard = ({ member }) => {
         {member.name}
       </h3>
 
-      <p className="text-[10px] sm:text-xs text-gray-400">
-        {member.role}
-      </p>
+      <p className="text-[10px] sm:text-xs text-gray-400">{member.role}</p>
     </div>
   );
 };
@@ -1144,7 +1160,8 @@ const PrizeSection = () => {
       label: "Grand Champion",
       borderColor: "var(--color-primary)",
       glowColor: "var(--glow-primary)",
-      height: "h-auto min-h-[280px] sm:min-h-[360px] md:h-[430px] md:hidden sm:hidden",
+      height:
+        "h-auto min-h-[280px] sm:min-h-[360px] md:h-[430px] md:hidden sm:hidden",
       featured: true,
       delay: 0,
       // Icon & Perk assets
@@ -1179,7 +1196,8 @@ const PrizeSection = () => {
       label: "Grand Champion",
       borderColor: "var(--color-primary)",
       glowColor: "var(--glow-primary)",
-      height: "h-auto min-h-[280px] sm:min-h-[360px] md:h-[430px] hidden sm:block",
+      height:
+        "h-auto min-h-[280px] sm:min-h-[360px] md:h-[430px] hidden sm:block",
       featured: true,
       delay: 0,
       // Icon & Perk assets
@@ -1331,11 +1349,11 @@ const PrizeSection = () => {
       </div>
 
       {/* --- ALL PARTICIPANTS CERTIFICATE ROW --- */}
- <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="max-w-4xl mx-auto mb-5 
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="max-w-4xl mx-auto mb-5 
   p-4 sm:p-6 
   rounded-2xl 
   flex flex-col sm:flex-row 
@@ -1344,41 +1362,40 @@ const PrizeSection = () => {
   justify-center sm:justify-between 
   text-center sm:text-left 
   relative overflow-hidden group"
->
-  {/* Gradient Border */}
-  <div className="absolute inset-0 p-[2px] bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl -z-20 pointer-events-none" />
+      >
+        {/* Gradient Border */}
+        <div className="absolute inset-0 p-[2px] bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl -z-20 pointer-events-none" />
 
-  {/* Inner Background */}
-  <div className="absolute inset-[2px] bg-gradient-to-br from-[#09090b]/95 to-[#030303]/95 rounded-[14px] -z-10 pointer-events-none" />
+        {/* Inner Background */}
+        <div className="absolute inset-[2px] bg-gradient-to-br from-[#09090b]/95 to-[#030303]/95 rounded-[14px] -z-10 pointer-events-none" />
 
-  {/* LEFT CONTENT */}
-  <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-    
-    {/* Icon */}
-    <div className="p-2 sm:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[var(--color-accent)]">
-      <FileCheck size={22} className="sm:w-7 sm:h-7" />
-    </div>
+        {/* LEFT CONTENT */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+          {/* Icon */}
+          <div className="p-2 sm:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[var(--color-accent)]">
+            <FileCheck size={22} className="sm:w-7 sm:h-7" />
+          </div>
 
-    {/* Text */}
-    <div>
-      <h4 className="text-white text-sm sm:text-base font-bold tracking-tight mb-1">
-        Participation Framework Certification
-      </h4>
-      <p className="text-[10px] sm:text-xs text-[var(--text-secondary)] max-w-xs sm:max-w-md">
-        Every participating engineer receives an official certified
-        production validation certificate and verifiable digital badge
-        credentials.
-      </p>
-    </div>
-  </div>
+          {/* Text */}
+          <div>
+            <h4 className="text-white text-sm sm:text-base font-bold tracking-tight mb-1">
+              Participation Framework Certification
+            </h4>
+            <p className="text-[10px] sm:text-xs text-[var(--text-secondary)] max-w-xs sm:max-w-md">
+              Every participating engineer receives an official certified
+              production validation certificate and verifiable digital badge
+              credentials.
+            </p>
+          </div>
+        </div>
 
-  {/* RIGHT BADGE */}
-  <div className="shrink-0">
-    <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-[var(--text-muted)] uppercase border border-white/[0.1] px-3 py-1 rounded-md bg-white/[0.01]">
-      ALL PARTICIPANTS
-    </span>
-  </div>
-</motion.div>
+        {/* RIGHT BADGE */}
+        <div className="shrink-0">
+          <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-[var(--text-muted)] uppercase border border-white/[0.1] px-3 py-1 rounded-md bg-white/[0.01]">
+            ALL PARTICIPANTS
+          </span>
+        </div>
+      </motion.div>
 
       {/* --- FOOTER NOTE --- */}
       <div className="text-center">
@@ -1400,7 +1417,6 @@ const SponsorsSection = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28 relative">
-      
       {/* Glow Background */}
       <div className="absolute top-1/2 left-1/2 w-60 sm:w-80 md:w-96 h-60 sm:h-80 md:h-96 bg-cyan-500/10 blur-[80px] sm:blur-[100px] md:blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
@@ -1425,10 +1441,11 @@ const SponsorsSection = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 opacity-30 sm:opacity-40 group-hover:opacity-100 blur-sm transition" />
 
             {/* Card */}
-            <div className="relative bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl 
+            <div
+              className="relative bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl 
             p-6 sm:p-8 md:p-10 
-            h-full flex flex-col justify-center items-center text-center">
-
+            h-full flex flex-col justify-center items-center text-center"
+            >
               {/* Tier Badge */}
               <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-cyan-400 mb-3 sm:mb-4">
                 {s.tier}
@@ -1445,9 +1462,7 @@ const SponsorsSection = () => {
               </h3>
 
               {/* Status */}
-              <p className="text-gray-500 text-xs sm:text-sm">
-                {s.status}
-              </p>
+              <p className="text-gray-500 text-xs sm:text-sm">{s.status}</p>
 
               {/* Hover Glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-br from-cyan-500 to-purple-500 transition duration-500 rounded-2xl sm:rounded-3xl" />
@@ -1461,15 +1476,34 @@ const SponsorsSection = () => {
 
 const JudgesSection = () => {
   const judges = [
-    { name: "Revealing Soon", role: "AI Research Lead", company: "Top Tech Company", status: "CONFIDENTIAL" },
-    { name: "To Be Announced", role: "Full Stack Architect", company: "Industry Expert", status: "LOCKED" },
-    { name: "???", role: "Startup Founder", company: "Stealth Mode", status: "SECRET" },
-    { name: "???", role: "Startup Founder", company: "Stealth Mode", status: "SECRET" },
+    {
+      name: "Revealing Soon",
+      role: "AI Research Lead",
+      company: "Top Tech Company",
+      status: "CONFIDENTIAL",
+    },
+    {
+      name: "To Be Announced",
+      role: "Full Stack Architect",
+      company: "Industry Expert",
+      status: "LOCKED",
+    },
+    {
+      name: "???",
+      role: "Startup Founder",
+      company: "Stealth Mode",
+      status: "SECRET",
+    },
+    {
+      name: "???",
+      role: "Startup Founder",
+      company: "Stealth Mode",
+      status: "SECRET",
+    },
   ];
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10 relative">
-
       {/* Background Glow */}
       <div className="absolute top-1/3 right-1/3 w-72 sm:w-96 h-72 sm:h-96 bg-purple-500/10 blur-[120px]" />
       <div className="absolute bottom-0 left-1/3 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 blur-[120px]" />
@@ -1510,7 +1544,6 @@ const JudgesSection = () => {
             {/* Content */}
             <div className="relative z-10 px-2 py-4 sm:p-6 md:p-8 h-full flex flex-col justify-end">
               <div className="translate-y-3 sm:translate-y-4 group-hover:translate-y-0 transition duration-500">
-                
                 <h3 className="text-md sm:text-xl md:text-2xl font-black text-white tracking-tight">
                   {j.name}
                 </h3>
@@ -1522,7 +1555,6 @@ const JudgesSection = () => {
                 <p className="text-gray-500 text-[10px] sm:text-xs mt-1 uppercase tracking-widest">
                   {j.company}
                 </p>
-
               </div>
             </div>
 
@@ -1609,45 +1641,43 @@ const RulesSection = () => {
 
   return (
     <section className="relative w-full text-white py-10 sm:py-12 lg:py-10 overflow-hidden bg-transparent">
+      {/* Grid Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
 
-  {/* Grid Overlay */}
-  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
+      <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
+        {/* HEADER */}
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-16 lg:mb-24">
+          <span className="text-cyan-400 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-3 sm:mb-4 bg-cyan-950/30 border border-cyan-800/30 px-3 py-1 rounded-full">
+            Security Core Parameters
+          </span>
 
-  <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-tight">
+            Rules &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
+              Guidelines
+            </span>
+          </h2>
 
-    {/* HEADER */}
-    <div className="flex flex-col items-center text-center mb-12 sm:mb-16 lg:mb-24">
-      <span className="text-cyan-400 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-3 sm:mb-4 bg-cyan-950/30 border border-cyan-800/30 px-3 py-1 rounded-full">
-        Security Core Parameters
-      </span>
+          <div className="w-20 sm:w-32 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent mt-4 sm:mt-6" />
+        </div>
 
-      <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-tight">
-        Rules &{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
-          Guidelines
-        </span>
-      </h2>
+        {/* GRID */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"
+        >
+          {ruleCategories.map((category, i) => {
+            const Icon = category.icon;
 
-      <div className="w-20 sm:w-32 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent mt-4 sm:mt-6" />
-    </div>
-
-    {/* GRID */}
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"
-    >
-      {ruleCategories.map((category, i) => {
-        const Icon = category.icon;
-
-        return (
-          <motion.div
-            key={i}
-            variants={cardVariants}
-            whileHover={{ y: -4 }}
-            className={`
+            return (
+              <motion.div
+                key={i}
+                variants={cardVariants}
+                whileHover={{ y: -4 }}
+                className={`
             group relative 
             rounded-xl sm:rounded-2xl 
             border border-white/[0.05] 
@@ -1658,74 +1688,72 @@ const RulesSection = () => {
             transition-all duration-300
             ${category.borderColor}
             `}
-          >
-
-            {/* Glow */}
-            <div
-              className={`absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-[0.03] blur-2xl transition-opacity duration-500`}
-            />
-
-            {/* Left Border Line */}
-            <div
-              className={`absolute left-0 top-6 bottom-6 w-[2px] rounded-r bg-gradient-to-b ${category.color} opacity-30 group-hover:opacity-100`}
-            />
-
-            {/* HEADER */}
-            <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8 pl-1 sm:pl-2">
-              
-              <div
-                className={`p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br ${category.color} text-black shadow-md`}
               >
-                <Icon size={16} className="sm:w-[20px] sm:h-[20px]" />
-              </div>
+                {/* Glow */}
+                <div
+                  className={`absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-[0.03] blur-2xl transition-opacity duration-500`}
+                />
 
-              <div>
-                <span className="block font-mono text-[8px] sm:text-[9px] tracking-[0.2em] text-neutral-500 uppercase">
-                  {category.subtitle}
-                </span>
-                <h3 className="text-sm sm:text-lg font-bold text-neutral-100 uppercase mt-0.5">
-                  {category.title}
-                </h3>
-              </div>
+                {/* Left Border Line */}
+                <div
+                  className={`absolute left-0 top-6 bottom-6 w-[2px] rounded-r bg-gradient-to-b ${category.color} opacity-30 group-hover:opacity-100`}
+                />
 
-            </div>
+                {/* HEADER */}
+                <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8 pl-1 sm:pl-2">
+                  <div
+                    className={`p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br ${category.color} text-black shadow-md`}
+                  >
+                    <Icon size={16} className="sm:w-[20px] sm:h-[20px]" />
+                  </div>
 
-            {/* ITEMS */}
-            <div className="space-y-3 sm:space-y-4 flex-grow pl-1 sm:pl-2">
-              {category.items.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3 sm:gap-4">
-
-                  <CheckCircle2
-                    size={14}
-                    className={`mt-1 text-neutral-600 group-hover:${category.accent}`}
-                  />
-
-                  <p className="text-[11px] sm:text-sm leading-relaxed text-neutral-400 group-hover:text-neutral-200 transition">
-                    {item}
-                  </p>
-
+                  <div>
+                    <span className="block font-mono text-[8px] sm:text-[9px] tracking-[0.2em] text-neutral-500 uppercase">
+                      {category.subtitle}
+                    </span>
+                    <h3 className="text-sm sm:text-lg font-bold text-neutral-100 uppercase mt-0.5">
+                      {category.title}
+                    </h3>
+                  </div>
                 </div>
-              ))}
-            </div>
 
-            {/* Shimmer */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl sm:rounded-2xl">
-              <div className="absolute top-[-100%] w-full h-[50%] bg-gradient-to-b from-transparent via-white/[0.01] to-transparent group-hover:animate-[shimmer_2.5s_infinite]" />
-            </div>
+                {/* ITEMS */}
+                <div className="space-y-3 sm:space-y-4 flex-grow pl-1 sm:pl-2">
+                  {category.items.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3 sm:gap-4">
+                      <CheckCircle2
+                        size={14}
+                        className={`mt-1 text-neutral-600 group-hover:${category.accent}`}
+                      />
 
-          </motion.div>
-        );
-      })}
-    </motion.div>
-  </div>
+                      <p className="text-[11px] sm:text-sm leading-relaxed text-neutral-400 group-hover:text-neutral-200 transition">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </div>
 
-  <style jsx global>{`
-    @keyframes shimmer {
-      0% { top: -100%; }
-      100% { top: 200%; }
-    }
-  `}</style>
-</section>
+                {/* Shimmer */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl sm:rounded-2xl">
+                  <div className="absolute top-[-100%] w-full h-[50%] bg-gradient-to-b from-transparent via-white/[0.01] to-transparent group-hover:animate-[shimmer_2.5s_infinite]" />
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+
+      <style jsx global>{`
+        @keyframes shimmer {
+          0% {
+            top: -100%;
+          }
+          100% {
+            top: 200%;
+          }
+        }
+      `}</style>
+    </section>
   );
 };
 
@@ -1737,7 +1765,7 @@ const SITE_THEME = {
 };
 
 const AnnouncementSection = () => {
-    const announcements = [
+  const announcements = [
     {
       title: "Surprise Swag Kits",
       desc: "Premium hackathon kits, limited edition apparel, and collectible hardware items distributed directly to your node.",
@@ -1772,7 +1800,6 @@ const AnnouncementSection = () => {
     <section
       className={`w-full py-16 sm:py-20 md:py-24 relative overflow-hidden transition-colors duration-300 ${SITE_THEME.fontFamily}`}
     >
-
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <div className="absolute top-10 left-6 sm:left-10 w-52 sm:w-72 h-52 sm:h-72 bg-blue-500/10 rounded-full blur-[100px]" />
@@ -1780,7 +1807,6 @@ const AnnouncementSection = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-
         {/* HEADER */}
         <div className="text-center max-w-xl mx-auto mb-10 sm:mb-14 md:mb-16 space-y-3">
           <h2 className="text-xl sm:text-2xl md:text-4xl font-black tracking-tight uppercase">
@@ -1812,7 +1838,6 @@ const AnnouncementSection = () => {
                 bg-neutral-900/50 border-white/[0.08] hover:border-white/[0.15]
                 "
               >
-
                 {/* ICON */}
                 <div
                   className={`
@@ -1823,35 +1848,36 @@ const AnnouncementSection = () => {
                   group-hover:scale-110 transition-transform duration-300
                   `}
                 >
-                  <IconComponent size={18} className="sm:w-[22px] sm:h-[22px]" />
+                  <IconComponent
+                    size={18}
+                    className="sm:w-[22px] sm:h-[22px]"
+                  />
                 </div>
 
                 {/* CONTENT */}
                 <div className="space-y-1.5 sm:space-y-2 flex-grow w-full">
-
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    
                     <h3 className="text-base sm:text-lg font-bold tracking-tight text-white">
                       {item.title}
                     </h3>
 
-                    <span className="
+                    <span
+                      className="
                       font-mono text-[8px] sm:text-[9px] 
                       font-bold tracking-wider 
                       px-2 py-0.5 rounded-md 
                       bg-neutral-500/10 border border-neutral-500/20 
                       text-gray-400
                       w-fit
-                    ">
+                    "
+                    >
                       {item.status}
                     </span>
-
                   </div>
 
                   <p className="text-[11px] sm:text-xs md:text-sm text-gray-400 leading-relaxed">
                     {item.desc}
                   </p>
-
                 </div>
               </div>
             );
@@ -1865,7 +1891,6 @@ const AnnouncementSection = () => {
             automatically with core modules during live runtime.
           </p>
         </div>
-
       </div>
     </section>
   );
@@ -1874,7 +1899,6 @@ const AnnouncementSection = () => {
 const VenueSection = () => {
   return (
     <section className="relative py-12 sm:py-20 md:py-32 px-4 sm:px-6 overflow-hidden min-h-[80vh] sm:min-h-screen">
-
       {/* Background */}
       <div className="absolute inset-0">
         <img
@@ -1885,7 +1909,6 @@ const VenueSection = () => {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase mb-7 sm:mb-6">
           Event Location
@@ -1931,7 +1954,6 @@ const VenueSection = () => {
             Get Directions →
           </a>
         </div>
-
       </div>
     </section>
   );
@@ -1969,121 +1991,113 @@ const FAQSection = () => {
 
   return (
     <section className="relative w-full text-white py-16 sm:py-20 md:py-24 overflow-hidden border-t border-b border-white/[0.03]">
+      {/* BACKGROUND GLOW (lighter on mobile) */}
+      <div className="absolute top-[-20%] left-[-20%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-cyan-500/[0.08] blur-[120px] sm:blur-[160px] rounded-full pointer-events-none animate-pulse" />
+      <div className="absolute bottom-[-20%] right-[-20%] w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] bg-purple-500/[0.08] blur-[140px] sm:blur-[180px] rounded-full pointer-events-none animate-pulse" />
 
-  {/* BACKGROUND GLOW (lighter on mobile) */}
-  <div className="absolute top-[-20%] left-[-20%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-cyan-500/[0.08] blur-[120px] sm:blur-[160px] rounded-full pointer-events-none animate-pulse" />
-  <div className="absolute bottom-[-20%] right-[-20%] w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] bg-purple-500/[0.08] blur-[140px] sm:blur-[180px] rounded-full pointer-events-none animate-pulse" />
+      {/* GRID OVERLAY */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:5rem_5rem] pointer-events-none" />
 
-  {/* GRID OVERLAY */}
-  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:5rem_5rem] pointer-events-none" />
+      <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
+        {/* HEADER */}
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-16 md:mb-24">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full bg-neutral-900/80 border border-neutral-800/60 mb-3 sm:mb-4">
+            <HelpCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400" />
+            <span className="text-neutral-400 text-[9px] sm:text-xs font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em]">
+              Knowledge Hub
+            </span>
+          </div>
 
-  <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10">
+          <h2 className="text-2xl sm:text-4xl md:text-6xl font-black uppercase leading-tight">
+            Frequently Asked
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">
+              Questions
+            </span>
+          </h2>
 
-    {/* HEADER */}
-    <div className="flex flex-col items-center text-center mb-12 sm:mb-16 md:mb-24">
-      
-      <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full bg-neutral-900/80 border border-neutral-800/60 mb-3 sm:mb-4">
-        <HelpCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400" />
-        <span className="text-neutral-400 text-[9px] sm:text-xs font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em]">
-          Knowledge Hub
-        </span>
-      </div>
+          <p className="text-neutral-500 text-[11px] sm:text-xs md:text-sm max-w-md sm:max-w-lg mt-4 sm:mt-6">
+            Get instant breakdowns regarding rules, timelines, and logistics.
+          </p>
+        </div>
 
-      <h2 className="text-2xl sm:text-4xl md:text-6xl font-black uppercase leading-tight">
-        Frequently Asked
-        <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">
-          Questions
-        </span>
-      </h2>
+        {/* FAQ GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          {faqs.map((faq, i) => {
+            const isOpen = activeIndex === i;
 
-      <p className="text-neutral-500 text-[11px] sm:text-xs md:text-sm max-w-md sm:max-w-lg mt-4 sm:mt-6">
-        Get instant breakdowns regarding rules, timelines, and logistics.
-      </p>
-    </div>
-
-    {/* FAQ GRID */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-      {faqs.map((faq, i) => {
-        const isOpen = activeIndex === i;
-
-        return (
-          <div
-            key={i}
-            className={`group relative rounded-xl sm:rounded-2xl p-[1px] transition-all duration-300 ${
-              isOpen ? "scale-[1.01]" : ""
-            }`}
-          >
-
-            {/* BORDER GLOW */}
-            {isOpen && (
+            return (
               <div
-            
-              className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 transition-all duration-500 ${
-                isOpen ? "opacity-80 blur-[2px]" : "opacity-10"
-              }`}
-            />
-            )}
-
-            {/* CARD */}
-            <div className={`relative bg-[#09090b]/90 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/[0.03] ${isOpen ? "shadow-2xl " : "shadow-md"}`}>
-
-              {/* HEADER BUTTON */}
-              <button
-                onClick={() => setActiveIndex(isOpen ? null : i)}
-                className="w-full flex items-center justify-between p-4 sm:p-6 md:p-8 gap-3 sm:gap-6 text-left"
-              >
-                <div className="flex items-center gap-3 sm:gap-4">
-
-                  <span
-                    className={`w-1.5 h-1.5 rounded-full ${
-                      isOpen ? "bg-cyan-400" : "bg-neutral-600"
-                    }`}
-                  />
-
-                  <span
-                    className={`font-bold text-sm sm:text-base md:text-lg ${
-                      isOpen ? "text-cyan-400" : "text-neutral-200"
-                    }`}
-                  >
-                    {faq.q}
-                  </span>
-
-                </div>
-
-                {/* ICON */}
-                <div
-                  className={`w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg border transition-all ${
-                    isOpen
-                      ? "rotate-180 border-cyan-400/40"
-                      : "border-neutral-800"
-                  }`}
-                >
-                  <ChevronDown className="w-4 h-4" />
-                </div>
-              </button>
-
-              {/* ANSWER (SMOOTH FIXED) */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  isOpen ? "max-h-[250px] opacity-100" : "max-h-0 opacity-0"
+                key={i}
+                className={`group relative rounded-xl sm:rounded-2xl p-[1px] transition-all duration-300 ${
+                  isOpen ? "scale-[1.01]" : ""
                 }`}
               >
-                <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 ml-4 border-l border-neutral-800/40">
-                  <p className="text-neutral-400 text-xs sm:text-sm md:text-base leading-relaxed">
-                    {faq.a}
-                  </p>
+                {/* BORDER GLOW */}
+                {isOpen && (
+                  <div
+                    className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 transition-all duration-500 ${
+                      isOpen ? "opacity-80 blur-[2px]" : "opacity-10"
+                    }`}
+                  />
+                )}
+
+                {/* CARD */}
+                <div
+                  className={`relative bg-[#09090b]/90 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/[0.03] ${isOpen ? "shadow-2xl " : "shadow-md"}`}
+                >
+                  {/* HEADER BUTTON */}
+                  <button
+                    onClick={() => setActiveIndex(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between p-4 sm:p-6 md:p-8 gap-3 sm:gap-6 text-left"
+                  >
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full ${
+                          isOpen ? "bg-cyan-400" : "bg-neutral-600"
+                        }`}
+                      />
+
+                      <span
+                        className={`font-bold text-sm sm:text-base md:text-lg ${
+                          isOpen ? "text-cyan-400" : "text-neutral-200"
+                        }`}
+                      >
+                        {faq.q}
+                      </span>
+                    </div>
+
+                    {/* ICON */}
+                    <div
+                      className={`w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg border transition-all ${
+                        isOpen
+                          ? "rotate-180 border-cyan-400/40"
+                          : "border-neutral-800"
+                      }`}
+                    >
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </button>
+
+                  {/* ANSWER (SMOOTH FIXED) */}
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ${
+                      isOpen ? "max-h-[250px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 ml-4 border-l border-neutral-800/40">
+                      <p className="text-neutral-400 text-xs sm:text-sm md:text-base leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-            </div>
-          </div>
-        );
-      })}
-    </div>
-
-  </div>
-</section>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -2100,6 +2114,7 @@ const RegistrationForm = ({ setRegistrationForm }) => {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -2110,11 +2125,11 @@ const RegistrationForm = ({ setRegistrationForm }) => {
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-[#030303] text-white py-16 sm:py-24 overflow-hidden flex items-center justify-center border-t border-white/[0.02] fixed inset-0 z-50 bg-[#020204]/90 backdrop-blur-2xl flex items-center justify-center p-0 md:p-6 lg:p-12 overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-700/30 scrollbar-track-transparent">
+    <section className="relative w-full min-h-screen bg-[#030303] text-white py-10 sm:py-24 overflow-hidden flex items-center justify-center border-t border-white/[0.02] fixed inset-0 z-50 bg-[#020204]/90 backdrop-blur-2xl flex items-center justify-center p-0 md:p-6 lg:p-12 overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-700/30 scrollbar-track-transparent">
       <button
         onClick={() => setRegistrationForm(false)}
         type="button"
-        className="absolute top-6 right-6 z-50 text-neutral-100 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-700/50 p-2.5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95 group"
+        className="absolute top-2 sm:top-6 right-2 sm:right-6 z-50 text-neutral-100 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-700/50 p-1 sm:p-2.5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95 group"
       >
         <X
           size={16}
@@ -2130,34 +2145,34 @@ const RegistrationForm = ({ setRegistrationForm }) => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
 
       {/* Main Structural Layout Wrapper */}
-      <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 z-10 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-12 items-center">
         {/* ================= LEFT SIDE: SPACE VISUALIZATION MATRIX ================= */}
         <div className="lg:col-span-5 flex flex-col justify-center h-full space-y-8 text-center lg:text-left">
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900/80 border border-neutral-800/60 backdrop-blur-md mb-2">
-              <Terminal className="w-3.5 h-3.5 text-[var(--color-accent,#22d3ee)]" />
-              <span className="text-neutral-400 text-[10px] font-bold tracking-[0.3em] uppercase">
+          <div className="space-y-2 sm:space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-0.5 sm:py-1 rounded-full bg-neutral-900/80 border border-neutral-800/60 backdrop-blur-md mb-2">
+              <Terminal className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[var(--color-accent,#22d3ee)]" />
+              <span className="text-neutral-400 text-[8px] sm:text-[10px] font-bold tracking-[0.3em] uppercase">
                 Registration Terminal
               </span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-black tracking-tight uppercase leading-tight text-white">
+            <h2 className="text-2xl sm:text-5xl font-black tracking-tight uppercase leading-tight text-white">
               Create Your <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)]">
                 Account Profile
               </span>
             </h2>
-            <p className="text-neutral-400 text-sm max-w-md mx-auto lg:mx-0 font-light leading-relaxed">
+            <p className="text-neutral-400 text-[9px] sm:text-sm max-w-md mx-auto lg:mx-0 font-light leading-relaxed">
               Join the platform to access your dashboard, connect with teams,
               and secure your spot in the upcoming hackathon workspace.
             </p>
           </div>
 
           {/* 🌌 Illustrated Animated Space/Portal Model */}
-          <div className="relative w-full max-w-[400px] aspect-square mx-auto lg:mx-0 flex items-center justify-center group">
+          <div className="relative w-[180px] sm:w-full max-w-[400px] aspect-square mx-auto lg:mx-0 flex items-center justify-center group">
             {/* Pulsing Outer Quantum Orbitals */}
-            <div className="absolute inset-0 rounded-full border border-dashed border-[var(--color-accent,#22d3ee)]/60 animate-[spin_40s_linear_infinite]" />
-            <div className="absolute inset-8 rounded-full border border-[var(--color-primary,#c084fc)]/40 animate-[spin_25s_linear_infinite_reverse]" />
-            <div className="absolute inset-16 rounded-full border border-dashed border-[var(--color-secondary,#f472b6)]/80 animate-[spin_15s_linear_infinite]" />
+            <div className="absolute inset-0 sm:inset-0 rounded-full border border-dashed border-[var(--color-accent,#22d3ee)]/60 animate-[spin_40s_linear_infinite]" />
+            <div className="absolute inset-3 sm:inset-8 rounded-full border border-[var(--color-primary,#c084fc)]/40 animate-[spin_25s_linear_infinite_reverse]" />
+            <div className="absolute inset-6 sm:inset-16 rounded-full border border-dashed border-[var(--color-secondary,#f472b6)]/80 animate-[spin_15s_linear_infinite]" />
 
             {/* Neon Glowing Particle Nodes floating via CSS */}
             <div
@@ -2174,13 +2189,13 @@ const RegistrationForm = ({ setRegistrationForm }) => {
             />
 
             {/* Core Graphic Chassis */}
-            <div className="relative w-48 h-48 rounded-3xl bg-[#09090b]/80 border border-white/[0.05] flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.8)] backdrop-blur-xl group-hover:border-[var(--color-accent,#22d3ee)]/30 transition-colors duration-500">
+            <div className="relative w-24 h-24 sm:w-48 sm:h-48 rounded-3xl bg-[#09090b]/80 border border-white/[0.05] flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.8)] backdrop-blur-xl group-hover:border-[var(--color-accent,#22d3ee)]/30 transition-colors duration-500">
               {/* Inner Portal Glow */}
               <div className="absolute inset-4 rounded-2xl bg-gradient-to-tr from-[var(--color-accent,#22d3ee)]/10 via-[var(--color-primary,#c084fc)]/5 to-transparent blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
 
               {/* Animated Core Identity Grid Vector */}
               <svg
-                className="w-24 h-24 text-neutral-600 group-hover:text-[var(--color-accent,#22d3ee)] transition-colors duration-500"
+                className="w-12 h-12 sm:w-24 sm:h-24 text-neutral-600 group-hover:text-[var(--color-accent,#22d3ee)] transition-colors duration-500"
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2248,8 +2263,8 @@ const RegistrationForm = ({ setRegistrationForm }) => {
           <div className="absolute inset-0 p-[1px] bg-gradient-to-r from-[var(--color-accent,#22d3ee)] via-[var(--color-primary,#c084fc)] to-[var(--color-secondary,#f472b6)] rounded-2xl opacity-20 group-hover:opacity-10 transition-opacity duration-500 -z-20" />
 
           {/* Main Content Card Box */}
-          <div className="relative bg-[#000000)] backdrop-blur-3xl p-6 sm:p-10 rounded-2xl border border-white/[0.04] shadow-2xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="relative bg-[#000000)] backdrop-blur-3xl p-3 sm:p-10 rounded-2xl border border-white/[0.04] shadow-2xl">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-6 noValidate">
               {/* Grid Row 1: Personal Information */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -2265,7 +2280,7 @@ const RegistrationForm = ({ setRegistrationForm }) => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Alexa Doe"
-                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-2.5 sm:py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all"
                     />
                   </div>
                 </div>
@@ -2283,7 +2298,7 @@ const RegistrationForm = ({ setRegistrationForm }) => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="you@domain.com"
-                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-primary,#c084fc)] focus:ring-1 focus:ring-[var(--color-primary,#c084fc)]/20 transition-all"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-2.5 sm:py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-primary,#c084fc)] focus:ring-1 focus:ring-[var(--color-primary,#c084fc)]/20 transition-all"
                     />
                   </div>
                 </div>
@@ -2302,9 +2317,22 @@ const RegistrationForm = ({ setRegistrationForm }) => {
                       type="tel"
                       name="phone"
                       value={formData.phone}
-                      onChange={handleChange}
+                      onChange={(e) => {
+  let value = e.target.value;
+
+  // allow only numbers and +
+  value = value.replace(/[^0-9+]/g, "");
+
+  // allow only one + at start
+  if (value.includes("+")) {
+    value = "+" + value.replace(/\+/g, "").replace(/^\+/, "");
+  }
+
+  // update state properly
+  setFormData({ ...formData, phone: value });
+}}
                       placeholder="+91 00000 00000"
-                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-2.5 sm:py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all"
                     />
                   </div>
                 </div>
@@ -2321,7 +2349,7 @@ const RegistrationForm = ({ setRegistrationForm }) => {
                       value={formData.altPhone}
                       onChange={handleChange}
                       placeholder="Backup contact number"
-                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-primary,#c084fc)] focus:ring-1 focus:ring-[var(--color-primary,#c084fc)]/20 transition-all"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-2.5 sm:py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-primary,#c084fc)] focus:ring-1 focus:ring-[var(--color-primary,#c084fc)]/20 transition-all"
                     />
                   </div>
                 </div>
@@ -2341,7 +2369,7 @@ const RegistrationForm = ({ setRegistrationForm }) => {
                     value={formData.college}
                     onChange={handleChange}
                     placeholder="University or Institute Name"
-                    className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-secondary,#f472b6)] focus:ring-1 focus:ring-[var(--color-secondary,#f472b6)]/20 transition-all"
+                    className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-2.5 sm:py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-secondary,#f472b6)] focus:ring-1 focus:ring-[var(--color-secondary,#f472b6)]/20 transition-all"
                   />
                 </div>
               </div>
@@ -2358,7 +2386,7 @@ const RegistrationForm = ({ setRegistrationForm }) => {
                       name="foodPreference"
                       value={formData.foodPreference}
                       onChange={handleChange}
-                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-10 text-sm text-white focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all appearance-none cursor-pointer"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-2.5 sm:py-3.5 pl-11 pr-10 text-sm text-white focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all appearance-none cursor-pointer"
                     >
                       <option value="veg" className="bg-[#09090b] text-white">
                         Vegetarian
@@ -2391,7 +2419,7 @@ const RegistrationForm = ({ setRegistrationForm }) => {
                       value={formData.password}
                       onChange={handleChange}
                       placeholder="••••••••••••"
-                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-3.5 pl-11 pr-12 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-secondary,#f472b6)] focus:ring-1 focus:ring-[var(--color-secondary,#f472b6)]/20 transition-all"
+                      className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-2.5 sm:py-3.5 pl-11 pr-12 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-secondary,#f472b6)] focus:ring-1 focus:ring-[var(--color-secondary,#f472b6)]/20 transition-all"
                     />
 
                     {/* 👁️ Interactive Show/Hide Toggle Trigger */}
