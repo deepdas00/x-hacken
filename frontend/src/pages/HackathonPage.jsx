@@ -151,7 +151,7 @@ const InteractiveSwarm = () => {
 const XHackenPage = () => {
   const [registrationForm, setRegistrationForm] = useState(false);
   return (
-    <div className="min-h-screen bg-[#020202] text-white selection:bg-green-500/40">
+    <div className="min-h-screen bg-[#020202] text-white selection:bg-green-500/40 overflow-x-hidden">
       {registrationForm ? (
         <RegistrationForm setRegistrationForm={setRegistrationForm} />
       ) : (
@@ -510,12 +510,12 @@ const LeadershipSection = () => {
     {
       name: "Swastik Basu",
       role: "Club President of BCA",
-      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
     },
     {
       name: "Anubhab",
       role: "Club President of BSC",
-      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
     },
   ];
 
@@ -523,28 +523,28 @@ const LeadershipSection = () => {
     {
       name: "Deep Das",
       role: "Logistics Head",
-      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
       whatsapp: "#",
       linkedin: "#",
     },
     {
       name: "Nawab",
       role: "Technical Lead",
-      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
       whatsapp: "#",
       linkedin: "#",
     },
     {
       name: "Trideep Ray",
       role: "Operations",
-      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
       whatsapp: "#",
       linkedin: "#",
     },
     {
       name: "Pratima",
       role: "Operations",
-      img: "https://tse4.mm.bing.net/th/id/OIP.4PJ0qIcbVhJ4-rTi1Q0KYgHaEK?pid=Api&P=0&h=180",
+      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
       whatsapp: "#",
       linkedin: "#",
     },
@@ -1532,7 +1532,7 @@ const JudgesSection = () => {
 
             {/* Image */}
             <img
-              src="https://www.thefashionisto.com/wp-content/uploads/2023/05/Mens-Trenchcoat.jpg"
+              src="https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg"
               className="absolute inset-0 w-full h-full object-cover :grayscale-0 sm:grayscale group-hover:grayscale-0 transition duration-500"
             />
 
