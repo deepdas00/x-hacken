@@ -551,7 +551,7 @@ const LeadershipSection = () => {
       img: trideep,
       phone: "918240303589",
       whatsapp: "918240303589",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/trideep-ray-670b36356",
     },
     {
       name: "Pratima Choudhary",
@@ -2204,89 +2204,9 @@ const RegistrationForm = ({ setRegistrationForm }) => {
           {/* 🌌 Illustrated Animated Space/Portal Model */}
           <div className="relative w-[180px] sm:w-full max-w-[400px] aspect-square mx-auto lg:mx-0 flex items-center justify-center group">
             {/* Pulsing Outer Quantum Orbitals */}
-            <div className="absolute inset-0 sm:inset-0 rounded-full border border-dashed border-[var(--color-accent,#22d3ee)]/60 animate-[spin_40s_linear_infinite]" />
-            <div className="absolute inset-3 sm:inset-8 rounded-full border border-[var(--color-primary,#c084fc)]/40 animate-[spin_25s_linear_infinite_reverse]" />
-            <div className="absolute inset-6 sm:inset-16 rounded-full border border-dashed border-[var(--color-secondary,#f472b6)]/80 animate-[spin_15s_linear_infinite]" />
+            
 
-            {/* Neon Glowing Particle Nodes floating via CSS */}
-            <div
-              className="absolute top-12 left-1/4 w-2 h-2 rounded-full bg-[var(--color-accent,#22d3ee)] shadow-[0_0_12px_#22d3ee] animate-bounce"
-              style={{ animationDuration: "3s" }}
-            />
-            <div
-              className="absolute bottom-16 right-1/4 w-2.5 h-2.5 rounded-full bg-[var(--color-secondary,#f472b6)] shadow-[0_0_12px_#f472b6] animate-bounce"
-              style={{ animationDuration: "4s", animationDelay: "1s" }}
-            />
-            <div
-              className="absolute top-1/2 right-12 w-1.5 h-1.5 rounded-full bg-[var(--color-primary,#c084fc)] shadow-[0_0_12px_#c084fc] animate-ping"
-              style={{ animationDuration: "2s" }}
-            />
-
-            {/* Core Graphic Chassis */}
-            <div className="relative w-24 h-24 sm:w-48 sm:h-48 rounded-3xl bg-[#09090b]/80 border border-white/[0.05] flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.8)] backdrop-blur-xl group-hover:border-[var(--color-accent,#22d3ee)]/30 transition-colors duration-500">
-              {/* Inner Portal Glow */}
-              <div className="absolute inset-4 rounded-2xl bg-gradient-to-tr from-[var(--color-accent,#22d3ee)]/10 via-[var(--color-primary,#c084fc)]/5 to-transparent blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
-
-              {/* Animated Core Identity Grid Vector */}
-              <svg
-                className="w-12 h-12 sm:w-24 sm:h-24 text-neutral-600 group-hover:text-[var(--color-accent,#22d3ee)] transition-colors duration-500"
-                viewBox="0 0 100 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M50 5L90 28V72L50 95L10 72V28L50 5Z"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  className="animate-[pulse_3s_infinite]"
-                />
-                <path
-                  d="M50 20L76 35V65L50 80L24 65V35L50 20Z"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeDasharray="4 4"
-                />
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="8"
-                  className="fill-current text-[var(--color-primary,#c084fc)] shadow-lg animate-pulse"
-                />
-                <line
-                  x1="50"
-                  y1="5"
-                  x2="50"
-                  y2="20"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-                <line
-                  x1="50"
-                  y1="80"
-                  x2="50"
-                  y2="95"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-                <line
-                  x1="10"
-                  y1="28"
-                  x2="24"
-                  y2="35"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-                <line
-                  x1="76"
-                  y1="65"
-                  x2="90"
-                  y2="72"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-              </svg>
-            </div>
+            <img src={logo} className="w-full h-full object-contain " />
           </div>
         </div>
 
