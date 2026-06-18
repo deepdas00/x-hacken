@@ -599,7 +599,7 @@ const LeadershipSection = () => {
                 src={pres.img}
                 alt={pres.name}
                 className="w-full h-full object-cover
-      grayscale-35 sm:grayscale-35 group-hover:grayscale-0 transition-all duration-700"
+      grayscale-0 sm:grayscale-35 group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
 
@@ -650,7 +650,7 @@ const LeadershipSection = () => {
               {/* Image */}
               <img
                 src={member.img}
-                className="absolute inset-0 w-full h-full object-cover sm:grayscale-20 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover grayscale-0 sm:grayscale-20 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 alt={member.name}
               />
 
