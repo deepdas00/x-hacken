@@ -22,6 +22,8 @@ import {
   Terminal,
   Radio,
   Medal,
+  Linkedin ,
+  MessageCircle,
   User,
   Mail,
   Phone,
@@ -64,6 +66,14 @@ import csa from "../assets/CSA_LOGO.png";
 import college from "../assets/xavier-logo.png";
 import background from "../assets/college.jpeg";
 import Navbar from "../components/Navbar.jsx";
+
+//images
+import deep from "../assets/team/suppAndPre/deep.jpeg";
+import nawab from "../assets/team/suppAndPre/nawab.jpeg";
+// import trideep from "../assets/team/suppAndPre/trideep.jpg";
+// import pratima from "../assets/team/suppAndPre/pratima.jpg";
+import swastik from "../assets/team/suppAndPre/swastik.jpeg";
+import anubhab from "../assets/team/suppAndPre/anubhab.jpeg";
 
 // --- 1. INTENSIFIED PARTICLE SYSTEM ---
 
@@ -510,12 +520,12 @@ const LeadershipSection = () => {
     {
       name: "Swastik Basu",
       role: "Club President of BCA",
-      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
+      img: swastik,
     },
     {
       name: "Anubhab",
       role: "Club President of BSC",
-      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
+      img: anubhab,
     },
   ];
 
@@ -523,14 +533,16 @@ const LeadershipSection = () => {
     {
       name: "Deep Das",
       role: "Logistics Head",
-      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
-      whatsapp: "#",
+      img: deep,
+      phone: "919933586801",
+      whatsapp: "918250298098",
       linkedin: "#",
     },
     {
-      name: "Nawab",
+      name: "Sk Nawab",
       role: "Technical Lead",
-      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
+      img: nawab,
+      phone: "919933586801",
       whatsapp: "#",
       linkedin: "#",
     },
@@ -538,13 +550,15 @@ const LeadershipSection = () => {
       name: "Trideep Ray",
       role: "Operations",
       img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
-      whatsapp: "#",
+      phone: "918240303589",
+      whatsapp: "918240303589",
       linkedin: "#",
     },
     {
       name: "Pratima",
       role: "Operations",
       img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
+      phone: "919933586801",
       whatsapp: "#",
       linkedin: "#",
     },
@@ -586,7 +600,7 @@ const LeadershipSection = () => {
                 src={pres.img}
                 alt={pres.name}
                 className="w-full h-full object-cover
-      grayscale-0 sm:grayscale group-hover:grayscale-0 transition-all duration-700"
+      grayscale-35 sm:grayscale-35 group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
 
@@ -637,7 +651,7 @@ const LeadershipSection = () => {
               {/* Image */}
               <img
                 src={member.img}
-                className="absolute inset-0 w-full h-full object-cover sm:grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover sm:grayscale-20 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 alt={member.name}
               />
 
@@ -658,7 +672,7 @@ const LeadershipSection = () => {
                   {/* Buttons */}
                   <div className="flex gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500">
                     <a
-                      href={member.whatsapp}
+                      href={`https://wa.me/${member.phone}`}
                       className="flex-1 flex items-center justify-center gap-2 py-2 sm:py-3 bg-green-500 text-black rounded-lg sm:rounded-xl font-bold text-[10px] sm:text-xs uppercase hover:bg-white transition"
                     >
                       <Zap size={14} /> WhatsApp
@@ -675,11 +689,11 @@ const LeadershipSection = () => {
               </div>
 
               {/* Badge */}
-              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 px-2 sm:px-3 py-1 bg-white/10 border border-white/10 rounded-full">
+              {/* <div className="absolute top-4 sm:top-6 right-4 sm:right-6 px-2 sm:px-3 py-1 bg-white/10 border border-white/10 rounded-full">
                 <span className="text-[7px] sm:text-[8px] font-black text-white uppercase tracking-widest">
                   Active
                 </span>
-              </div>
+              </div> */}
             </motion.div>
           ))}
         </div>
