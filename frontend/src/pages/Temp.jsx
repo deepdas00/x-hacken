@@ -1,186 +1,296 @@
-import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Stars, PerspectiveCamera, Text } from '@react-three/drei';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Trophy, Users, Calendar, ArrowRight, Code, Cpu, Globe, Zap } from 'lucide-react';
-import * as THREE from 'three';
-
-// --- 1. INTENSIFIED PARTICLE SYSTEM ---
-const InteractiveSwarm = () => {
-  const mesh = useRef();
-  const count = 2500; // Increased density
-
-  const [particles, step] = useMemo(() => {
-    const p = new Float32Array(count * 3);
-    const s = new Float32Array(count);
-    for (let i = 0; i < count; i++) {
-      p[i * 3] = (Math.random() - 0.5) * 15;
-      p[i * 3 + 1] = (Math.random() - 0.5) * 15;
-      p[i * 3 + 2] = (Math.random() - 0.5) * 15;
-      s[i] = Math.random();
-    }
-    return [p, s];
-  }, []);
-
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    mesh.current.rotation.y = time * 0.05;
-    // Particles "breathe"
-    for (let i = 0; i < count; i++) {
-      const i3 = i * 3;
-      mesh.current.geometry.attributes.position.array[i3 + 1] += Math.sin(time + step[i]) * 0.002;
-    }
-    mesh.current.geometry.attributes.position.needsUpdate = true;
+const RegistrationForm = ({ setRegistrationForm }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    altPhone: "",
+    college: "",
+    foodPreference: "veg",
+    password: "",
   });
 
-  return (
-    <points ref={mesh}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count} array={particles} itemSize={3} />
-      </bufferGeometry>
-      <pointsMaterial size={0.025} color="#22c55e" transparent opacity={0.8} sizeAttenuation />
-    </points>
-  );
-};
+  const [showPassword, setShowPassword] = useState(false);
 
-// --- 2. THE FLOATING "X" WIREFRAME ---
-const XLogo3D = () => {
-  return (
-    <Float speed={3} rotationIntensity={1.5} floatIntensity={1}>
-      <group rotation={[0, 0, Math.PI / 4]}>
-        <mesh>
-          <boxGeometry args={[0.2, 5, 0.2]} />
-          <meshStandardMaterial color="#22c55e" emissive="#16a34a" emissiveIntensity={2} />
-        </mesh>
-        <mesh rotation={[0, 0, Math.PI / 2]}>
-          <boxGeometry args={[0.2, 5, 0.2]} />
-          <meshStandardMaterial color="#22c55e" emissive="#16a34a" emissiveIntensity={2} />
-        </mesh>
-      </group>
-    </Float>
-  );
-};
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-// --- 3. UI COMPONENTS ---
-const StatCard = ({ title, desc, icon: Icon, stat }) => {
-  return (
-    <motion.div 
-      whileHover={{ y: -10 }}
-      className="relative group p-8 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-2xl"
-    >
-      <div className="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
-      <Icon className="text-green-500 mb-6" size={28} />
-      <h3 className="text-white font-bold text-xl mb-2">{title}</h3>
-      <p className="text-gray-500 text-sm mb-6">{desc}</p>
-      <div className="text-3xl font-black tracking-tight text-white">{stat}</div>
-    </motion.div>
-  );
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Initializing payload dispatch...", formData);
+  };
 
-const XHackenPage = () => {
   return (
-    <div className="min-h-screen bg-[#020202] text-white selection:bg-green-500/40">
+    <section className="fixed inset-0 z-50 w-full h-screen bg-[#040207] text-white overflow-y-auto flex items-center justify-center p-3 md:p-6 lg:p-12 scrollbar-thin scrollbar-thumb-neutral-800 scrollbar-track-transparent">
       
-      {/* 3D Visual Engine */}
-      <div className="fixed inset-0 z-0 bg-radial-gradient">
-        <Canvas dpr={[1, 2]}>
-          <PerspectiveCamera makeDefault position={[0, 0, 8]} />
-          <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#22c55e" />
-          
-          <Stars radius={50} count={3000} factor={4} fade speed={1} />
-          <InteractiveSwarm />
-          <XLogo3D />
+      {/* 🌌 BACKGROUND LAYER MATRIX (Matches Use AI Image Jun 18, 2026, 21_48_25.png) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* 1. Base High-Saturated Nebula Flares */}
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-gradient-to-tr from-[#ff0080] via-[#ff2ea1] to-transparent opacity-40 blur-[120px] rounded-full" />
+        <div className="absolute top-[-15%] right-[-10%] w-[600px] md:w-[750px] h-[600px] md:h-[750px] bg-gradient-to-bl from-[#00bfff] via-[#242bf9] to-transparent opacity-45 blur-[120px] rounded-full" />
+        
+        {/* 2. Cyber Hexagonal Vector Grid Texture Overlay */}
+        <div 
+          className="absolute inset-0 opacity-25 mix-blend-lighten"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%23ffffff' fill-opacity='0.15' d='M14 0L28 8v16l-14 8L0 24V8zM0 33l14 8 14-8v16l-14 8-14-8z'/%3E%3C/svg%3E")`,
+            backgroundSize: '40px 70px'
+          }}
+        />
 
-          {/* This makes everything GLOW like the reference image */}
-          <EffectComposer>
-            <Bloom luminanceThreshold={0.2} mipmapBlur intensity={1.2} radius={0.4} />
-          </EffectComposer>
-        </Canvas>
+        {/* 3. Outer Edge Cosmic Space Clouds Dust */}
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-sky-400/10 blur-[60px] rounded-full mix-blend-screen" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-pink-500/10 blur-[80px] rounded-full mix-blend-screen" />
+
+        {/* 4. Glowing Neon Circuit Tech Vectors */}
+        <svg className="absolute inset-0 w-full h-full opacity-40 stroke-current text-cyan-400/70" fill="none" viewBox="0 0 1440 900">
+          <path d="M -50,450 L 120,450 L 160,490 L 320,490" strokeWidth="1.5" />
+          <circle cx="320" cy="490" r="3" fill="#22d3ee" />
+          <path d="M 150,150 L 300,150 L 340,190" strokeWidth="1" strokeDasharray="4 4" />
+        </svg>
+        <svg className="absolute inset-0 w-full h-full opacity-40 stroke-current text-pink-500/80" fill="none" viewBox="0 0 1440 900">
+          <path d="M 1490,550 L 1320,550 L 1270,600 L 1000,600" strokeWidth="1.5" />
+          <circle cx="1000" cy="600" r="3" fill="#ff2ea1" />
+        </svg>
       </div>
 
-      {/* Interface Layer */}
-      <div className="relative z-10">
-        <nav className="flex justify-between items-center px-10 py-8 max-w-[1600px] mx-auto">
-          <div className="flex items-center gap-3">
-            <Zap className="text-green-500 fill-green-500" size={24} />
-            <span className="text-2xl font-black tracking-tighter">X<span className="text-green-500">-hacken</span></span>
-          </div>
-          <div className="flex items-center gap-10">
-            <div className="hidden lg:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400">
-              <a href="#" className="hover:text-green-500 transition">Tracks</a>
-              <a href="#" className="hover:text-green-500 transition">Mentors</a>
-              <a href="#" className="hover:text-green-500 transition">Schedule</a>
-            </div>
-            <button className="bg-green-500 text-black font-black px-8 py-3 rounded-full text-xs uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-              Register Now
-            </button>
-          </div>
-        </nav>
+      {/* ❌ Close Trigger Button */}
+      <button
+        onClick={() => setRegistrationForm(false)}
+        type="button"
+        className="absolute top-4 right-4 z-50 text-neutral-400 hover:text-white bg-neutral-900/80 hover:bg-neutral-800 border border-white/10 p-2.5 rounded-full shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95 group"
+      >
+        <X size={18} className="group-hover:rotate-90 transition-transform duration-300" />
+      </button>
 
-        <header className="pt-32 pb-40 px-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-500/20 bg-green-500/5 text-green-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+      {/* Content Canvas Layout Container */}
+      <div className="relative w-full max-w-[1280px] mx-auto z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center py-6">
+        
+        {/* ================= LEFT SIDE: ACCOUNT INFO TERMINAL ================= */}
+        <div className="lg:col-span-5 flex flex-col justify-center h-full space-y-6 text-center lg:text-left px-2">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-2 mx-auto lg:mx-0 w-fit">
+              <Terminal className="w-3.5 h-3.5 text-[#22d3ee]" />
+              <span className="text-neutral-300 text-[10px] font-bold tracking-[0.25em] uppercase font-mono">
+                Registration Terminal
               </span>
-              Applications Open
             </div>
             
-            <h1 className="text-8xl md:text-[180px] font-black tracking-tighter leading-[0.8] mb-8">
-              X-HACKEN
-            </h1>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight uppercase leading-[1.1] text-white">
+              Create Your <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22d3ee] via-[#c084fc] to-[#f472b6]">
+                Account Profile
+              </span>
+            </h2>
             
-            <p className="text-gray-400 text-lg md:text-2xl max-w-2xl mx-auto font-medium leading-relaxed mb-12">
-              The premier 48H engineering sprint by CSA dept. <br/>
-              <span className="text-white">Build the infrastructure of the new web.</span>
+            <p className="text-neutral-400 text-xs sm:text-sm max-w-sm mx-auto lg:mx-0 font-normal leading-relaxed">
+              Join the platform to access your dashboard, connect with teams,
+              and secure your spot in the upcoming hackathon workspace.
             </p>
+          </div>
 
-            <div className="flex justify-center gap-6">
-              <button className="group flex items-center gap-3 bg-white text-black px-12 py-6 rounded-2xl font-black text-lg transition-all hover:bg-green-500">
-                GET STARTED <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-              </button>
-            </div>
-          </motion.div>
-        </header>
+          {/* 🌌 Cybernetic Animated Center Core Core Graphic Component */}
+          <div className="relative w-[190px] sm:w-[260px] lg:w-[320px] aspect-square mx-auto lg:mx-0 flex items-center justify-center group mt-4">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#22d3ee]/20 to-[#ff2ea1]/20 rounded-full blur-3xl opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+            
+            {/* Embedded Decorative Glowing Rings for Depth */}
+            <div className="absolute inset-[-10px] border border-cyan-500/20 rounded-full animate-[spin_20s_linear_infinite]" />
+            <div className="absolute inset-[-20px] border border-dashed border-pink-500/10 rounded-full animate-[spin_35s_linear_infinite_reverse]" />
 
-        <section className="max-w-7xl mx-auto px-10 pb-40">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <StatCard 
-              icon={Trophy} 
-              title="Global Prize Pool" 
-              desc="Equity, grants, and cash for the top engineering squads."
-              stat="$250,000+"
-            />
-            <StatCard 
-              icon={Users} 
-              title="Elite Builders" 
-              desc="Join a curated cohort of the world's most talented developers."
-              stat="500 Limit"
-            />
-            <StatCard 
-              icon={Cpu} 
-              title="Compute Access" 
-              desc="High-performance H100 clusters provided for all AI tracks."
-              stat="Unlimited"
+            <img 
+              src={logo} 
+              alt="Cyber Core Portal" 
+              className="relative w-full h-full object-contain drop-shadow-[0_0_30px_rgba(255,46,161,0.25)] group-hover:scale-102 transition-transform duration-500" 
             />
           </div>
-        </section>
+        </div>
 
-        <footer className="py-12 border-t border-white/5 text-center">
-          <p className="text-gray-600 text-[10px] uppercase tracking-[0.4em] font-bold">
-            Engineering Excellence // GenDelta Studio 2026
-          </p>
-        </footer>
+        {/* ================= RIGHT SIDE: DATA FORM GLASS MATRIX ================= */}
+        <div className="lg:col-span-7 relative group w-full px-1">
+          {/* Outer Border Glowing Traces */}
+          <div className="absolute inset-0 p-[1px] bg-gradient-to-r from-[#22d3ee] via-[#c084fc] to-[#f472b6] rounded-2xl opacity-20 group-hover:opacity-35 transition-opacity duration-500 blur-[1px] -z-20" />
+          <div className="absolute inset-0 p-[1px] bg-gradient-to-br from-[#22d3ee]/40 to-[#f472b6]/40 rounded-2xl opacity-30 -z-20" />
+
+          {/* Main Translucent Glass Form Container - Fixed Typo */}
+          <div className="relative bg-gradient-to-b from-[#100f1c]/80 to-[#07060f]/95 backdrop-blur-3xl p-5 sm:p-8 lg:p-10 rounded-2xl border border-white/[0.06] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)]">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5" noValidate>
+              
+              {/* Grid Row 1: Personal Information */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="space-y-2">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Full Name
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      required
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Alexa Doe"
+                      className="w-full bg-neutral-950/60 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#22d3ee] focus:ring-1 focus:ring-[#22d3ee]/20 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="you@domain.com"
+                      className="w-full bg-neutral-950/60 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#c084fc] focus:ring-1 focus:ring-[#c084fc]/20 transition-all"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Grid Row 2: Contact Numbers */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="space-y-2">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Phone Number
+                  </label>
+                  <div className="relative">
+                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      required
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={(e) => {
+                        let value = e.target.value.replace(/[^0-9+]/g, "");
+                        if (value.includes("+")) {
+                          value = "+" + value.replace(/\+/g, "");
+                        }
+                        setFormData({ ...formData, phone: value });
+                      }}
+                      placeholder="+91 00000 00000"
+                      className="w-full bg-neutral-950/60 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#22d3ee] focus:ring-1 focus:ring-[#22d3ee]/20 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Alternative Phone (Optional)
+                  </label>
+                  <div className="relative">
+                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      type="tel"
+                      name="altPhone"
+                      value={formData.altPhone}
+                      onChange={handleChange}
+                      placeholder="Backup contact number"
+                      className="w-full bg-neutral-950/60 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#c084fc] focus:ring-1 focus:ring-[#c084fc]/20 transition-all"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Row: Affiliation */}
+              <div className="space-y-2">
+                <label className="block text-[10px] sm:text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                  Institutional Affiliation
+                </label>
+                <div className="relative">
+                  <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                  <input
+                    required
+                    type="text"
+                    name="college"
+                    value={formData.college}
+                    onChange={handleChange}
+                    placeholder="University or Institute Name"
+                    className="w-full bg-neutral-950/60 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#f472b6] focus:ring-1 focus:ring-[#f472b6]/20 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Grid Row 3: Requirements & Password */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="space-y-2">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Dietary Requirement
+                  </label>
+                  <div className="relative">
+                    <Utensils className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <select
+                      name="foodPreference"
+                      value={formData.foodPreference}
+                      onChange={handleChange}
+                      className="w-full bg-neutral-950/60 border border-white/10 rounded-xl py-3 pl-11 pr-10 text-sm text-white focus:outline-none focus:border-[#22d3ee] focus:ring-1 focus:ring-[#22d3ee]/20 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="veg" className="bg-[#09090b] text-white">
+                        Vegetarian
+                      </option>
+                      <option value="non-veg" className="bg-[#09090b] text-white">
+                        Non-Vegetarian
+                      </option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none border-l border-neutral-800 pl-2 text-neutral-500 text-[10px]">
+                      ▼
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-mono">
+                    Account Password
+                  </label>
+                  <div className="relative">
+                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                    <input
+                      required
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      placeholder="••••••••••••"
+                      className="w-full bg-neutral-950/60 border border-white/10 rounded-xl py-3 pl-11 pr-12 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#f472b6] focus:ring-1 focus:ring-[#f472b6]/20 transition-all"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-300 focus:outline-none p-1 rounded transition-colors"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Complete Submission Button Action Wrapper */}
+              <motion.button
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                type="submit"
+                className="w-full relative group/btn mt-2 rounded-xl p-[1px] font-bold overflow-hidden transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#22d3ee] via-[#c084fc] to-[#f472b6] rounded-xl" />
+                <div className="relative bg-neutral-950 text-white group-hover/btn:bg-transparent transition-colors duration-300 py-3.5 px-6 rounded-xl flex items-center justify-center gap-3">
+                  <ShieldCheck className="w-4 h-4 text-[#22d3ee] group-hover/btn:text-white transition-colors" />
+                  <span className="uppercase tracking-[0.15em] text-xs font-bold font-mono">
+                    Complete Registration
+                  </span>
+                </div>
+              </motion.button>
+              
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
-
-export default XHackenPage;
