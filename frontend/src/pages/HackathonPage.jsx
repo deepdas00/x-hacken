@@ -66,6 +66,7 @@ import college from "../assets/xavier-logo.png";
 import background from "../assets/college.jpeg";
 import Navbar from "../components/Navbar.jsx";
 import whatsapp from "../assets/whatsapp.svg";
+import linkedin from "../assets/linkedin.svg";
 //images
 import deep from "../assets/team/suppAndPre/deep.jpeg";
 import nawab from "../assets/team/suppAndPre/nawab.jpeg";
@@ -705,10 +706,12 @@ const LeadershipSection = () => {
                       href={member.linkedin}
                       className="bg-white/10 text-white rounded-lg sm:rounded-xl hover:bg-white/20 border border-white/10 flex items-center justify-center"
                     >
-                      <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" className="w-9 h-9 sm:w-10 sm:h-10 justify-center align-center" />
+                      <img src={linkedin} className="w-9 h-9 sm:w-11 sm:h-11 justify-center align-center" />
                     </a>)}
                   </div>
                 </div>
+
+                
               </div>
 
               {/* Badge */}
