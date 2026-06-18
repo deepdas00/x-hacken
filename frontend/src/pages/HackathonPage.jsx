@@ -518,12 +518,14 @@ const LeadershipSection = () => {
   const presidents = [
     {
       name: "Swastik Basu",
-      role: "Club President of BCA",
+      position: "Club President of BCA",
+      role: "Event Lead",
       img: swastik,
     },
     {
       name: "Anubhab Ghosh",
-      role: "Club President of BSC",
+      position: "Club President of BSC",
+      role: "Event Lead",
       img: anubhab,
     },
   ];
@@ -531,7 +533,7 @@ const LeadershipSection = () => {
   const supportTeam = [
     {
       name: "Deep Das",
-      role: "Logistics Head",
+      role: "Event Lead",
       img: deep,
       phone: "919933586801",
       whatsapp: "918250298098",
@@ -539,7 +541,7 @@ const LeadershipSection = () => {
     },
     {
       name: "Sk Nawab",
-      role: "Technical Lead",
+      role: "Event Lead",
       img: nawab,
       phone: "916294939397",
       whatsapp: "916294939397",
@@ -547,7 +549,7 @@ const LeadershipSection = () => {
     },
     {
       name: "Trideep Ray",
-      role: "Operations",
+      role: "Event Lead",
       img: trideep,
       phone: "918240303589",
       whatsapp: "918240303589",
@@ -555,7 +557,7 @@ const LeadershipSection = () => {
     },
     {
       name: "Pratima Choudhary",
-      role: "Operations",
+      role: "Operations Associate",
       img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
       phone: "918320174835",
       whatsapp: "918320174835",
@@ -606,7 +608,7 @@ const LeadershipSection = () => {
             {/* Content */}
             <div className="flex flex-col justify-center">
               <h4 className="text-gray-500 text-[8px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.4em] font-bold mb-1">
-                President
+                {pres.position}
               </h4>
 
               <h3 className="text-base sm:text-xl md:text-3xl font-black text-white leading-tight">
