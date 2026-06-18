@@ -69,7 +69,7 @@ import whatsapp from "../assets/whatsapp.svg";
 //images
 import deep from "../assets/team/suppAndPre/deep.jpeg";
 import nawab from "../assets/team/suppAndPre/nawab.jpeg";
-// import trideep from "../assets/team/suppAndPre/trideep.jpg";
+import trideep from "../assets/team/suppAndPre/trideep.jpeg";
 // import pratima from "../assets/team/suppAndPre/pratima.jpg";
 import swastik from "../assets/team/suppAndPre/swastik.jpeg";
 import anubhab from "../assets/team/suppAndPre/anubhab.jpeg";
@@ -548,7 +548,7 @@ const LeadershipSection = () => {
     {
       name: "Trideep Ray",
       role: "Operations",
-      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
+      img: trideep,
       phone: "918240303589",
       whatsapp: "918240303589",
       linkedin: "#",
@@ -671,13 +671,17 @@ const LeadershipSection = () => {
                   {/* Buttons */}
                   <div className="flex gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 ">
                     <a
-                      href={`https://wa.me/${member.phone}`}
+                       href={`https://wa.me/${member.phone}?text=${encodeURIComponent(
+    "Hi, I came to you from X-HACKEN platform 🚀"
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
                       className="flex-1 flex items-center justify-center gap-2 py-1 sm:py-3 bg-green-500 rounded-lg sm:rounded-xl font-bold text-[10px] sm:text-xs uppercase hover:bg-white transition text-white sm:group-hover:text-black"
                     >
                       {/* <MessageCircle  size={14} /> <span className="hidden sm:inline">WhatsApp</span> */}
 
                       <img src={whatsapp} className="w-5 h-5 sm:w-6 sm:h-6" />
-  WhatsApp
+  <span className="hidden sm:block text-white hover:text-black">WhatsApp</span>
                     </a>
 
                      <a
