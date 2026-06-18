@@ -22,7 +22,7 @@ import {
   Terminal,
   Radio,
   Medal,
-   MessageCircle,
+  MessageCircle,
   User,
   Mail,
   Phone,
@@ -671,26 +671,33 @@ const LeadershipSection = () => {
                   {/* Buttons */}
                   <div className="flex gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 ">
                     <a
-                       href={`https://wa.me/${member.phone}?text=${encodeURIComponent(
-    "Hi, I came to you from X-HACKEN platform 🚀"
-  )}`}
-  target="_blank"
-  rel="noopener noreferrer"
+                      href={`https://wa.me/${member.phone}?text=${encodeURIComponent(
+                        "Hi, I came to you from X-HACKEN platform 🚀",
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex-1 flex items-center justify-center gap-2 py-1 sm:py-3 bg-green-500 rounded-lg sm:rounded-xl font-bold text-[10px] sm:text-xs uppercase hover:bg-white transition text-white sm:group-hover:text-black"
                     >
-                      {/* <MessageCircle  size={14} /> <span className="hidden sm:inline">WhatsApp</span> */}
+                      
 
                       <img src={whatsapp} className="w-5 h-5 sm:w-6 sm:h-6" />
-  <span className="hidden sm:block text-white hover:text-black">WhatsApp</span>
+                      <span className="hidden sm:block text-white hover:text-black">
+                        WhatsApp
+                      </span>
                     </a>
 
-                     <a
-    href={`tel:${member.phone}`}
-    className="p-2 sm:p-3 bg-blue-500 text-white rounded-lg sm:rounded-xl hover:bg-blue-600"
-  >
-    <Phone size={16} />
-  </a>
-
+                   <a
+  href={`tel:${member.phone}`}
+  onClick={(e) => {
+    if (!member.phone) {
+      e.preventDefault();
+      alert("Phone number not available");
+    }
+  }}
+  className="p-2 sm:p-3 bg-blue-500 text-white rounded-lg sm:rounded-xl hover:bg-blue-600"
+>
+  <Phone size={16} />
+</a>
 
                     <a
                       href={member.linkedin}
@@ -2142,7 +2149,6 @@ const RegistrationForm = ({ setRegistrationForm }) => {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
-  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -2292,7 +2298,10 @@ const RegistrationForm = ({ setRegistrationForm }) => {
 
           {/* Main Content Card Box */}
           <div className="relative bg-[#000000)] backdrop-blur-3xl p-3 sm:p-10 rounded-2xl border border-white/[0.04] shadow-2xl">
-            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-6 noValidate">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-3 sm:space-y-6 noValidate"
+            >
               {/* Grid Row 1: Personal Information */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -2346,19 +2355,20 @@ const RegistrationForm = ({ setRegistrationForm }) => {
                       name="phone"
                       value={formData.phone}
                       onChange={(e) => {
-  let value = e.target.value;
+                        let value = e.target.value;
 
-  // allow only numbers and +
-  value = value.replace(/[^0-9+]/g, "");
+                        // allow only numbers and +
+                        value = value.replace(/[^0-9+]/g, "");
 
-  // allow only one + at start
-  if (value.includes("+")) {
-    value = "+" + value.replace(/\+/g, "").replace(/^\+/, "");
-  }
+                        // allow only one + at start
+                        if (value.includes("+")) {
+                          value =
+                            "+" + value.replace(/\+/g, "").replace(/^\+/, "");
+                        }
 
-  // update state properly
-  setFormData({ ...formData, phone: value });
-}}
+                        // update state properly
+                        setFormData({ ...formData, phone: value });
+                      }}
                       placeholder="+91 00000 00000"
                       className="w-full bg-neutral-950/50 border border-white/10 rounded-xl py-2.5 sm:py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-[var(--color-accent,#22d3ee)] focus:ring-1 focus:ring-[var(--color-accent,#22d3ee)]/20 transition-all"
                     />
