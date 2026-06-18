@@ -522,7 +522,7 @@ const LeadershipSection = () => {
       img: swastik,
     },
     {
-      name: "Anubhab",
+      name: "Anubhab Ghosh",
       role: "Club President of BSC",
       img: anubhab,
     },
@@ -535,7 +535,7 @@ const LeadershipSection = () => {
       img: deep,
       phone: "919933586801",
       whatsapp: "918250298098",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/deep-das-developer",
     },
     {
       name: "Sk Nawab",
@@ -554,7 +554,7 @@ const LeadershipSection = () => {
       linkedin: "#",
     },
     {
-      name: "Pratima",
+      name: "Pratima Choudhary",
       role: "Operations",
       img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
       phone: "918320174835",
@@ -694,17 +694,17 @@ const LeadershipSection = () => {
       alert("Phone number not available");
     }
   }}
-  className="p-2 sm:p-3 bg-blue-500 text-white rounded-lg sm:rounded-xl hover:bg-blue-600"
+  className="p-2 sm:p-3 bg-blue-500 text-white rounded-lg sm:rounded-xl hover:bg-blue-600 flex items-center justify-center"
 >
   <Phone size={16} />
 </a>
 
-                    <a
+                    {member.linkedin && member.linkedin !== "#" && (<a
                       href={member.linkedin}
-                      className="p-2 sm:p-3 bg-white/10 text-white rounded-lg sm:rounded-xl hover:bg-white/20 border border-white/10"
+                      className="bg-white/10 text-white rounded-lg sm:rounded-xl hover:bg-white/20 border border-white/10 flex items-center justify-center"
                     >
-                      <Globe size={16} />
-                    </a>
+                      <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" className="w-9 h-9 sm:w-10 sm:h-10 justify-center align-center" />
+                    </a>)}
                   </div>
                 </div>
               </div>
