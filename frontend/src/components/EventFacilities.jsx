@@ -114,6 +114,8 @@ useEffect(() => {
   const scrollDistance = totalWidth - screenWidth;
 
   const isMobile = window.innerWidth < 768;
+   // ❌ STOP GSAP on mobile
+  if (isMobile) return;
 
   const ctx = gsap.context(() => {
     gsap.to(container, {
@@ -152,10 +154,20 @@ useEffect(() => {
           </div>
 
           {/* DESKTOP and mobile HORIZONTAL */}
-         <div className="flex items-center overflow-hidden">
+         <div className="hidden sm:flex items-center overflow-hidden">
             <div
               ref={containerRef}
               className="flex gap-6 px-6 sm:px-10 "
+            >
+              {facilitiesData.map((item, i) => (
+                <StatCard key={i} {...item} />
+              ))}
+            </div>
+          </div>
+         <div className="flex sm:hidden items-center overflow-hidden ">
+            <div
+              
+              className="flex gap-6 px-6 sm:px-10 y-scroll overflow-x-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900"
             >
               {facilitiesData.map((item, i) => (
                 <StatCard key={i} {...item} />

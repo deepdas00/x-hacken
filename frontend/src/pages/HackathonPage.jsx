@@ -65,7 +65,7 @@ import csa from "../assets/CSA_LOGO.png";
 import college from "../assets/xavier-logo.png";
 import background from "../assets/college.jpeg";
 import Navbar from "../components/Navbar.jsx";
-
+import whatsapp from "../assets/whatsapp.svg";
 //images
 import deep from "../assets/team/suppAndPre/deep.jpeg";
 import nawab from "../assets/team/suppAndPre/nawab.jpeg";
@@ -541,8 +541,8 @@ const LeadershipSection = () => {
       name: "Sk Nawab",
       role: "Technical Lead",
       img: nawab,
-      phone: "919933586801",
-      whatsapp: "#",
+      phone: "916294939397",
+      whatsapp: "916294939397",
       linkedin: "#",
     },
     {
@@ -557,8 +557,8 @@ const LeadershipSection = () => {
       name: "Pratima",
       role: "Operations",
       img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
-      phone: "919933586801",
-      whatsapp: "#",
+      phone: "918320174835",
+      whatsapp: "918320174835",
       linkedin: "#",
     },
   ];
@@ -658,7 +658,7 @@ const LeadershipSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
               {/* Content */}
-              <div className="absolute inset-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end">
+              <div className="absolute inset-0 p-3 sm:p-4 md:p-5 flex flex-col justify-end">
                 <div className="translate-y-3 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   <h4 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tighter mb-1 uppercase">
                     {member.name}
@@ -669,13 +669,24 @@ const LeadershipSection = () => {
                   </p>
 
                   {/* Buttons */}
-                  <div className="flex gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500">
+                  <div className="flex gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 ">
                     <a
                       href={`https://wa.me/${member.phone}`}
-                      className="flex-1 flex items-center justify-center gap-2 py-2 sm:py-3 bg-green-500 text-black rounded-lg sm:rounded-xl font-bold text-[10px] sm:text-xs uppercase hover:bg-white transition"
+                      className="flex-1 flex items-center justify-center gap-2 py-1 sm:py-3 bg-green-500 rounded-lg sm:rounded-xl font-bold text-[10px] sm:text-xs uppercase hover:bg-white transition text-white sm:group-hover:text-black"
                     >
-                      <Zap size={14} /> WhatsApp
+                      {/* <MessageCircle  size={14} /> <span className="hidden sm:inline">WhatsApp</span> */}
+
+                      <img src={whatsapp} className="w-5 h-5 sm:w-6 sm:h-6" />
+  WhatsApp
                     </a>
+
+                     <a
+    href={`tel:${member.phone}`}
+    className="p-2 sm:p-3 bg-blue-500 text-white rounded-lg sm:rounded-xl hover:bg-blue-600"
+  >
+    <Phone size={16} />
+  </a>
+
 
                     <a
                       href={member.linkedin}
