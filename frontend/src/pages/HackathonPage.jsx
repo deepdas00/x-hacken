@@ -687,7 +687,7 @@ const LeadershipSection = () => {
                     </a>
 
                    <a
-  href={`tel:${member.phone}`}
+  href={`tel:+${member.phone}`}
   onClick={(e) => {
     if (!member.phone) {
       e.preventDefault();
