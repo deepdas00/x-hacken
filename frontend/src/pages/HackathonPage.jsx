@@ -71,7 +71,7 @@ import linkedin from "../assets/linkedin.svg";
 import deep from "../assets/team/suppAndPre/deep.jpeg";
 import nawab from "../assets/team/suppAndPre/nawab.jpeg";
 import trideep from "../assets/team/suppAndPre/trideep.jpeg";
-// import pratima from "../assets/team/suppAndPre/pratima.jpg";
+import pratima from "../assets/team/suppAndPre/pratima.jpeg";
 import swastik from "../assets/team/suppAndPre/swastik.jpeg";
 import anubhab from "../assets/team/suppAndPre/anubhab.jpeg";
 
@@ -519,13 +519,13 @@ const LeadershipSection = () => {
   const presidents = [
     {
       name: "Swastik Basu",
-      position: "Club President of BCA",
+      position: "President of IT club",
       role: "Event Lead",
       img: swastik,
     },
     {
       name: "Anubhab Ghosh",
-      position: "Club President of BSC",
+      position: "President of CODE club",
       role: "Event Lead",
       img: anubhab,
     },
@@ -559,7 +559,7 @@ const LeadershipSection = () => {
     {
       name: "Pratima Choudhary",
       role: "Operations Associate",
-      img: "https://i.pinimg.com/originals/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg",
+      img: pratima,
       phone: "918320174835",
       whatsapp: "918320174835",
       linkedin: "#",
@@ -593,8 +593,8 @@ const LeadershipSection = () => {
             <div
               className="
     relative 
-    w-22 h-22 sm:w-20 sm:h-20 md:w-32 md:h-32 
-    shrink-0 rounded-xl md:rounded-full overflow-hidden 
+    w-22 h-22 sm:w-28 sm:h-28 md:w-32 md:h-32 
+    shrink-0 rounded-full md:rounded-full overflow-hidden 
     border border-green-500/40
   "
             >
@@ -674,7 +674,7 @@ const LeadershipSection = () => {
                   {/* Buttons */}
                   <div className="flex gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 ">
                     <a
-                      href={`https://wa.me/${member.phone}?text=${encodeURIComponent(
+                      href={`https://wa.me/${member.whatsapp}?text=${encodeURIComponent(
                         "Hi, I came to you from X-HACKEN platform 🚀",
                       )}`}
                       target="_blank"
