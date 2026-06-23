@@ -567,7 +567,7 @@ const LeadershipSection = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-10 border-t border-white/5 space-y-16 md:space-y-24">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-10 border-t border-white/5 space-y-10 md:space-y-15">
       {/* ================= PRESIDENTS ================= */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
         {presidents.map((pres, i) => (
