@@ -68,7 +68,7 @@ import Navbar from "../components/Navbar.jsx";
 import whatsapp from "../assets/whatsapp.svg";
 import linkedin from "../assets/linkedin.svg";
 //images
-import deep from "../assets/team/suppAndPre/deep.jpeg";
+import deep from "../assets/team/suppAndPre/deep.jpg";
 import nawab from "../assets/team/suppAndPre/nawab.jpeg";
 import trideep from "../assets/team/suppAndPre/trideep.jpeg";
 import pratima from "../assets/team/suppAndPre/pratima.jpeg";
