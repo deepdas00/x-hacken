@@ -193,38 +193,7 @@ const XHackenPage = () => {
 
           {/* Interface Layer */}
           <div className="relative z-10">
-            {/* <nav className="fixed top-0 left-0 right-0 w-full z-50 flex justify-between items-center px-6 md:px-10 pb-1 max-w-[1600px] mx-auto backdrop-blur-xl bg-[#030303]/70 border-b border-white/[0.04] shadow-[0_4px_30px_rgba(0,0,0,0.8)] bg-blur-[22px]">
-              <div className="flex items-center">
-                <img src={logo} alt="" className="w-23 " />
-                <span
-                  className="text-2xl font-black tracking-tighter"
-                  style={{ color: "var(--color-secondary)" }}
-                >
-                  X<span className="text-white">-hacken</span>
-                </span>
-              </div>
-
-              <div className="flex items-center gap-10">
-                <div className="hidden lg:flex gap-8 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
-                  <a href="#" className="hover:text-green-500 transition">
-                    Tracks
-                  </a>
-                  <a href="#" className="hover:text-green-500 transition">
-                    Mentors
-                  </a>
-                  <a href="#" className="hover:text-green-500 transition">
-                    Schedule
-                  </a>
-                </div>
-                <button
-                  onClick={() => setRegistrationForm(true)}
-                  className="btn-secondary1 text-white font-black px-5 py-1.5 text-[10px] rounded-full text-xs uppercase tracking-widest hover:scale-105 transition-transform "
-                >
-                  Register Now
-                </button>
-              </div>
-            </nav> */}
-
+           
             <Navbar setRegistrationForm={setRegistrationForm} />
 
             <header className="relative pt-22 sm:px-6 md:px-10 max-w-[1500px] mx-auto z-10">
@@ -540,6 +509,14 @@ const LeadershipSection = () => {
       whatsapp: "918250298098",
       linkedin: "https://www.linkedin.com/in/deep-das-developer",
     },
+     {
+      name: "Pratima Choudhary",
+      role: "Operations Associate",
+      img: pratima,
+      phone: "918320174835",
+      whatsapp: "918320174835",
+      linkedin: "#",
+    },
     {
       name: "Sk Nawab",
       role: "Event Lead",
@@ -556,14 +533,7 @@ const LeadershipSection = () => {
       whatsapp: "918240303589",
       linkedin: "https://www.linkedin.com/in/trideep-ray-670b36356",
     },
-    {
-      name: "Pratima Choudhary",
-      role: "Operations Associate",
-      img: pratima,
-      phone: "918320174835",
-      whatsapp: "918320174835",
-      linkedin: "#",
-    },
+   
   ];
 
   return (
@@ -583,7 +553,7 @@ const LeadershipSection = () => {
   bg-white/[0.04] border border-white/10 backdrop-blur-xl
 
   /* DESKTOP KEEP SAME */
-  sm:flex-row sm:items-center sm:p-6 md:p-10 
+  sm:flex-row sm:items-center
   md:rounded-[40px] md:gap-8
 
   text-left
@@ -593,7 +563,7 @@ const LeadershipSection = () => {
             <div
               className="
     relative 
-    w-22 h-22 sm:w-28 sm:h-28 md:w-32 md:h-32 
+    w-25 h-25 sm:w-44 sm:h-44 md:w-48 md:h-48 
     shrink-0 rounded-full md:rounded-full overflow-hidden 
     border border-green-500/40
   "
